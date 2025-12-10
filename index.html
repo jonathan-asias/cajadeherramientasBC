@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caja de Herramientas - Bancolombia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/accesibilidad.css">
+    <link rel="stylesheet" href="css/loader.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="header-title">Caja de Herramientas</h1>
+            <div class="header-accent"></div>
+            
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Filtros -->
+        <section class="filters-section">
+            <div class="filters-container">
+                <div class="filter-group">
+                    <label for="filtro-categoria" class="filter-label">
+                        <span class="material-icons-outlined">category</span>
+                        Categoría
+                    </label>
+                    <select id="filtro-categoria" class="filter-select">
+                        <option value="">Todas las categorías</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filtro-duracion" class="filter-label">
+                        <span class="material-icons-outlined">schedule</span>
+                        Duración
+                    </label>
+                    <select id="filtro-duracion" class="filter-select">
+                        <option value="">Todas las duraciones</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filtro-participantes" class="filter-label">
+                        <span class="material-icons-outlined">people</span>
+                        Participantes
+                    </label>
+                    <select id="filtro-participantes" class="filter-select">
+                        <option value="">Todos los grupos</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grid de Cards -->
+        <section class="tools-section">
+            <div id="tools-grid" class="tools-grid">
+                <!-- Las cards se generan dinámicamente con JavaScript -->
+            </div>
+            <div id="no-results" class="no-results" style="display: none;">
+                <p>No se encontraron herramientas con los filtros seleccionados.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para vista detallada -->
+    <div id="modal" class="modal" style="display: none;">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div id="modalLoader" aria-label="Cargando contenido del modal" role="status" aria-live="polite">
+                <div class="modal-loader-content">
+                    <span class="material-icons-outlined modal-loader-icon" aria-hidden="true">autorenew</span>
+                    <p>Cargando…</p>
+                </div>
+            </div>
+            <button class="modal-close" aria-label="Cerrar modal">
+                <span class="material-icons-outlined">close</span>
+            </button>
+            <div id="modal-image-container" class="modal-image-container"></div>
+            <div class="modal-header">
+                <h2 id="modal-titulo" class="modal-title"></h2>
+                <div class="modal-tags">
+                    <span id="modal-categoria" class="modal-tag"></span>
+                    <span id="modal-duracion" class="modal-tag"></span>
+                    <span id="modal-participantes" class="modal-tag"></span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Descripción</h3>
+                    <p id="modal-descripcion" class="modal-text"></p>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Objetivo</h3>
+                    <p id="modal-objetivo" class="modal-text"></p>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Materiales</h3>
+                    <ul id="modal-materiales" class="modal-list"></ul>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Pasos</h3>
+                    <ol id="modal-pasos" class="modal-list modal-list-numbered"></ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/libs/gsap.min.js"></script>
+    <script src="js/loader.js" defer></script>
+    <script src="js/animaciones.js" defer></script>
+    <script src="js/app.js"></script>
+    <script defer src="js/accesibilidad.js"></script>
+</body>
+</html>
+

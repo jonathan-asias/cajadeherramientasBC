@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Nueva Herramienta - Caja de Herramientas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="css/crear-herramienta.css">
+    <link rel="stylesheet" href="css/accesibilidad.css">
+    <link rel="stylesheet" href="css/loader.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="back-link">
+                <span class="material-icons-outlined">arrow_back</span>
+                Volver
+            </a>
+            <h1 class="header-title">Crear Nueva Herramienta</h1>
+            <div class="header-accent"></div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-container">
+        <form id="formulario-herramienta" class="formulario-container">
+            
+            <!-- Sección: Datos Generales -->
+            <section class="form-section">
+                <div class="section-header">
+                    <h2 class="section-title">Datos Generales</h2>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="titulo" class="form-label">
+                            Título <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="titulo" 
+                            name="titulo" 
+                            class="form-input" 
+                            placeholder="Ej: Mapa de Empatía"
+                            required
+                        >
+                        <span class="error-message" id="error-titulo"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="categoria" class="form-label">
+                            Categoría <span class="required">*</span>
+                        </label>
+                        <select id="categoria" name="categoria" class="form-select" required>
+                            <option value="">Selecciona una categoría</option>
+                        </select>
+                        <span class="error-message" id="error-categoria"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nueva-categoria" class="form-label">
+                            Nueva Categoría
+                        </label>
+                        <input 
+                            type="text" 
+                            id="nueva-categoria" 
+                            name="nueva-categoria" 
+                            class="form-input" 
+                            placeholder="O crea una nueva categoría"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="duracion" class="form-label">
+                            Duración <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="duracion" 
+                            name="duracion" 
+                            class="form-input" 
+                            placeholder="Ej: 30-60 min"
+                            required
+                        >
+                        <span class="error-message" id="error-duracion"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="participantes" class="form-label">
+                            Participantes <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="participantes" 
+                            name="participantes" 
+                            class="form-input" 
+                            placeholder="Ej: 2-10"
+                            required
+                        >
+                        <span class="error-message" id="error-participantes"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección: Detalles -->
+            <section class="form-section">
+                <div class="section-header">
+                    <h2 class="section-title">Detalles</h2>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="descripcion" class="form-label">
+                            Descripción <span class="required">*</span>
+                        </label>
+                        <textarea 
+                            id="descripcion" 
+                            name="descripcion" 
+                            class="form-textarea" 
+                            rows="4"
+                            placeholder="Descripción breve de la herramienta..."
+                            required
+                        ></textarea>
+                        <span class="error-message" id="error-descripcion"></span>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="objetivo" class="form-label">
+                            Objetivo <span class="required">*</span>
+                        </label>
+                        <textarea 
+                            id="objetivo" 
+                            name="objetivo" 
+                            class="form-textarea" 
+                            rows="4"
+                            placeholder="Qué se busca con la herramienta..."
+                            required
+                        ></textarea>
+                        <span class="error-message" id="error-objetivo"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección: Materiales -->
+            <section class="form-section">
+                <div class="section-header">
+                    <h2 class="section-title">Materiales</h2>
+                </div>
+                <div id="materiales-container" class="dynamic-list">
+                    <!-- Los materiales se agregan dinámicamente -->
+                </div>
+                <button type="button" class="btn-add" id="btn-agregar-material" aria-label="Agregar nuevo material">
+                    <span class="material-icons-outlined">add</span>
+                    Agregar Material
+                </button>
+            </section>
+
+            <!-- Sección: Pasos -->
+            <section class="form-section">
+                <div class="section-header">
+                    <h2 class="section-title">Pasos</h2>
+                </div>
+                <div id="pasos-container" class="dynamic-list">
+                    <!-- Los pasos se agregan dinámicamente -->
+                </div>
+                <button type="button" class="btn-add" id="btn-agregar-paso" aria-label="Agregar nuevo paso">
+                    <span class="material-icons-outlined">add</span>
+                    Agregar Paso
+                </button>
+            </section>
+
+            <!-- Sección: Multimedia -->
+            <section class="form-section">
+                <div class="section-header">
+                    <h2 class="section-title">Multimedia</h2>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="imagen" class="form-label">
+                            Imagen Principal
+                        </label>
+                        <div class="file-upload-wrapper">
+                            <input 
+                                type="file" 
+                                id="imagen" 
+                                name="imagen" 
+                                class="file-input" 
+                                accept="image/*"
+                            >
+                            <label for="imagen" class="file-label">
+                                <span class="material-icons-outlined">cloud_upload</span>
+                                <span id="imagen-texto">Seleccionar imagen</span>
+                            </label>
+                        </div>
+                        <div id="imagen-preview" class="image-preview" style="display: none;">
+                            <img id="imagen-preview-img" src="" alt="Preview">
+                            <button type="button" class="btn-remove-image" id="btn-remover-imagen" aria-label="Eliminar imagen">
+                                <span class="material-icons-outlined">close</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="archivo-adjunto" class="form-label">
+                            Archivo Adjunto
+                        </label>
+                        <div class="file-upload-wrapper">
+                            <input 
+                                type="file" 
+                                id="archivo-adjunto" 
+                                name="archivo-adjunto" 
+                                class="file-input" 
+                            >
+                            <label for="archivo-adjunto" class="file-label">
+                                <span class="material-icons-outlined">attach_file</span>
+                                <span id="archivo-texto">Seleccionar archivo</span>
+                            </label>
+                        </div>
+                        <div id="archivo-info" class="file-info" style="display: none;">
+                            <span id="archivo-nombre"></span>
+                            <button type="button" class="btn-remove-file" id="btn-remover-archivo" aria-label="Eliminar archivo adjunto">
+                                <span class="material-icons-outlined">close</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mensajes de estado -->
+            <div id="mensaje-exito" class="mensaje mensaje-exito" style="display: none;">
+                <span class="material-icons-outlined">check_circle</span>
+                <span>Herramienta creada exitosamente. El archivo JSON está listo para descargar.</span>
+            </div>
+
+            <div id="mensaje-error" class="mensaje mensaje-error" style="display: none;">
+                <span class="material-icons-outlined">error</span>
+                <span id="mensaje-error-texto"></span>
+            </div>
+
+            <!-- Botones de acción -->
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" id="btn-cancelar" aria-label="Cancelar y volver">
+                    Cancelar
+                </button>
+                <button type="submit" class="btn btn-primary" id="btn-guardar" aria-label="Guardar herramienta">
+                    <span class="material-icons-outlined">save</span>
+                    Guardar Herramienta
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <script src="js/libs/gsap.min.js"></script>
+    <script src="js/loader.js" defer></script>
+    <script src="js/crear-herramienta.js"></script>
+    <script defer src="js/accesibilidad.js"></script>
+</body>
+</html>
+

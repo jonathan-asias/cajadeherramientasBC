@@ -1,0 +1,629 @@
+/* ============================================
+   RESET Y VARIABLES - Google Model Cards Style
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Paleta de colores Google Minimal */
+    --bg-primary: #F8F9FA;
+    --card-bg: #FFFFFF;
+    --text-primary: #202124;
+    --text-secondary: #5F6368;
+    --border-color: rgba(0, 0, 0, 0.08);
+    
+    /* Acentos Google */
+    --blue-google: #1A73E8;
+    --green-google: #34A853;
+    --yellow-google: #FBBC04;
+    --red-google: #EA4335;
+    
+    /* Colores adicionales */
+    --border-light: #DADCE0;
+    --hover-bg: rgba(60, 64, 67, 0.04);
+    --hover-bg-strong: rgba(60, 64, 67, 0.08);
+    
+    /* Sombras estilo Google */
+    --shadow-1: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    --shadow-2: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 2px 6px 2px rgba(60, 64, 67, 0.15);
+    
+    /* Transiciones */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: 'Google Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-size: 16px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   HEADER - Estilo Google Minimal
+   ============================================ */
+
+.header {
+    background: var(--card-bg);
+    padding: 24px 24px 32px;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.1);
+}
+
+.header-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+.back-link {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.back-link:hover {
+    background: var(--hover-bg);
+}
+
+.back-link .material-icons-outlined {
+    font-size: 20px;
+}
+
+.header-title {
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.header-accent {
+    display: none;
+}
+
+/* ============================================
+   MAIN CONTAINER
+   ============================================ */
+
+.main-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 32px 24px;
+}
+
+/* ============================================
+   FORMULARIO - Estilo Google Forms
+   ============================================ */
+
+.formulario-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: var(--shadow-1);
+    border: 1px solid var(--border-color);
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-primary);
+    letter-spacing: -0.2px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.required {
+    color: var(--red-google);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 10px 16px;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    background: var(--card-bg);
+    color: var(--text-primary);
+    font-size: 14px;
+    font-family: inherit;
+    transition: all var(--transition-fast);
+    height: 40px;
+}
+
+.form-textarea {
+    height: auto;
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--blue-google);
+    box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.1);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: var(--text-secondary);
+}
+
+.form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%235F6368' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 40px;
+}
+
+.error-message {
+    color: var(--red-google);
+    font-size: 12px;
+    margin-top: 4px;
+    display: none;
+}
+
+.form-input:invalid:not(:placeholder-shown) + .error-message,
+.form-select:invalid:not(:placeholder-shown) + .error-message,
+.form-textarea:invalid:not(:placeholder-shown) + .error-message {
+    display: block;
+}
+
+/* ============================================
+   LISTAS DINÁMICAS
+   ============================================ */
+
+.dynamic-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.dynamic-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 12px;
+    background: var(--hover-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.dynamic-item-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all var(--transition-fast);
+    height: 40px;
+}
+
+.dynamic-item-input:focus {
+    outline: none;
+    border-color: var(--blue-google);
+    box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.1);
+}
+
+.btn-remove-item {
+    background: var(--red-google);
+    color: #FFFFFF;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    line-height: 1;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.btn-remove-item:hover {
+    background: #d33b2c;
+    transform: scale(1.05);
+}
+
+.btn-add {
+    background: var(--card-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-light);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all var(--transition-fast);
+    height: 40px;
+}
+
+.btn-add:hover {
+    background: var(--hover-bg);
+    border-color: var(--text-secondary);
+}
+
+.btn-add:active {
+    background: var(--hover-bg-strong);
+}
+
+.btn-add .material-icons-outlined {
+    font-size: 20px;
+}
+
+/* ============================================
+   FILE UPLOAD - Estilo Google
+   ============================================ */
+
+.file-upload-wrapper {
+    position: relative;
+}
+
+.file-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.file-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    border: 2px dashed var(--border-light);
+    border-radius: 8px;
+    background: var(--hover-bg);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.file-label:hover {
+    border-color: var(--blue-google);
+    background: rgba(26, 115, 232, 0.04);
+}
+
+.file-label .material-icons-outlined {
+    font-size: 24px;
+    color: var(--text-secondary);
+}
+
+.image-preview {
+    margin-top: 16px;
+    position: relative;
+    display: inline-block;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-1);
+    border: 1px solid var(--border-color);
+}
+
+.image-preview img {
+    max-width: 300px;
+    max-height: 200px;
+    display: block;
+    object-fit: cover;
+}
+
+.btn-remove-image {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: var(--red-google);
+    color: #FFFFFF;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-2);
+}
+
+.btn-remove-image .material-icons-outlined {
+    font-size: 20px;
+}
+
+.btn-remove-image:hover {
+    transform: scale(1.1);
+    background: #d33b2c;
+}
+
+.file-info {
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: var(--hover-bg);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border: 1px solid var(--border-color);
+}
+
+.file-info span {
+    flex: 1;
+    font-size: 14px;
+    color: var(--text-primary);
+    word-break: break-all;
+}
+
+.btn-remove-file {
+    background: var(--red-google);
+    color: #FFFFFF;
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.btn-remove-file .material-icons-outlined {
+    font-size: 18px;
+}
+
+.btn-remove-file:hover {
+    background: #d33b2c;
+    transform: scale(1.1);
+}
+
+/* ============================================
+   MENSAJES
+   ============================================ */
+
+.mensaje {
+    padding: 16px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    animation: fadeIn 0.3s ease;
+}
+
+.mensaje-exito {
+    background: rgba(52, 168, 83, 0.1);
+    color: var(--green-google);
+    border: 1px solid rgba(52, 168, 83, 0.2);
+}
+
+.mensaje-error {
+    background: rgba(234, 67, 53, 0.1);
+    color: var(--red-google);
+    border: 1px solid rgba(234, 67, 53, 0.2);
+}
+
+.mensaje .material-icons-outlined {
+    flex-shrink: 0;
+    font-size: 24px;
+}
+
+/* ============================================
+   BOTONES DE ACCIÓN - Estilo Google
+   ============================================ */
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    padding: 24px 0;
+    position: sticky;
+    bottom: 0;
+    background: var(--bg-primary);
+    margin-top: 8px;
+    padding-top: 32px;
+}
+
+.btn {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all var(--transition-fast);
+    font-family: inherit;
+    height: 40px;
+}
+
+.btn-primary {
+    background: var(--blue-google);
+    color: #FFFFFF;
+    box-shadow: var(--shadow-1);
+}
+
+.btn-primary:hover {
+    background: #1557B0;
+    box-shadow: var(--shadow-2);
+    transform: translateY(-1px);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-1);
+}
+
+.btn-secondary {
+    background: var(--card-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-light);
+}
+
+.btn-secondary:hover {
+    background: var(--hover-bg);
+    border-color: var(--text-secondary);
+}
+
+.btn-secondary:active {
+    background: var(--hover-bg-strong);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.btn .material-icons-outlined {
+    font-size: 20px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .header {
+        padding: 16px;
+    }
+
+    .header-title {
+        font-size: 24px;
+    }
+
+    .back-link {
+        position: absolute;
+        left: 0;
+        top: 16px;
+        transform: none;
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    .back-link .material-icons-outlined {
+        font-size: 18px;
+    }
+
+    .main-container {
+        padding: 16px;
+    }
+
+    .form-section {
+        padding: 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .image-preview img {
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,658 @@
+/* ============================================
+   PANEL DE ACCESIBILIDAD (A11y)
+   Estilo Material UI - Google Design
+   ============================================ */
+
+/* Botón flotante para abrir el panel */
+#btn-accesibilidad-toggle {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #1A73E8;
+    background: var(--blue-google, #1A73E8);
+    color: #FFFFFF;
+    border: none;
+    box-shadow: 0 4px 12px rgba(26, 115, 232, 0.4);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 24px;
+}
+
+#btn-accesibilidad-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(26, 115, 232, 0.5);
+}
+
+#btn-accesibilidad-toggle:active {
+    transform: scale(0.95);
+}
+
+#btn-accesibilidad-toggle .material-icons-outlined {
+    font-size: 28px;
+}
+
+/* Overlay para el panel */
+.a11y-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease;
+    backdrop-filter: blur(2px);
+}
+
+.a11y-overlay[style*="display: block"] {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Panel de accesibilidad */
+#panelAccesibilidad {
+    position: fixed;
+    bottom: 96px;
+    right: 24px;
+    width: 360px;
+    max-width: calc(100vw - 48px);
+    background: #FFFFFF;
+    background: var(--card-bg, #FFFFFF);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--border-color, rgba(0, 0, 0, 0.08));
+    z-index: 999;
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    pointer-events: none;
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+}
+
+#panelAccesibilidad.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+}
+
+/* Header del panel */
+.a11y-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-color, rgba(0, 0, 0, 0.08));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--card-bg, #FFFFFF);
+    border-radius: 16px 16px 0 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.a11y-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-primary, #202124);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+}
+
+.a11y-title .material-icons-outlined {
+    font-size: 24px;
+    color: var(--blue-google, #1A73E8);
+}
+
+.a11y-close {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary, #5F6368);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 150ms ease;
+}
+
+.a11y-close:hover {
+    background: var(--hover-bg, rgba(60, 64, 67, 0.04));
+    color: var(--text-primary, #202124);
+}
+
+/* Contenido del panel */
+.a11y-content {
+    padding: 24px;
+}
+
+.a11y-section {
+    margin-bottom: 32px;
+}
+
+.a11y-section:last-child {
+    margin-bottom: 0;
+}
+
+.a11y-section-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary, #5F6368);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+}
+
+/* Controles de tamaño de fuente */
+.a11y-font-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.a11y-font-btn {
+    flex: 1;
+    padding: 10px 16px;
+    border: 1px solid var(--border-light, #DADCE0);
+    border-radius: 8px;
+    background: var(--card-bg, #FFFFFF);
+    color: var(--text-primary, #202124);
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 150ms ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+}
+
+.a11y-font-btn:hover {
+    background: var(--hover-bg, rgba(60, 64, 67, 0.04));
+    border-color: var(--text-secondary, #5F6368);
+}
+
+.a11y-font-btn:active {
+    transform: scale(0.98);
+}
+
+.a11y-font-btn.active {
+    background: var(--blue-google, #1A73E8);
+    color: #FFFFFF;
+    border-color: var(--blue-google, #1A73E8);
+}
+
+/* Switches estilo Material */
+.a11y-switch-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.a11y-switch-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    cursor: pointer;
+}
+
+.a11y-switch-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    color: var(--text-primary, #202124);
+    flex: 1;
+    user-select: none;
+}
+
+.a11y-switch-label .material-icons-outlined {
+    font-size: 20px;
+    color: var(--text-secondary, #5F6368);
+}
+
+/* Switch toggle */
+.a11y-switch {
+    position: relative;
+    width: 48px;
+    height: 28px;
+    flex-shrink: 0;
+}
+
+.a11y-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.a11y-switch-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 200ms;
+    border-radius: 28px;
+}
+
+.a11y-switch-slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 200ms;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.a11y-switch input:checked + .a11y-switch-slider {
+    background-color: var(--blue-google, #1A73E8);
+}
+
+.a11y-switch input:checked + .a11y-switch-slider:before {
+    transform: translateX(20px);
+}
+
+.a11y-switch input:focus + .a11y-switch-slider {
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
+}
+
+/* ============================================
+   ESTILOS GLOBALES DE ACCESIBILIDAD
+   ============================================ */
+
+/* Modo Alto Contraste */
+body.alto-contraste {
+    background: #000000 !important;
+    color: #FFFFFF !important;
+}
+
+/* Texto siempre blanco en alto contraste */
+body.alto-contraste,
+body.alto-contraste p,
+body.alto-contraste h1,
+body.alto-contraste h2,
+body.alto-contraste h3,
+body.alto-contraste h4,
+body.alto-contraste h5,
+body.alto-contraste h6,
+body.alto-contraste span,
+body.alto-contraste div,
+body.alto-contraste li,
+body.alto-contraste td,
+body.alto-contraste th,
+body.alto-contraste label,
+body.alto-contraste .header-title,
+body.alto-contraste .card-title,
+body.alto-contraste .modal-title,
+body.alto-contraste .modal-text,
+body.alto-contraste .modal-section-title,
+body.alto-contraste .filter-label,
+body.alto-contraste .a11y-title,
+body.alto-contraste .a11y-switch-label {
+    color: #FFFFFF !important;
+}
+
+/* Fondos oscuros para contenedores principales */
+body.alto-contraste .tool-card,
+body.alto-contraste .filters-container,
+body.alto-contraste .modal-content,
+body.alto-contraste #panelAccesibilidad,
+body.alto-contraste .header,
+body.alto-contraste .card-content,
+body.alto-contraste .modal-header,
+body.alto-contraste .modal-body,
+body.alto-contraste .a11y-header,
+body.alto-contraste .a11y-content {
+    background: #111111 !important;
+    border-color: #FFFFFF !important;
+    border-width: 2px !important;
+    box-shadow: 0 0 0 2px #FFFFFF !important;
+}
+
+/* Fondos negros para el body y main */
+body.alto-contraste .main-container {
+    background: #000000 !important;
+}
+
+/* Chips y tags con fondo amarillo y texto negro */
+body.alto-contraste .chip,
+body.alto-contraste .modal-tag {
+    background: #FFFF00 !important;
+    color: #000000 !important;
+    border-color: #FFFF00 !important;
+    border-width: 2px !important;
+}
+
+/* Botones con borde blanco y fondo oscuro */
+body.alto-contraste button,
+body.alto-contraste .btn-crear-herramienta,
+body.alto-contraste .a11y-font-btn,
+body.alto-contraste .a11y-close {
+    background: #111111 !important;
+    color: #FFFFFF !important;
+    border: 2px solid #FFFFFF !important;
+}
+
+body.alto-contraste .btn-crear-herramienta:hover,
+body.alto-contraste button:hover {
+    background: #FFFF00 !important;
+    color: #000000 !important;
+    border-color: #FFFF00 !important;
+}
+
+/* Inputs y selects */
+body.alto-contraste input,
+body.alto-contraste select,
+body.alto-contraste textarea,
+body.alto-contraste .filter-select,
+body.alto-contraste .form-input,
+body.alto-contraste .form-select,
+body.alto-contraste .form-textarea {
+    background: #111111 !important;
+    color: #FFFFFF !important;
+    border: 2px solid #FFFFFF !important;
+}
+
+body.alto-contraste input::placeholder,
+body.alto-contraste textarea::placeholder {
+    color: #CCCCCC !important;
+}
+
+/* Enlaces */
+body.alto-contraste a {
+    color: #FFFF00 !important;
+    border-bottom: 2px solid #FFFF00 !important;
+}
+
+body.alto-contraste a:hover {
+    color: #FFFFFF !important;
+    background: #FFFF00 !important;
+}
+
+/* Iconos */
+body.alto-contraste .material-icons-outlined {
+    color: #FFFFFF !important;
+}
+
+body.alto-contraste .chip .material-icons-outlined,
+body.alto-contraste .modal-tag .material-icons-outlined {
+    color: #000000 !important;
+}
+
+/* Imágenes con borde */
+body.alto-contraste img {
+    border: 2px solid #FFFFFF !important;
+}
+
+/* Botón flotante de accesibilidad */
+body.alto-contraste #btn-accesibilidad-toggle {
+    background: #FFFF00 !important;
+    color: #000000 !important;
+    border: 2px solid #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(255, 255, 0, 0.6) !important;
+}
+
+body.alto-contraste #btn-accesibilidad-toggle .material-icons-outlined {
+    color: #000000 !important;
+}
+
+/* Modo Oscuro */
+body.modo-oscuro {
+    background: #121212 !important;
+    color: #EAEAEA !important;
+}
+
+/* Texto siempre claro en modo oscuro */
+body.modo-oscuro,
+body.modo-oscuro p,
+body.modo-oscuro h1,
+body.modo-oscuro h2,
+body.modo-oscuro h3,
+body.modo-oscuro h4,
+body.modo-oscuro h5,
+body.modo-oscuro h6,
+body.modo-oscuro span,
+body.modo-oscuro div,
+body.modo-oscuro li,
+body.modo-oscuro td,
+body.modo-oscuro th,
+body.modo-oscuro label,
+body.modo-oscuro .header-title,
+body.modo-oscuro .card-title,
+body.modo-oscuro .modal-title,
+body.modo-oscuro .modal-section-title,
+body.modo-oscuro .filter-label,
+body.modo-oscuro .a11y-title,
+body.modo-oscuro .a11y-switch-label,
+body.modo-oscuro .a11y-section-title {
+    color: #EAEAEA !important;
+}
+
+/* Texto secundario ligeramente más claro */
+body.modo-oscuro .modal-text,
+body.modo-oscuro .modal-list li,
+body.modo-oscuro .no-results {
+    color: #B0B0B0 !important;
+}
+
+/* Fondos oscuros para contenedores principales */
+body.modo-oscuro .tool-card,
+body.modo-oscuro .filters-container,
+body.modo-oscuro .modal-content,
+body.modo-oscuro #panelAccesibilidad,
+body.modo-oscuro .header,
+body.modo-oscuro .card-content,
+body.modo-oscuro .modal-header,
+body.modo-oscuro .modal-body,
+body.modo-oscuro .a11y-header,
+body.modo-oscuro .a11y-content,
+body.modo-oscuro .main-container {
+    background: #1E1E1E !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Cards con fondo oscuro */
+body.modo-oscuro .card-image-container {
+    background: #1E1E1E !important;
+}
+
+/* Inputs y selects con fondo más oscuro */
+body.modo-oscuro .filter-select,
+body.modo-oscuro .form-input,
+body.modo-oscuro .form-select,
+body.modo-oscuro .form-textarea,
+body.modo-oscuro input,
+body.modo-oscuro select,
+body.modo-oscuro textarea {
+    background: #2D2D2D !important;
+    color: #EAEAEA !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.modo-oscuro input::placeholder,
+body.modo-oscuro textarea::placeholder {
+    color: #9E9E9E !important;
+}
+
+/* Chips y tags */
+body.modo-oscuro .chip,
+body.modo-oscuro .modal-tag {
+    background: #2D2D2D !important;
+    color: #EAEAEA !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Botones */
+body.modo-oscuro button,
+body.modo-oscuro .btn-crear-herramienta,
+body.modo-oscuro .a11y-font-btn,
+body.modo-oscuro .a11y-close,
+body.modo-oscuro .btn-add,
+body.modo-oscuro .btn,
+body.modo-oscuro .modal-close {
+    background: #2D2D2D !important;
+    color: #EAEAEA !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.modo-oscuro .btn-crear-herramienta {
+    background: #1A73E8 !important;
+    color: #FFFFFF !important;
+}
+
+body.modo-oscuro .btn-crear-herramienta:hover {
+    background: #1557B0 !important;
+}
+
+body.modo-oscuro button:hover,
+body.modo-oscuro .a11y-font-btn:hover,
+body.modo-oscuro .a11y-close:hover {
+    background: #3D3D3D !important;
+}
+
+/* Enlaces */
+body.modo-oscuro a {
+    color: #8AB4F8 !important;
+}
+
+body.modo-oscuro a:hover {
+    color: #AECBFA !important;
+}
+
+/* Iconos */
+body.modo-oscuro .material-icons-outlined {
+    color: #EAEAEA !important;
+}
+
+body.modo-oscuro .card-image-container .card-icon,
+body.modo-oscuro .modal-image-container .modal-icon {
+    color: #9E9E9E !important;
+    opacity: 0.7 !important;
+}
+
+/* Overlay del modal */
+body.modo-oscuro .modal-overlay {
+    background: rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Panel de accesibilidad específico */
+body.modo-oscuro .a11y-switch-slider {
+    background-color: #5A5A5A !important;
+}
+
+body.modo-oscuro .a11y-switch input:checked + .a11y-switch-slider {
+    background-color: #1A73E8 !important;
+}
+
+/* Espaciado amplio */
+body.espaciado-amplio {
+    line-height: 1.75 !important;
+    letter-spacing: 0.5px !important;
+}
+
+body.espaciado-amplio p,
+body.espaciado-amplio li,
+body.espaciado-amplio span {
+    line-height: 1.75 !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Desaturación de colores */
+/* Aplicar el filtro solo al contenido principal, no al body completo */
+/* Esto evita que se cree un nuevo contexto de apilamiento que afecte elementos position:fixed */
+body.desaturado .header,
+body.desaturado .header *,
+body.desaturado .main-container,
+body.desaturado .main-container * {
+    filter: grayscale(40%) brightness(95%);
+}
+
+/* Aplicar el filtro al contenido del modal, pero NO al contenedor del modal */
+/* El .modal tiene position:fixed y no debe tener filtro para mantener su posicionamiento */
+/* El .modal-content tiene position:relative y puede tener filtro sin afectar el posicionamiento */
+body.desaturado .modal-content,
+body.desaturado .modal-content * {
+    filter: grayscale(40%) brightness(95%);
+}
+
+/* Combinaciones de modos - Alto contraste tiene prioridad */
+body.modo-oscuro.alto-contraste {
+    background: #000000 !important;
+    color: #FFFFFF !important;
+}
+
+body.modo-oscuro.alto-contraste .tool-card,
+body.modo-oscuro.alto-contraste .filters-container,
+body.modo-oscuro.alto-contraste .modal-content,
+body.modo-oscuro.alto-contraste .header,
+body.modo-oscuro.alto-contraste .card-content {
+    background: #111111 !important;
+    border-color: #FFFFFF !important;
+    border-width: 2px !important;
+    color: #FFFFFF !important;
+}
+
+body.modo-oscuro.alto-contraste .modal-text,
+body.modo-oscuro.alto-contraste .modal-list li,
+body.modo-oscuro.alto-contraste .card-title,
+body.modo-oscuro.alto-contraste .header-title {
+    color: #FFFFFF !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #btn-accesibilidad-toggle {
+        bottom: 16px;
+        right: 16px;
+        width: 48px;
+        height: 48px;
+    }
+
+    #btn-accesibilidad-toggle .material-icons-outlined {
+        font-size: 24px;
+    }
+
+    #panelAccesibilidad {
+        bottom: 80px;
+        right: 16px;
+        left: 16px;
+        width: auto;
+        max-width: none;
+    }
+
+    .a11y-content {
+        padding: 20px;
+    }
+}
+
+/* Asegurar que el panel sea accesible en todos los modos */
+body.alto-contraste #panelAccesibilidad,
+body.modo-oscuro #panelAccesibilidad {
+    border: 2px solid currentColor;
+}
+
+body.alto-contraste #btn-accesibilidad-toggle {
+    background: #FFFF00 !important;
+    color: #000000 !important;
+    border: 2px solid #FFFFFF !important;
+}
+

@@ -1,0 +1,232 @@
+/* ============================================
+   LOADER SCREEN - Pantalla de Carga
+   Estilo Google Material Design con SVG
+   ============================================ */
+
+#loaderOverlay {
+    position: fixed;
+    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    overflow: hidden;
+}
+
+.loader-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+#loaderSVG {
+    width: 80px;
+    height: 80px;
+    display: block;
+}
+
+#loaderCircle {
+    stroke: #1A73E8;
+    stroke-width: 4;
+    fill: none;
+    stroke-linecap: round;
+}
+
+#loaderOverlay p {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #5F6368;
+    font-family: 'Inter', 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: 0.2px;
+}
+
+/* ============================================
+   COMPATIBILIDAD CON MODO OSCURO
+   ============================================ */
+
+body.modo-oscuro #loaderOverlay {
+    background: #121212;
+}
+
+body.modo-oscuro #loaderOverlay p {
+    color: #EAEAEA;
+}
+
+body.modo-oscuro #loaderCircle {
+    stroke: #8AB4F8;
+}
+
+/* ============================================
+   COMPATIBILIDAD CON ALTO CONTRASTE
+   ============================================ */
+
+body.alto-contraste #loaderOverlay {
+    background: #000000;
+}
+
+body.alto-contraste #loaderOverlay p {
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+body.alto-contraste #loaderCircle {
+    stroke: #4A9EFF;
+}
+
+/* ============================================
+   ACCESIBILIDAD - REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    #loaderSVG {
+        animation: none !important;
+    }
+    
+    #loaderCircle {
+        animation: none !important;
+    }
+    
+    #loaderOverlay {
+        transition: opacity 0.1s ease;
+    }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    #loaderSVG {
+        width: 64px;
+        height: 64px;
+    }
+    
+    #loaderOverlay p {
+        font-size: 1rem;
+    }
+}
+
+/* ============================================
+   LOADER DEL MODAL - Pantalla de Carga Interna
+   ============================================ */
+
+#modalLoader {
+    position: absolute;
+    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    border-radius: 16px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#modalLoader.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-loader-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.modal-loader-icon {
+    font-size: 48px;
+    color: #1A73E8;
+    display: block;
+    margin-bottom: 0;
+    line-height: 1;
+}
+
+#modalLoader p {
+    font-size: 1rem;
+    color: #5F6368;
+    font-family: 'Inter', 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: 0.2px;
+}
+
+/* ============================================
+   COMPATIBILIDAD CON MODO OSCURO - MODAL LOADER
+   ============================================ */
+
+body.modo-oscuro #modalLoader {
+    background: rgba(18, 18, 18, 0.95);
+}
+
+body.modo-oscuro #modalLoader p {
+    color: #EAEAEA;
+}
+
+body.modo-oscuro .modal-loader-icon {
+    color: #8AB4F8;
+}
+
+/* ============================================
+   COMPATIBILIDAD CON ALTO CONTRASTE - MODAL LOADER
+   ============================================ */
+
+body.alto-contraste #modalLoader {
+    background: rgba(0, 0, 0, 0.95);
+}
+
+body.alto-contraste #modalLoader p {
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+body.alto-contraste .modal-loader-icon {
+    color: #4A9EFF;
+}
+
+/* ============================================
+   ACCESIBILIDAD - REDUCED MOTION - MODAL LOADER
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .modal-loader-icon {
+        animation: none !important;
+    }
+    
+    #modalLoader {
+        transition: opacity 0.1s ease;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - MODAL LOADER
+   ============================================ */
+
+@media (max-width: 768px) {
+    .modal-loader-icon {
+        font-size: 36px;
+    }
+    
+    #modalLoader p {
+        font-size: 0.9rem;
+    }
+}
+

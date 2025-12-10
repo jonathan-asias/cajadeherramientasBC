@@ -1,0 +1,262 @@
+[
+  {
+    "id": 1,
+    "titulo": "Mapa de Empatía",
+    "imagen": null,
+    "categoria": "Empatía",
+    "duracion": "30-60 min",
+    "participantes": "2-10",
+    "descripcion": "Herramienta visual que permite entender profundamente a los usuarios, sus necesidades, pensamientos, sentimientos y comportamientos en un contexto específico.",
+    "objetivo": "Profundizar en el conocimiento del usuario objetivo, identificando sus necesidades, motivaciones, frustraciones y expectativas para diseñar soluciones más efectivas y centradas en las personas.",
+    "materiales": [
+      "Post-its de colores",
+      "Marcadores",
+      "Papel o pizarra grande",
+      "Plantilla de mapa de empatía (física o digital)"
+    ],
+    "pasos": [
+      "Define el perfil del usuario objetivo que quieres analizar",
+      "Divide el mapa en 4 cuadrantes: Qué dice, Qué piensa, Qué hace, Qué siente",
+      "Realiza investigación previa (entrevistas, observación, datos) sobre el usuario",
+      "Llena cada cuadrante con información específica y real del usuario",
+      "Identifica insights y oportunidades en las contradicciones o patrones encontrados",
+      "Prioriza los insights más relevantes para el proyecto"
+    ]
+  },
+  {
+    "id": 2,
+    "titulo": "Customer Journey Map",
+    "imagen": null,
+    "categoria": "Experiencia de Usuario",
+    "duracion": "60-90 min",
+    "participantes": "3-8",
+    "descripcion": "Visualización del recorrido completo que realiza un usuario al interactuar con un producto o servicio, desde el primer contacto hasta la finalización de su objetivo.",
+    "objetivo": "Identificar puntos de fricción, momentos de verdad y oportunidades de mejora en la experiencia del usuario a lo largo de todo su recorrido.",
+    "materiales": [
+      "Post-its",
+      "Marcadores de colores",
+      "Papel continuo o pizarra grande",
+      "Plantilla de journey map"
+    ],
+    "pasos": [
+      "Define el usuario persona y el escenario específico a mapear",
+      "Identifica todas las etapas del recorrido (Awareness, Consideration, Purchase, etc.)",
+      "Para cada etapa, documenta: acciones, pensamientos, emociones y touchpoints",
+      "Identifica puntos de dolor (pain points) y momentos de deleite (delight moments)",
+      "Prioriza las oportunidades de mejora más impactantes",
+      "Define acciones concretas para mejorar la experiencia"
+    ]
+  },
+  {
+    "id": 3,
+    "titulo": "Design Sprint",
+    "imagen": null,
+    "categoria": "Innovación",
+    "duracion": "5 días",
+    "participantes": "5-7",
+    "descripcion": "Metodología estructurada de 5 días para resolver problemas complejos y validar ideas de negocio mediante diseño, prototipado y testing con usuarios reales.",
+    "objetivo": "Acelerar el proceso de innovación, reducir riesgos y tomar decisiones informadas sobre productos o servicios en un tiempo muy corto, validando con usuarios reales.",
+    "materiales": [
+      "Espacio dedicado para 5 días",
+      "Post-its y marcadores",
+      "Pizarras o papel de rotafolio",
+      "Herramientas de prototipado (Figma, papel, etc.)",
+      "Plantillas de Design Sprint"
+    ],
+    "pasos": [
+      "Día 1 - Entender: Mapear el problema, definir el desafío y establecer objetivos",
+      "Día 2 - Diverge: Generar múltiples soluciones mediante sketching individual",
+      "Día 3 - Decidir: Seleccionar la mejor solución mediante votación y storyboard",
+      "Día 4 - Prototipar: Crear un prototipo realista y testeable de la solución",
+      "Día 5 - Validar: Probar el prototipo con usuarios reales y recopilar feedback"
+    ]
+  },
+  {
+    "id": 4,
+    "titulo": "User Story Mapping",
+    "imagen": null,
+    "categoria": "Planificación",
+    "duracion": "90-120 min",
+    "participantes": "4-10",
+    "descripcion": "Técnica visual para organizar y priorizar funcionalidades de un producto desde la perspectiva del usuario, creando un mapa narrativo de sus actividades.",
+    "objetivo": "Crear una visión compartida del producto, priorizar funcionalidades basándose en el valor para el usuario y planificar releases de manera incremental.",
+    "materiales": [
+      "Post-its de diferentes colores",
+      "Marcadores",
+      "Pared o pizarra grande",
+      "Cinta adhesiva"
+    ],
+    "pasos": [
+      "Identifica los usuarios objetivo y sus objetivos principales",
+      "Crea la línea de tiempo horizontal con las actividades principales del usuario",
+      "Agrega tareas específicas debajo de cada actividad",
+      "Organiza las tareas en orden de prioridad (de arriba hacia abajo)",
+      "Define las releases cortando el mapa horizontalmente",
+      "Prioriza las user stories para el primer release"
+    ]
+  },
+  {
+    "id": 5,
+    "titulo": "Prototipado en Papel",
+    "imagen": null,
+    "categoria": "Prototipado",
+    "duracion": "30-45 min",
+    "participantes": "1-5",
+    "descripcion": "Creación rápida de bocetos en papel para visualizar y comunicar ideas de diseño de manera rápida y económica antes de invertir en desarrollo.",
+    "objetivo": "Explorar múltiples ideas de diseño rápidamente, comunicar conceptos visualmente y obtener feedback temprano sin necesidad de herramientas complejas.",
+    "materiales": [
+      "Papel en blanco o plantillas de dispositivos",
+      "Lápices y marcadores",
+      "Regla (opcional)",
+      "Post-its para notas"
+    ],
+    "pasos": [
+      "Define las pantallas o flujos clave que necesitas prototipar",
+      "Crea bocetos rápidos de cada pantalla (no busques perfección)",
+      "Conecta las pantallas mostrando el flujo de navegación",
+      "Agrega anotaciones sobre interacciones y comportamientos",
+      "Comparte con el equipo o usuarios para obtener feedback",
+      "Itera rápidamente basándote en los comentarios recibidos"
+    ]
+  },
+  {
+    "id": 6,
+    "titulo": "A/B Testing",
+    "imagen": null,
+    "categoria": "Validación",
+    "duracion": "2-4 semanas",
+    "participantes": "2-5",
+    "descripcion": "Metodología de experimentación que compara dos versiones de un elemento (A vs B) para determinar cuál funciona mejor según métricas específicas.",
+    "objetivo": "Tomar decisiones basadas en datos reales del comportamiento de usuarios, optimizar conversiones y reducir la incertidumbre en cambios de diseño.",
+    "materiales": [
+      "Herramienta de testing (Google Optimize, Optimizely, etc.)",
+      "Plataforma de analytics",
+      "Diseños de las variantes A y B",
+      "Plan de test documentado"
+    ],
+    "pasos": [
+      "Define la hipótesis y la métrica principal a medir",
+      "Crea las dos variantes (A y B) con una sola diferencia entre ellas",
+      "Configura el test en la herramienta seleccionada",
+      "Define el tamaño de muestra y duración del test",
+      "Lanza el test y monitorea los resultados",
+      "Analiza los datos estadísticamente significativos",
+      "Implementa la variante ganadora o itera con nuevos tests"
+    ]
+  },
+  {
+    "id": 7,
+    "titulo": "Design Thinking Workshop",
+    "imagen": null,
+    "categoria": "Innovación",
+    "duracion": "4-6 horas",
+    "participantes": "6-12",
+    "descripcion": "Taller estructurado que aplica el proceso de Design Thinking (Empatizar, Definir, Idear, Prototipar, Testear) para resolver problemas complejos de manera colaborativa.",
+    "objetivo": "Generar soluciones innovadoras centradas en el usuario mediante un proceso estructurado de exploración, ideación y validación rápida.",
+    "materiales": [
+      "Post-its de múltiples colores",
+      "Marcadores y lápices",
+      "Pizarras o papel de rotafolio",
+      "Materiales de prototipado (cartón, tijeras, cinta, etc.)",
+      "Plantillas de Design Thinking"
+    ],
+    "pasos": [
+      "Fase 1 - Empatizar: Entender al usuario mediante entrevistas, observación o investigación",
+      "Fase 2 - Definir: Sintetizar insights y definir el problema a resolver",
+      "Fase 3 - Idear: Generar múltiples ideas sin juzgar (brainstorming, crazy 8s, etc.)",
+      "Fase 4 - Prototipar: Crear prototipos rápidos y tangibles de las mejores ideas",
+      "Fase 5 - Testear: Validar los prototipos con usuarios y recopilar feedback",
+      "Iterar: Refinar la solución basándose en los aprendizajes"
+    ]
+  },
+  {
+    "id": 8,
+    "titulo": "Card Sorting",
+    "imagen": null,
+    "categoria": "Arquitectura de Información",
+    "duracion": "45-60 min",
+    "participantes": "5-15",
+    "descripcion": "Técnica de investigación que permite entender cómo los usuarios organizan y categorizan la información, ayudando a diseñar la estructura y navegación de un producto.",
+    "objetivo": "Crear una arquitectura de información intuitiva que refleje el modelo mental de los usuarios, mejorando la usabilidad y findability del producto.",
+    "materiales": [
+      "Tarjetas o post-its con elementos de contenido",
+      "Superficie grande para organizar",
+      "Notas para categorías (opcional)",
+      "Herramienta digital (OptimalSort, Miro, etc.) si es remoto"
+    ],
+    "pasos": [
+      "Prepara tarjetas con todos los elementos de contenido a organizar",
+      "Invita a participantes a agrupar las tarjetas de manera lógica",
+      "Permite que creen sus propias categorías o usa categorías predefinidas",
+      "Observa y documenta los patrones de agrupación",
+      "Analiza los resultados para identificar consensos y discrepancias",
+      "Crea la arquitectura de información basada en los hallazgos"
+    ]
+  },
+  {
+    "id": 9,
+    "titulo": "Usability Testing",
+    "imagen": null,
+    "categoria": "Validación",
+    "duracion": "60-90 min",
+    "participantes": "1-3",
+    "descripcion": "Método de evaluación donde usuarios reales interactúan con un producto mientras un moderador observa, identifica problemas de usabilidad y recopila feedback cualitativo.",
+    "objetivo": "Identificar problemas de usabilidad, entender cómo los usuarios realmente usan el producto y validar que el diseño cumple con las expectativas y necesidades del usuario.",
+    "materiales": [
+      "Prototipo o producto funcional",
+      "Guion de tareas para los usuarios",
+      "Grabadora de pantalla (opcional)",
+      "Notas para documentar observaciones",
+      "Espacio tranquilo para la sesión"
+    ],
+    "pasos": [
+      "Define los objetivos del test y las tareas críticas a evaluar",
+      "Recluta participantes que representen a los usuarios objetivo",
+      "Prepara el ambiente y las herramientas necesarias",
+      "Conduce la sesión: pide al usuario pensar en voz alta mientras completa las tareas",
+      "Observa sin intervenir, documenta problemas y comportamientos",
+      "Analiza los resultados y prioriza los problemas encontrados",
+      "Crea un plan de acción para resolver los issues más críticos"
+    ]
+  },
+  {
+    "id": 10,
+    "titulo": "Value Proposition Canvas",
+    "imagen": null,
+    "categoria": "Estrategia",
+    "duracion": "60-90 min",
+    "participantes": "3-8",
+    "descripcion": "Herramienta estratégica que ayuda a diseñar productos y servicios que los clientes realmente quieren, alineando las características del producto con las necesidades del cliente.",
+    "objetivo": "Crear una propuesta de valor clara y diferenciada que resuene con los clientes objetivo, identificando cómo el producto resuelve sus problemas y genera beneficios.",
+    "materiales": [
+      "Plantilla de Value Proposition Canvas",
+      "Post-its",
+      "Marcadores",
+      "Pizarra o papel grande"
+    ],
+    "pasos": [
+      "Define el perfil del cliente: jobs to be done, pains y gains",
+      "Mapea la propuesta de valor: productos/servicios, pain relievers y gain creators",
+      "Conecta cada elemento del producto con necesidades específicas del cliente",
+      "Identifica gaps: necesidades no cubiertas o características innecesarias",
+      "Refina la propuesta de valor para maximizar el fit",
+      "Valida la propuesta con clientes reales"
+    ]
+  },
+  {
+    "id": 11,
+    "titulo": "Mapa de ejemplo",
+    "categoria": "Arquitectura de Información",
+    "duracion": "30",
+    "participantes": "5",
+    "descripcion": "prueba",
+    "objetivo": "prueba de objetivo",
+    "materiales": [
+      "Cartulinas"
+    ],
+    "pasos": [
+      "Definir materiales",
+      "paso 2"
+    ]
+  }
+]
