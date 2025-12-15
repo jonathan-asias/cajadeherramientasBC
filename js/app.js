@@ -265,19 +265,22 @@ function renderizarHerramientas(herramientasArray) {
 }
 
 /**
- * Colores suaves tipo Google/Material Design para fondos de cards
+ * Colores vibrantes para fondos de cards - Identidad Bancolombia
+ * Colores más vivos pero manteniendo legibilidad
  */
 const coloresFondo = [
-    "#E3F2FD", // Azul suave
-    "#E8F5E9", // Verde suave
-    "#FFF8E1", // Amarillo suave
-    "#FCE4EC", // Rosa suave
-    "#EDE7F6", // Morado suave
-    "#F3E5F5", // Lila suave
-    "#E0F2F1", // Turquesa suave
-    "#FFF3E0", // Naranja suave
-    "#F1F8E9", // Verde claro
-    "#E1F5FE"  // Azul claro
+    "#BBDEFB", // Azul vibrante
+    "#C8E6C9", // Verde vibrante
+    "#FFE082", // Amarillo vibrante (inspirado en acento Bancolombia)
+    "#F8BBD0", // Rosa vibrante
+    "#CE93D8", // Morado vibrante
+    "#B39DDB", // Lila vibrante
+    "#80DEEA", // Turquesa vibrante
+    "#FFCC80", // Naranja vibrante
+    "#AED581", // Verde lima vibrante
+    "#90CAF9", // Azul cielo vibrante
+    "#FFAB91", // Coral vibrante
+    "#A5D6A7"  // Verde menta vibrante
 ];
 
 /**
@@ -533,10 +536,59 @@ function cerrarModal() {
  */
 function mostrarError(mensaje) {
     toolsGrid.innerHTML = `
-        <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--rojo-bancolombia);">
+        <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--rojo-bancolombia);" role="alert" aria-live="assertive">
             <p style="font-size: 18px;">${mensaje}</p>
         </div>
     `;
+}
+
+/**
+ * Actualiza los indicadores visuales de filtros activos
+ */
+function actualizarIndicadoresFiltros(categoria, duracion, participantes) {
+    const grupoCategoria = filtroCategoria.closest('.filter-group');
+    const grupoDuracion = filtroDuracion.closest('.filter-group');
+    const grupoParticipantes = filtroParticipantes.closest('.filter-group');
+    
+    if (grupoCategoria) {
+        grupoCategoria.classList.toggle('has-active-filter', !!categoria);
+    }
+    if (grupoDuracion) {
+        grupoDuracion.classList.toggle('has-active-filter', !!duracion);
+    }
+    if (grupoParticipantes) {
+        grupoParticipantes.classList.toggle('has-active-filter', !!participantes);
+    }
+}
+
+/**
+ * Anuncia los resultados del filtro a lectores de pantalla
+ */
+function anunciarResultadosFiltro(cantidad) {
+    const toolsGrid = document.getElementById('tools-grid');
+    if (!toolsGrid) return;
+    
+    // Crear o actualizar mensaje de anuncio
+    let anuncio = document.getElementById('a11y-filtro-anuncio');
+    if (!anuncio) {
+        anuncio = document.createElement('div');
+        anuncio.id = 'a11y-filtro-anuncio';
+        anuncio.className = 'visually-hidden';
+        anuncio.setAttribute('aria-live', 'polite');
+        anuncio.setAttribute('aria-atomic', 'true');
+        document.body.appendChild(anuncio);
+    }
+    
+    const mensaje = cantidad === 0 
+        ? 'No se encontraron herramientas con los filtros seleccionados.'
+        : `Se encontraron ${cantidad} herramienta${cantidad !== 1 ? 's' : ''} con los filtros seleccionados.`;
+    
+    anuncio.textContent = mensaje;
+    
+    // Limpiar el mensaje después de un tiempo para que se anuncie de nuevo si cambia
+    setTimeout(() => {
+        anuncio.textContent = '';
+    }, 1000);
 }
 
 // Inicializar aplicación cuando el DOM esté listo
@@ -545,4 +597,12 @@ if (document.readyState === 'loading') {
 } else {
     init();
 }
+
+// Actualizar año en el footer
+document.addEventListener('DOMContentLoaded', () => {
+    const yearElement = document.getElementById('current-year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+});
 

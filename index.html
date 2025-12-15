@@ -6,13 +6,18 @@
     <title>Caja de Herramientas - Bancolombia</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <!-- Variables CSS - Cargar primero -->
+    <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/accesibilidad.css">
     <link rel="stylesheet" href="css/loader.css">
 </head>
 <body>
+    <!-- Enlace para saltar al contenido principal (accesibilidad) -->
+    <a href="#mainContent" class="skip-link">Saltar al contenido principal</a>
+    
     <!-- Header -->
     <header class="header">
         <div class="header-content">
@@ -23,36 +28,36 @@
     </header>
 
     <!-- Main Content -->
-    <main class="main-container">
+    <main id="mainContent" class="main-container" role="main">
         <!-- Filtros -->
         <section class="filters-section">
             <div class="filters-container">
                 <div class="filter-group">
                     <label for="filtro-categoria" class="filter-label">
-                        <span class="material-icons-outlined">category</span>
+                        <span class="material-icons-outlined" aria-hidden="true">category</span>
                         Categoría
                     </label>
-                    <select id="filtro-categoria" class="filter-select">
+                    <select id="filtro-categoria" class="filter-select" aria-label="Filtrar por categoría">
                         <option value="">Todas las categorías</option>
                     </select>
                 </div>
 
                 <div class="filter-group">
                     <label for="filtro-duracion" class="filter-label">
-                        <span class="material-icons-outlined">schedule</span>
+                        <span class="material-icons-outlined" aria-hidden="true">schedule</span>
                         Duración
                     </label>
-                    <select id="filtro-duracion" class="filter-select">
+                    <select id="filtro-duracion" class="filter-select" aria-label="Filtrar por duración">
                         <option value="">Todas las duraciones</option>
                     </select>
                 </div>
 
                 <div class="filter-group">
                     <label for="filtro-participantes" class="filter-label">
-                        <span class="material-icons-outlined">people</span>
+                        <span class="material-icons-outlined" aria-hidden="true">people</span>
                         Participantes
                     </label>
-                    <select id="filtro-participantes" class="filter-select">
+                    <select id="filtro-participantes" class="filter-select" aria-label="Filtrar por número de participantes">
                         <option value="">Todos los grupos</option>
                     </select>
                 </div>
@@ -60,36 +65,36 @@
         </section>
 
         <!-- Grid de Cards -->
-        <section class="tools-section">
-            <div id="tools-grid" class="tools-grid">
+        <section class="tools-section" aria-label="Herramientas disponibles">
+            <div id="tools-grid" class="tools-grid" role="list" aria-live="polite" aria-atomic="false">
                 <!-- Las cards se generan dinámicamente con JavaScript -->
             </div>
-            <div id="no-results" class="no-results" style="display: none;">
+            <div id="no-results" class="no-results" style="display: none;" role="status" aria-live="polite" aria-atomic="true">
                 <p>No se encontraron herramientas con los filtros seleccionados.</p>
             </div>
         </section>
     </main>
 
     <!-- Modal para vista detallada -->
-    <div id="modal" class="modal" style="display: none;">
-        <div class="modal-overlay"></div>
+    <div id="modal" class="modal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="modal-titulo" aria-describedby="modal-descripcion">
+        <div class="modal-overlay" aria-hidden="true"></div>
         <div class="modal-content">
-            <div id="modalLoader" aria-label="Cargando contenido del modal" role="status" aria-live="polite">
+            <div id="modalLoader" aria-label="Cargando contenido del modal" role="status" aria-live="polite" aria-atomic="true">
                 <div class="modal-loader-content">
                     <span class="material-icons-outlined modal-loader-icon" aria-hidden="true">autorenew</span>
                     <p>Cargando…</p>
                 </div>
             </div>
-            <button class="modal-close" aria-label="Cerrar modal">
-                <span class="material-icons-outlined">close</span>
+            <button class="modal-close" aria-label="Cerrar modal" type="button">
+                <span class="material-icons-outlined" aria-hidden="true">close</span>
             </button>
-            <div id="modal-image-container" class="modal-image-container"></div>
+            <div id="modal-image-container" class="modal-image-container" aria-hidden="true"></div>
             <div class="modal-header">
                 <h2 id="modal-titulo" class="modal-title"></h2>
-                <div class="modal-tags">
-                    <span id="modal-categoria" class="modal-tag"></span>
-                    <span id="modal-duracion" class="modal-tag"></span>
-                    <span id="modal-participantes" class="modal-tag"></span>
+                <div class="modal-tags" role="list" aria-label="Características de la herramienta">
+                    <span id="modal-categoria" class="modal-tag" role="listitem"></span>
+                    <span id="modal-duracion" class="modal-tag" role="listitem"></span>
+                    <span id="modal-participantes" class="modal-tag" role="listitem"></span>
                 </div>
             </div>
             <div class="modal-body">
@@ -112,6 +117,55 @@
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">Caja de Herramientas</h3>
+                <p class="footer-description">
+                    Herramientas colaborativas para el desarrollo de proyectos innovadores.
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-section-title">Recursos</h4>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Documentación</a></li>
+                    <li><a href="#" class="footer-link">Guías de uso</a></li>
+                    <li><a href="#" class="footer-link">Soporte</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-section-title">Información</h4>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Acerca de</a></li>
+                    <li><a href="#" class="footer-link">Contacto</a></li>
+                    <li><a href="#" class="footer-link">Política de privacidad</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-section-title">Accesibilidad</h4>
+                <p class="footer-accessibility">
+                    Este sitio cumple con los estándares WCAG 2.1 nivel AA para garantizar una experiencia accesible para todos los usuarios.
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p class="footer-copyright">
+                    &copy; <span id="current-year"></span> Bancolombia. Todos los derechos reservados.
+                </p>
+                <div class="footer-badge">
+                    <span class="material-icons-outlined" aria-hidden="true">verified</span>
+                    <span>Accesible</span>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="js/libs/gsap.min.js"></script>
     <script src="js/loader.js" defer></script>
