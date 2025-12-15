@@ -16,17 +16,32 @@
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <a href="index.html" class="back-link">
-                <span class="material-icons-outlined">arrow_back</span>
-                Volver
-            </a>
-            <h1 class="header-title">Crear Nueva Herramienta</h1>
-            <div class="header-accent"></div>
+            <div class="header-logo">
+                <img src="img/BC_logo.png" alt="Logo Caja de Herramientas" class="logo-image">
+            </div>
+            <h1 class="header-title">Caja de Herramientas</h1>
+            <nav class="header-nav">
+                <a href="index.html" class="header-link">
+                    <span class="material-icons-outlined" aria-hidden="true">home</span>
+                    Inicio
+                </a>
+                <a href="guias-uso.html" class="header-link">
+                    <span class="material-icons-outlined" aria-hidden="true">menu_book</span>
+                    Guías de uso
+                </a>
+            </nav>
         </div>
     </header>
 
     <!-- Main Container -->
     <main class="main-container">
+        <div style="margin-bottom: var(--bc-spacing-lg);">
+            <a href="index.html" class="back-link" style="display: inline-flex; align-items: center; gap: var(--bc-spacing-xs); color: var(--bc-accent-blue); text-decoration: none; font-weight: var(--bc-font-weight-semibold); margin-bottom: var(--bc-spacing-md);">
+                <span class="material-icons-outlined" aria-hidden="true">arrow_back</span>
+                Volver a la Caja de Herramientas
+            </a>
+            <h2 style="font-size: var(--bc-font-size-2xl); font-weight: var(--bc-font-weight-bold); color: var(--bc-text-primary); margin-bottom: var(--bc-spacing-lg);">Crear Nueva Herramienta</h2>
+        </div>
         <form id="formulario-herramienta" class="formulario-container">
             
             <!-- Sección: Datos Generales -->

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guías de Uso - Caja de Herramientas Bancolombia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <!-- Variables CSS - Cargar primero -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/accesibilidad.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <style>
+        /* Estilos específicos para la página de guías */
+        .guides-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--bc-spacing-xl) var(--bc-spacing-lg);
+        }
+
+        .guide-section {
+            margin-bottom: var(--bc-spacing-2xl);
+        }
+
+        .guide-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .guide-title {
+            font-size: var(--bc-font-size-2xl);
+            font-weight: var(--bc-font-weight-bold);
+            color: var(--bc-text-primary);
+            margin-bottom: var(--bc-spacing-lg);
+            line-height: var(--bc-line-height-tight);
+        }
+
+        .guide-subtitle {
+            font-size: var(--bc-font-size-xl);
+            font-weight: var(--bc-font-weight-semibold);
+            color: var(--bc-text-primary);
+            margin-top: var(--bc-spacing-xl);
+            margin-bottom: var(--bc-spacing-md);
+            padding-bottom: var(--bc-spacing-sm);
+            border-bottom: 2px solid var(--bc-accent-yellow);
+        }
+
+        .guide-text {
+            font-size: var(--bc-font-size-base);
+            line-height: var(--bc-line-height-relaxed);
+            color: var(--bc-text-secondary);
+            margin-bottom: var(--bc-spacing-md);
+        }
+
+        .guide-list {
+            list-style: none;
+            padding-left: 0;
+            margin: var(--bc-spacing-md) 0;
+        }
+
+        .guide-list li {
+            padding: var(--bc-spacing-sm) 0;
+            padding-left: var(--bc-spacing-xl);
+            position: relative;
+            font-size: var(--bc-font-size-base);
+            line-height: var(--bc-line-height-relaxed);
+            color: var(--bc-text-secondary);
+        }
+
+        .guide-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--bc-accent-blue);
+            font-weight: var(--bc-font-weight-bold);
+            font-size: 18px;
+        }
+
+        .guide-list-numbered {
+            counter-reset: step-counter;
+        }
+
+        .guide-list-numbered li {
+            counter-increment: step-counter;
+            padding-left: calc(var(--bc-spacing-xl) + 20px);
+        }
+
+        .guide-list-numbered li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: var(--bc-spacing-sm);
+            background: var(--bc-accent-blue);
+            color: #FFFFFF;
+            width: 24px;
+            height: 24px;
+            border-radius: var(--bc-radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--bc-font-size-xs);
+            font-weight: var(--bc-font-weight-semibold);
+            font-family: inherit;
+        }
+
+        .guide-highlight {
+            background: var(--bc-accent-yellow-light);
+            padding: var(--bc-spacing-md);
+            border-radius: var(--bc-radius-sm);
+            border-left: 4px solid var(--bc-accent-yellow);
+            margin: var(--bc-spacing-lg) 0;
+        }
+
+        .guide-highlight p {
+            margin: 0;
+            color: var(--bc-text-primary);
+            font-weight: var(--bc-font-weight-normal);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--bc-spacing-sm);
+            color: var(--bc-accent-blue);
+            text-decoration: none;
+            font-weight: var(--bc-font-weight-semibold);
+            margin-bottom: var(--bc-spacing-lg);
+            transition: color var(--bc-transition-fast);
+        }
+
+        .back-link:hover {
+            color: var(--bc-accent-blue-light);
+        }
+
+        .back-link:focus-visible {
+            outline: 3px solid var(--bc-focus);
+            outline-offset: 2px;
+            border-radius: var(--bc-radius-sm);
+        }
+
+        .guide-feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--bc-spacing-md);
+            margin: var(--bc-spacing-lg) 0;
+        }
+
+        .guide-feature-item {
+            padding: var(--bc-spacing-md);
+            background: var(--bc-accent-gray-light);
+            border-radius: var(--bc-radius-sm);
+            border: 1px solid var(--bc-border);
+        }
+
+        .guide-feature-item strong {
+            display: block;
+            color: var(--bc-text-primary);
+            margin-bottom: var(--bc-spacing-xs);
+            font-weight: var(--bc-font-weight-semibold);
+        }
+
+        @media (max-width: 768px) {
+            .guides-container {
+                padding: var(--bc-spacing-lg) var(--bc-spacing-md);
+            }
+
+            .guide-title {
+                font-size: var(--bc-font-size-xl);
+            }
+
+            .guide-subtitle {
+                font-size: var(--bc-font-size-lg);
+            }
+
+            .guide-feature-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Enlace para saltar al contenido principal (accesibilidad) -->
+    <a href="#mainContent" class="skip-link">Saltar al contenido principal</a>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-logo">
+                <img src="img/BC_logo.png" alt="Logo Caja de Herramientas" class="logo-image">
+            </div>
+            <h1 class="header-title">Caja de Herramientas</h1>
+            <nav class="header-nav">
+                <a href="index.html" class="header-link">
+                    <span class="material-icons-outlined" aria-hidden="true">home</span>
+                    Inicio
+                </a>
+                <a href="crear-herramienta.html" class="header-link header-link-primary">
+                    <span class="material-icons-outlined" aria-hidden="true">add_circle</span>
+                    Crear herramienta
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="mainContent" class="main-container" role="main">
+        <div class="guides-container">
+            <!-- Enlace de regreso -->
+            <a href="index.html" class="back-link">
+                <span class="material-icons-outlined" aria-hidden="true">arrow_back</span>
+                Volver a la Caja de Herramientas
+            </a>
+
+            <!-- Título principal -->
+            <h1 class="guide-title">Guías de Uso</h1>
+
+            <!-- Sección 1: Introducción -->
+            <section class="guide-section" aria-labelledby="intro-guide">
+                <p id="intro-guide" class="guide-text">
+                    Esta guía te ayudará a comprender cómo usar la Caja de Herramientas de manera sencilla y efectiva. No necesitas conocimientos técnicos previos para comenzar.
+                </p>
+            </section>
+
+            <!-- Sección 2: Organización -->
+            <section class="guide-section" aria-labelledby="organizacion">
+                <h2 id="organizacion" class="guide-subtitle">¿Cómo está organizada la Caja de Herramientas?</h2>
+                <p class="guide-text">
+                    Las herramientas están organizadas en tarjetas (cards) que presentan información clave como el nombre de la herramienta, su categoría y una breve descripción. Cada tarjeta representa una herramienta diferente.
+                </p>
+                <p class="guide-text">
+                    Puedes explorar libremente o usar los filtros disponibles para encontrar más rápido lo que necesitas.
+                </p>
+            </section>
+
+            <!-- Sección 3: Uso de filtros -->
+            <section class="guide-section" aria-labelledby="filtros">
+                <h2 id="filtros" class="guide-subtitle">Uso de filtros</h2>
+                <p class="guide-text">
+                    En la parte superior encontrarás filtros que te permiten refinar la búsqueda según diferentes criterios, como categoría o tipo de herramienta.
+                </p>
+                
+                <h3 class="guide-subtitle" style="font-size: var(--bc-font-size-lg); margin-top: var(--bc-spacing-md); border-bottom: 1px solid var(--bc-border);">Pasos claros:</h3>
+                <ol class="guide-list guide-list-numbered">
+                    <li>Selecciona uno o varios filtros.</li>
+                    <li>La lista de herramientas se actualizará automáticamente.</li>
+                    <li>Si no encuentras resultados, puedes limpiar los filtros y volver a explorar.</li>
+                </ol>
+            </section>
+
+            <!-- Sección 4: Visualización -->
+            <section class="guide-section" aria-labelledby="visualizacion">
+                <h2 id="visualizacion" class="guide-subtitle">Visualización de una herramienta</h2>
+                <p class="guide-text">
+                    Al hacer clic sobre una tarjeta, se abrirá una ventana con la información completa de la herramienta seleccionada.
+                </p>
+                
+                <h3 class="guide-subtitle" style="font-size: var(--bc-font-size-lg); margin-top: var(--bc-spacing-md); border-bottom: 1px solid var(--bc-border);">Qué encontrará el usuario:</h3>
+                <ul class="guide-list">
+                    <li>Descripción detallada</li>
+                    <li>Objetivo de la herramienta</li>
+                    <li>Recomendaciones de uso</li>
+                    <li>Recursos adicionales (si aplica)</li>
+                    <li>Archivos descargables o enlaces de apoyo</li>
+                </ul>
+            </section>
+
+            <!-- Sección 5: Uso en proyectos -->
+            <section class="guide-section" aria-labelledby="proyectos">
+                <h2 id="proyectos" class="guide-subtitle">¿Cómo usar una herramienta en tu proyecto?</h2>
+                <p class="guide-text">
+                    Cada herramienta está pensada para ser utilizada de forma práctica. Puedes aplicarla en sesiones de trabajo, talleres, procesos de aprendizaje o desarrollo de proyectos.
+                </p>
+                
+                <div class="guide-highlight">
+                    <p><strong>Recomendaciones:</strong></p>
+                </div>
+                
+                <ul class="guide-list">
+                    <li>Lee primero la descripción completa.</li>
+                    <li>Identifica el objetivo de la herramienta.</li>
+                    <li>Adáptala a tu contexto y necesidades.</li>
+                    <li>No existe una única forma correcta de usarla.</li>
+                </ul>
+            </section>
+
+            <!-- Sección 6: Accesibilidad -->
+            <section class="guide-section" aria-labelledby="accesibilidad">
+                <h2 id="accesibilidad" class="guide-subtitle">Accesibilidad y facilidad de uso</h2>
+                <p class="guide-text">
+                    La Caja de Herramientas ha sido diseñada teniendo en cuenta principios de accesibilidad para garantizar una experiencia inclusiva.
+                </p>
+                
+                <h3 class="guide-subtitle" style="font-size: var(--bc-font-size-lg); margin-top: var(--bc-spacing-md); border-bottom: 1px solid var(--bc-border);">Incluye:</h3>
+                <div class="guide-feature-list">
+                    <div class="guide-feature-item">
+                        <strong>Navegación por teclado</strong>
+                        <span>Usa Tab para navegar entre elementos</span>
+                    </div>
+                    <div class="guide-feature-item">
+                        <strong>Contraste adecuado</strong>
+                        <span>Colores que cumplen estándares WCAG</span>
+                    </div>
+                    <div class="guide-feature-item">
+                        <strong>Texto claro</strong>
+                        <span>Lenguaje simple y legible</span>
+                    </div>
+                    <div class="guide-feature-item">
+                        <strong>Lectores de pantalla</strong>
+                        <span>Compatible con tecnologías asistivas</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 7: Buenas prácticas -->
+            <section class="guide-section" aria-labelledby="buenas-practicas">
+                <h2 id="buenas-practicas" class="guide-subtitle">Buenas prácticas</h2>
+                <ul class="guide-list">
+                    <li>Explora diferentes herramientas antes de elegir una.</li>
+                    <li>Comparte las herramientas con tu equipo.</li>
+                    <li>Usa las guías como referencia, no como una regla estricta.</li>
+                    <li>Si tienes dudas, consulta la sección de soporte.</li>
+                </ul>
+            </section>
+
+            <!-- Sección 8: Cierre motivacional -->
+            <section class="guide-section" aria-labelledby="cierre">
+                <h2 id="cierre" class="guide-subtitle">Cierre motivacional</h2>
+                <p class="guide-text">
+                    La Caja de Herramientas está en constante evolución. Te invitamos a explorar, aprender y aplicar las herramientas de la manera que mejor se adapte a tu proceso.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">Caja de Herramientas</h3>
+                <p class="footer-description">
+                    Herramientas colaborativas para el desarrollo de proyectos innovadores.
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-section-title">Recursos</h4>
+                <ul class="footer-links">
+                    <li><a href="guias-uso.html" class="footer-link">Guías de uso</a></li>
+                    <li><a href="#" class="footer-link">Soporte</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-section-title">Información</h4>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Acerca de</a></li>
+                    <li><a href="#" class="footer-link">Contacto</a></li>
+                    <li><a href="#" class="footer-link">Política de privacidad</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-section-title">Accesibilidad</h4>
+                <p class="footer-accessibility">
+                    Este sitio cumple con los estándares WCAG 2.1 nivel AA para garantizar una experiencia accesible para todos los usuarios.
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p class="footer-copyright">
+                    &copy; <span id="current-year"></span> Bancolombia. Todos los derechos reservados.
+                </p>
+                <div class="footer-badge">
+                    <span class="material-icons-outlined" aria-hidden="true">verified</span>
+                    <span>Accesible</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Actualizar año en el footer
+        document.addEventListener('DOMContentLoaded', () => {
+            const yearElement = document.getElementById('current-year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>
+
