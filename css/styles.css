@@ -117,6 +117,133 @@ p, label, select, input, textarea {
     gap: var(--bc-spacing-md);
 }
 
+/* Botón hamburguesa para móvil */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--bc-spacing-sm);
+    color: var(--bc-text-primary);
+    border-radius: var(--bc-radius-sm);
+    transition: all var(--bc-transition-fast);
+    z-index: 101;
+    position: relative;
+}
+
+.menu-toggle:hover {
+    background: var(--bc-hover-bg);
+}
+
+.menu-toggle:focus-visible {
+    outline: 3px solid var(--bc-focus);
+    outline-offset: 2px;
+}
+
+.menu-toggle .material-icons-outlined {
+    font-size: 28px;
+}
+
+/* Menú móvil */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--bc-transition-base), visibility var(--bc-transition-base);
+}
+
+.mobile-menu.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu-content {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    max-width: 85vw;
+    height: 100vh;
+    background: var(--bc-bg-base);
+    box-shadow: var(--bc-shadow-xl);
+    padding: var(--bc-spacing-xl) var(--bc-spacing-lg);
+    overflow-y: auto;
+    transition: right var(--bc-transition-base);
+    z-index: 1001;
+}
+
+.mobile-menu.active .mobile-menu-content {
+    right: 0;
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--bc-spacing-xl);
+    padding-bottom: var(--bc-spacing-lg);
+    border-bottom: 1px solid var(--bc-border);
+}
+
+.mobile-menu-title {
+    font-size: var(--bc-font-size-lg);
+    font-weight: var(--bc-font-weight-bold);
+    color: var(--bc-text-primary);
+    margin: 0;
+}
+
+.mobile-menu-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--bc-spacing-xs);
+    color: var(--bc-text-primary);
+    border-radius: var(--bc-radius-sm);
+    transition: all var(--bc-transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-menu-close:hover {
+    background: var(--bc-hover-bg);
+}
+
+.mobile-menu-close:focus-visible {
+    outline: 3px solid var(--bc-focus);
+    outline-offset: 2px;
+}
+
+.mobile-menu-close .material-icons-outlined {
+    font-size: 24px;
+}
+
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--bc-spacing-sm);
+}
+
+.mobile-nav .header-link {
+    width: 100%;
+    justify-content: flex-start;
+    padding: var(--bc-spacing-md);
+    border-radius: var(--bc-radius-md);
+}
+
+.mobile-nav .header-link-primary {
+    background: #fdda24;
+    color: var(--bc-text-primary);
+    margin-top: var(--bc-spacing-md);
+}
+
 .header-link {
     display: inline-flex;
     align-items: center;
@@ -131,8 +258,9 @@ p, label, select, input, textarea {
 }
 
 .header-link:hover {
-    background: var(--bc-hover-bg);
-    color: var(--bc-accent-blue);
+    background: #2c2a29; /* Negro en hover */
+    color: #FFFFFF; /* Texto blanco */
+    border-radius: var(--bc-radius-full); /* Botón completamente redondeado en hover */
 }
 
 .header-link:focus-visible {
@@ -145,13 +273,14 @@ p, label, select, input, textarea {
 }
 
 .header-link-primary {
-    background: var(--bc-accent-yellow);
+    background: #fdda24; /* Amarillo principal */
     color: var(--bc-text-primary);
     padding: var(--bc-spacing-sm) var(--bc-spacing-lg);
+    border-radius: var(--bc-radius-full); /* Botón completamente redondeado */
 }
 
 .header-link-primary:hover {
-    background: var(--bc-accent-yellow-dark);
+    background: #FDE773; /* Amarillo claro en hover */
     color: var(--bc-text-primary);
     transform: translateY(-1px);
     box-shadow: var(--bc-shadow-md);
@@ -168,10 +297,10 @@ p, label, select, input, textarea {
     gap: var(--bc-spacing-sm);
     margin-top: var(--bc-spacing-md);
     padding: 10px var(--bc-spacing-lg);
-    background: var(--bc-accent-yellow);
+    background: #fdda24; /* Amarillo principal */
     color: var(--bc-text-primary);
     text-decoration: none;
-    border-radius: var(--bc-radius-sm);
+    border-radius: var(--bc-radius-full); /* Botón completamente redondeado */
     font-weight: var(--bc-font-weight-semibold);
     font-size: var(--bc-font-size-sm);
     transition: all var(--bc-transition-base);
@@ -182,7 +311,7 @@ p, label, select, input, textarea {
 }
 
 .btn-crear-herramienta:hover {
-    background: var(--bc-accent-yellow-dark);
+    background: #FDE773; /* Amarillo claro en hover */
     box-shadow: var(--bc-shadow-md);
     transform: translateY(-1px);
 }
@@ -233,6 +362,23 @@ p, label, select, input, textarea {
     margin-bottom: 0;
     line-height: var(--bc-line-height-tight);
     text-align: left;
+    display: flex;
+    align-items: center;
+    gap: var(--bc-spacing-sm);
+}
+
+.intro-title-icon {
+    color: var(--bc-accent-blue);
+    font-size: 36px;
+    flex-shrink: 0;
+}
+
+.intro-icon {
+    color: var(--bc-accent-blue);
+    font-size: 24px;
+    vertical-align: middle;
+    margin-right: var(--bc-spacing-xs);
+    flex-shrink: 0;
 }
 
 .intro-description {
@@ -241,6 +387,9 @@ p, label, select, input, textarea {
     color: var(--bc-text-secondary);
     margin-bottom: 0;
     text-align: left;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--bc-spacing-sm);
 }
 
 .intro-support {
@@ -249,6 +398,9 @@ p, label, select, input, textarea {
     color: var(--bc-text-secondary);
     margin: 0;
     text-align: left;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--bc-spacing-sm);
 }
 
 .intro-image-wrapper {
@@ -445,9 +597,11 @@ p, label, select, input, textarea {
 
 /* ============================================
    CARDS - Estilo Bancolombia
+   Refactorizado: Cards ahora son <button> para accesibilidad WCAG 2.1 AA
    ============================================ */
 
 .tool-card {
+    /* Resetear estilos de botón para que se vea como card */
     background: var(--bc-bg-base);
     border-radius: var(--bc-radius-md);
     overflow: hidden;
@@ -460,6 +614,14 @@ p, label, select, input, textarea {
     border: 1px solid var(--bc-border);
     animation: fadeIn 0.4s ease;
     position: relative;
+    
+    /* Estilos de botón reseteados */
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    text-align: left;
+    width: 100%;
 }
 
 .tool-card:hover {
@@ -467,14 +629,60 @@ p, label, select, input, textarea {
     box-shadow: var(--bc-shadow-lg);
 }
 
+/* ============================================
+   ACCESIBILIDAD: Indicadores de Foco Visibles
+   WCAG 2.1 AA - Criterio 2.4.7 (Focus Visible)
+   ============================================ */
+
+/* 
+ * DECISIÓN DE ACCESIBILIDAD: Indicador de foco altamente visible
+ * 
+ * Razón: Los usuarios que navegan por teclado necesitan ver claramente dónde está el foco
+ * Implementación:
+ *   - outline: 3px solid - Borde visible de 3px
+ *   - outline-offset: 4px - Separación del elemento para mejor visibilidad
+ *   - box-shadow adicional - Crea un "halo" alrededor del elemento
+ *   - border: 2px solid - Borde adicional para mayor contraste
+ * 
+ * Color elegido: #1A73E8 (azul Google Material)
+ * - Alto contraste con fondos claros y oscuros
+ * - Cumple con ratio de contraste 3:1 (WCAG 2.1 AA)
+ */
+
 .tool-card:focus {
-    outline: none;
+    outline: none; /* Remover outline por defecto del navegador */
 }
 
 .tool-card:focus-visible {
-    outline: 3px solid var(--bc-focus);
-    outline-offset: 2px;
-    box-shadow: 0 0 0 4px var(--bc-focus-ring), var(--bc-shadow-lg);
+    /* Indicador de foco para navegación por teclado */
+    outline: 3px solid #1A73E8;
+    outline-offset: 4px;
+    box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.2), var(--bc-shadow-lg);
+    /* Borde adicional para asegurar visibilidad sobre cualquier fondo */
+    border: 2px solid #1A73E8;
+}
+
+/* 
+ * Modo Oscuro: Ajustar color del foco para mejor visibilidad
+ * Color: #8AB4F8 (azul claro) - Mejor contraste en fondos oscuros
+ */
+body.modo-oscuro .tool-card:focus-visible {
+    outline: 3px solid #8AB4F8;
+    outline-offset: 4px;
+    box-shadow: 0 0 0 4px rgba(138, 180, 248, 0.3), var(--bc-shadow-lg);
+    border: 2px solid #8AB4F8;
+}
+
+/* 
+ * Alto Contraste: Indicador de foco aún más prominente
+ * Color: #FFFF00 (amarillo) - Máximo contraste en modo alto contraste
+ * Grosor aumentado: 4px outline + 3px border para máxima visibilidad
+ */
+body.alto-contraste .tool-card:focus-visible {
+    outline: 4px solid #FFFF00;
+    outline-offset: 4px;
+    box-shadow: 0 0 0 4px #000000, var(--bc-shadow-lg);
+    border: 3px solid #FFFF00;
 }
 
 /* ============================================
@@ -594,6 +802,16 @@ p, label, select, input, textarea {
     color: var(--bc-text-secondary);
     font-size: var(--bc-font-size-base);
     grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--bc-spacing-md);
+}
+
+.no-results-icon {
+    color: var(--bc-text-secondary);
+    font-size: 48px;
+    opacity: 0.6;
 }
 
 /* ============================================
@@ -861,7 +1079,7 @@ p, label, select, input, textarea {
    ============================================ */
 
 .footer {
-    background: var(--bc-bg-base);
+    background: #2c2a29; /* Color oscuro para el footer general */
     border-top: 1px solid var(--bc-border);
     margin-top: var(--bc-spacing-2xl);
     padding: 0;
@@ -885,13 +1103,13 @@ p, label, select, input, textarea {
 .footer-title {
     font-size: var(--bc-font-size-xl);
     font-weight: var(--bc-font-weight-bold);
-    color: var(--bc-text-primary);
+    color: #FFFFFF; /* Texto blanco para legibilidad sobre fondo oscuro */
     margin-bottom: var(--bc-spacing-sm);
 }
 
 .footer-description {
     font-size: var(--bc-font-size-sm);
-    color: var(--bc-text-secondary);
+    color: #E0E0E0; /* Texto gris claro para legibilidad sobre fondo oscuro */
     line-height: var(--bc-line-height-relaxed);
     max-width: 300px;
 }
@@ -899,7 +1117,7 @@ p, label, select, input, textarea {
 .footer-section-title {
     font-size: var(--bc-font-size-base);
     font-weight: var(--bc-font-weight-semibold);
-    color: var(--bc-text-primary);
+    color: #FFFFFF; /* Texto blanco para legibilidad sobre fondo oscuro */
     margin-bottom: var(--bc-spacing-sm);
 }
 
@@ -913,17 +1131,19 @@ p, label, select, input, textarea {
 }
 
 .footer-link {
-    color: var(--bc-text-secondary);
+    color: #E0E0E0; /* Texto gris claro para legibilidad sobre fondo oscuro */
     text-decoration: none;
     font-size: var(--bc-font-size-sm);
-    transition: color var(--bc-transition-fast);
+    transition: color var(--bc-transition-fast), text-decoration var(--bc-transition-fast);
     display: inline-flex;
     align-items: center;
     gap: var(--bc-spacing-xs);
 }
 
 .footer-link:hover {
-    color: var(--bc-accent-blue);
+    color: #8AB4F8; /* Azul claro para hover sobre fondo oscuro */
+    text-decoration: underline; /* Subrayado para mejorar visibilidad del cambio de estado */
+    text-underline-offset: 3px; /* Espaciado del subrayado */
 }
 
 .footer-link:focus-visible {
@@ -934,13 +1154,13 @@ p, label, select, input, textarea {
 
 .footer-accessibility {
     font-size: var(--bc-font-size-xs);
-    color: var(--bc-text-tertiary);
+    color: #B0B0B0; /* Texto gris medio para legibilidad sobre fondo oscuro */
     line-height: var(--bc-line-height-relaxed);
     max-width: 280px;
 }
 
 .footer-bottom {
-    background: var(--bc-accent-gray-light);
+    background: #454648; /* Color claro para la sección del copyright */
     border-top: 1px solid var(--bc-border);
     padding: var(--bc-spacing-lg) var(--bc-spacing-lg);
 }
@@ -957,7 +1177,7 @@ p, label, select, input, textarea {
 
 .footer-copyright {
     font-size: var(--bc-font-size-sm);
-    color: var(--bc-text-secondary);
+    color: #E0E0E0; /* Texto gris claro para legibilidad sobre fondo #454648 */
     margin: 0;
 }
 
@@ -1017,12 +1237,15 @@ textarea:focus-visible {
 
     .header-content {
         grid-template-columns: 1fr;
-        gap: var(--bc-spacing-md);
+        gap: var(--bc-spacing-sm);
         text-align: center;
+        position: relative;
     }
 
     .header-logo {
         justify-content: center;
+        grid-column: 1;
+        grid-row: 1;
     }
 
     .logo-image {
@@ -1032,18 +1255,38 @@ textarea:focus-visible {
 
     .header-title {
         font-size: var(--bc-font-size-lg);
-        order: -1;
+        text-align: center;
+        justify-self: center;
+        grid-column: 1;
+        grid-row: 2;
+        margin-top: var(--bc-spacing-xs);
     }
 
-    .header-nav {
-        width: 100%;
+    /* Mostrar botón hamburguesa en móvil */
+    .menu-toggle {
+        display: flex;
+        align-items: center;
         justify-content: center;
-        flex-wrap: wrap;
+        position: absolute;
+        top: 0;
+        right: 0;
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    /* Ocultar navegación normal en móvil */
+    .header-nav {
+        display: none;
+    }
+
+    /* Mostrar menú móvil */
+    .mobile-menu {
+        display: block;
     }
 
     .header-link {
-        font-size: var(--bc-font-size-sm);
-        padding: var(--bc-spacing-xs) var(--bc-spacing-sm);
+        font-size: var(--bc-font-size-base);
+        padding: var(--bc-spacing-md);
     }
 
     .main-container {

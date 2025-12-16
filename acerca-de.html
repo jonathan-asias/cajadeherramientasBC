@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de - Caja de Herramientas Bancolombia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <!-- Variables CSS - Cargar primero -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/accesibilidad.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <style>
+        /* Estilos específicos para la página Acerca de */
+        .about-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--bc-spacing-xl) var(--bc-spacing-lg);
+        }
+
+        .about-header {
+            background: var(--bc-bg-base);
+            border-bottom: 1px solid var(--bc-border);
+            padding: var(--bc-spacing-2xl) var(--bc-spacing-lg);
+            text-align: center;
+        }
+
+        .about-header h1 {
+            font-size: var(--bc-font-size-3xl);
+            font-weight: var(--bc-font-weight-bold);
+            color: var(--bc-text-primary);
+            margin-bottom: var(--bc-spacing-md);
+            line-height: var(--bc-line-height-tight);
+        }
+
+        .about-section {
+            margin-bottom: var(--bc-spacing-2xl);
+            background: var(--bc-bg-base);
+            padding: var(--bc-spacing-xl);
+            border-radius: var(--bc-radius-md);
+            border: 1px solid var(--bc-border);
+            box-shadow: var(--bc-shadow-sm);
+        }
+
+        .about-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-section h2 {
+            font-size: var(--bc-font-size-xl);
+            font-weight: var(--bc-font-weight-semibold);
+            color: var(--bc-text-primary);
+            margin-top: 0;
+            margin-bottom: var(--bc-spacing-lg);
+            padding-bottom: var(--bc-spacing-sm);
+            border-bottom: 2px solid var(--bc-accent-yellow);
+            line-height: var(--bc-line-height-tight);
+            display: flex;
+            align-items: center;
+            gap: var(--bc-spacing-sm);
+        }
+
+        .about-section-icon {
+            color: var(--bc-accent-blue);
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .about-section p {
+            font-size: var(--bc-font-size-base);
+            line-height: var(--bc-line-height-relaxed);
+            color: var(--bc-text-secondary);
+            margin-bottom: var(--bc-spacing-md);
+        }
+
+        .about-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-list {
+            list-style: none;
+            padding-left: 0;
+            margin: var(--bc-spacing-md) 0;
+        }
+
+        .about-list li {
+            padding: var(--bc-spacing-sm) 0;
+            padding-left: var(--bc-spacing-xl);
+            position: relative;
+            font-size: var(--bc-font-size-base);
+            line-height: var(--bc-line-height-relaxed);
+            color: var(--bc-text-secondary);
+        }
+
+        .about-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--bc-spacing-sm);
+        }
+
+        .about-list-icon {
+            color: var(--bc-accent-blue);
+            font-size: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .about-highlight {
+            background: var(--bc-accent-yellow-light);
+            padding: var(--bc-spacing-lg);
+            border-radius: var(--bc-radius-sm);
+            border-left: 4px solid var(--bc-accent-yellow);
+            margin: var(--bc-spacing-lg) 0;
+        }
+
+        .about-highlight p {
+            margin: 0;
+            color: var(--bc-text-primary);
+            font-weight: var(--bc-font-weight-normal);
+        }
+
+        .about-principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--bc-spacing-md);
+            margin: var(--bc-spacing-lg) 0;
+        }
+
+        .about-principle-item {
+            background: var(--bc-accent-gray-light);
+            padding: var(--bc-spacing-lg);
+            border-radius: var(--bc-radius-sm);
+            border: 1px solid var(--bc-border);
+            display: flex;
+            align-items: flex-start;
+            gap: var(--bc-spacing-md);
+        }
+
+        .about-principle-icon {
+            color: var(--bc-accent-blue);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .about-principle-content {
+            flex: 1;
+        }
+
+        .about-principle-content strong {
+            display: block;
+            color: var(--bc-text-primary);
+            font-weight: var(--bc-font-weight-semibold);
+            margin-bottom: var(--bc-spacing-xs);
+            font-size: var(--bc-font-size-base);
+        }
+
+        .about-principle-content span {
+            color: var(--bc-text-secondary);
+            font-size: var(--bc-font-size-sm);
+            line-height: var(--bc-line-height-relaxed);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--bc-spacing-sm);
+            color: var(--bc-accent-blue);
+            text-decoration: none;
+            font-weight: var(--bc-font-weight-semibold);
+            margin-bottom: var(--bc-spacing-lg);
+            transition: color var(--bc-transition-fast);
+        }
+
+        .back-link:hover {
+            color: var(--bc-accent-blue-light);
+        }
+
+        .back-link .material-icons-outlined {
+            font-size: 20px;
+            text-decoration: none; /* El icono no debe tener subrayado */
+        }
+
+        .back-link .material-icons-outlined:hover {
+            font-size: 20px;
+            text-decoration: none; /* El icono no debe tener subrayado */
+        }
+
+        .back-link:focus-visible {
+            outline: 3px solid var(--bc-focus);
+            outline-offset: 2px;
+            border-radius: var(--bc-radius-sm);
+        }
+
+        .about-link {
+            color: var(--bc-accent-blue);
+            text-decoration: none;
+            font-weight: var(--bc-font-weight-semibold);
+        }
+
+        .about-link:hover {
+            color: var(--bc-accent-blue-light);
+            text-decoration: underline;
+        }
+
+        .about-link:focus-visible {
+            outline: 3px solid var(--bc-focus);
+            outline-offset: 2px;
+            border-radius: var(--bc-radius-sm);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-header h1 {
+                font-size: var(--bc-font-size-2xl);
+            }
+
+            .about-container {
+                padding: var(--bc-spacing-lg) var(--bc-spacing-md);
+            }
+
+            .about-section {
+                padding: var(--bc-spacing-lg);
+            }
+
+            .about-section h2 {
+                font-size: var(--bc-font-size-lg);
+            }
+
+            .about-principles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Modo oscuro */
+        body.modo-oscuro .about-section {
+            background: #1E1E1E;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.modo-oscuro .about-principle-item {
+            background: #2D2D2D;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.modo-oscuro .about-highlight {
+            background: rgba(253, 226, 88, 0.2);
+            border-color: var(--bc-accent-yellow);
+        }
+
+        /* Alto contraste */
+        body.alto-contraste .about-section {
+            border: 2px solid #FFFFFF;
+        }
+
+        body.alto-contraste .about-section h2 {
+            border-color: #FFFF00;
+        }
+    </style>
+</head>
+<body>
+    <!-- Enlace para saltar al contenido principal (accesibilidad) -->
+    <a href="#mainContent" class="skip-link">Saltar al contenido principal</a>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-logo">
+                <a href="index.html" aria-label="Ir a la página principal">
+                    <img src="img/BC_logo.png" alt="Logo Caja de Herramientas" class="logo-image">
+                </a>
+            </div>
+            <h1 class="header-title">Caja de Herramientas</h1>
+            <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-menu">
+                <span class="material-icons-outlined" aria-hidden="true">menu</span>
+            </button>
+            <nav class="header-nav" aria-label="Navegación principal">
+                <a href="index.html" class="header-link">
+                    <span class="material-icons-outlined" aria-hidden="true">home</span>
+                    Inicio
+                </a>
+                <a href="guias-uso.html" class="header-link">
+                    <span class="material-icons-outlined" aria-hidden="true">menu_book</span>
+                    Guías de uso
+                </a>
+                <a href="#" class="header-link header-link-primary">
+                    <span class="material-icons-outlined" aria-hidden="true">add_circle</span>
+                    Crear herramienta
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Menú móvil -->
+    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
+        <div id="mobile-menu-content" class="mobile-menu-content">
+            <div class="mobile-menu-header">
+                <h2 id="mobile-menu-title" class="mobile-menu-title">Menú</h2>
+                <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Cerrar menú">
+                    <span class="material-icons-outlined" aria-hidden="true">close</span>
+                </button>
+            </div>
+            <nav class="mobile-nav" aria-label="Navegación móvil">
+                <a href="index.html" class="header-link">
+                    <span class="material-icons-outlined" aria-hidden="true">home</span>
+                    Inicio
+                </a>
+                <a href="guias-uso.html" class="header-link">
+                    <span class="material-icons-outlined" aria-hidden="true">menu_book</span>
+                    Guías de uso
+                </a>
+                <a href="#" class="header-link header-link-primary">
+                    <span class="material-icons-outlined" aria-hidden="true">add_circle</span>
+                    Crear herramienta
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Sección 1: Título de la Página -->
+    <section class="about-header" aria-labelledby="about-title">
+        <div class="about-header-content">
+            <h1 id="about-title">Acerca de la Caja de Herramientas</h1>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="mainContent" class="main-container" role="main">
+        <div class="about-container">
+            <!-- Enlace de regreso -->
+            <a href="index.html" class="back-link">
+                <span class="material-icons-outlined" aria-hidden="true">arrow_back</span>
+                Volver a la Caja de Herramientas
+            </a>
+
+            <!-- Sección 2: ¿Qué es la Caja de Herramientas? -->
+            <section class="about-section" aria-labelledby="que-es">
+                <h2 id="que-es">
+                    <span class="material-icons-outlined about-section-icon" aria-hidden="true">inventory_2</span>
+                    ¿Qué es la Caja de Herramientas?
+                </h2>
+                <p>
+                    La Caja de Herramientas es un espacio digital diseñado para reunir y organizar metodologías, recursos y herramientas prácticas que apoyan procesos de aprendizaje, colaboración e innovación.
+                </p>
+                <p>
+                    Su objetivo es facilitar el acceso a información clara y aplicable, promoviendo el uso consciente y flexible de las herramientas según las necesidades de cada contexto.
+                </p>
+            </section>
+
+            <!-- Sección 3: ¿Para qué sirve? -->
+            <section class="about-section" aria-labelledby="para-que">
+                <h2 id="para-que">
+                    <span class="material-icons-outlined about-section-icon" aria-hidden="true">help_outline</span>
+                    ¿Para qué sirve?
+                </h2>
+                <p>
+                    La Caja de Herramientas sirve como un punto de consulta y apoyo para personas y equipos que buscan fortalecer sus procesos de trabajo, aprendizaje o desarrollo de proyectos.
+                </p>
+                <p>
+                    Las herramientas disponibles pueden utilizarse como referencia, guía o inspiración, y no como reglas rígidas.
+                </p>
+            </section>
+
+            <!-- Sección 4: ¿A quién está dirigida? -->
+            <section class="about-section" aria-labelledby="dirigida">
+                <h2 id="dirigida">
+                    <span class="material-icons-outlined about-section-icon" aria-hidden="true">people</span>
+                    ¿A quién está dirigida?
+                </h2>
+                <p>Esta plataforma está dirigida a:</p>
+                <ul class="about-list" role="list">
+                    <li role="listitem">
+                        <span class="material-icons-outlined about-list-icon" aria-hidden="true">school</span>
+                        <span>Personas interesadas en aprender nuevas metodologías</span>
+                    </li>
+                    <li role="listitem">
+                        <span class="material-icons-outlined about-list-icon" aria-hidden="true">groups</span>
+                        <span>Equipos de trabajo colaborativo</span>
+                    </li>
+                    <li role="listitem">
+                        <span class="material-icons-outlined about-list-icon" aria-hidden="true">person_outline</span>
+                        <span>Facilitadores, formadores o líderes de proyecto</span>
+                    </li>
+                    <li role="listitem">
+                        <span class="material-icons-outlined about-list-icon" aria-hidden="true">work_outline</span>
+                        <span>Personas que buscan organizar y aplicar herramientas de manera práctica</span>
+                    </li>
+                </ul>
+                <div class="about-highlight" role="note" aria-label="Nota importante">
+                    <p>
+                        <strong>Importante:</strong> No se requieren conocimientos técnicos previos para su uso.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Sección 5: ¿Cómo se utiliza la Caja de Herramientas? -->
+            <section class="about-section" aria-labelledby="como-usar">
+                <h2 id="como-usar">
+                    <span class="material-icons-outlined about-section-icon" aria-hidden="true">touch_app</span>
+                    ¿Cómo se utiliza la Caja de Herramientas?
+                </h2>
+                <p>
+                    El uso de la Caja de Herramientas es sencillo e intuitivo. Las herramientas se presentan en tarjetas organizadas por categorías, lo que permite explorarlas libremente o filtrarlas según la necesidad.
+                </p>
+                <p>
+                    Al seleccionar una herramienta, se muestra su información detallada para facilitar su comprensión y aplicación.
+                </p>
+                <p>
+                    Para más información sobre cómo usar la plataforma, puedes consultar nuestras <a href="guias-uso.html" class="about-link">guías de uso</a>.
+                </p>
+            </section>
+
+            <!-- Sección 6: Principios del proyecto -->
+            <section class="about-section" aria-labelledby="principios">
+                <h2 id="principios">Principios del proyecto</h2>
+                <p>La Caja de Herramientas se basa en los siguientes principios:</p>
+                <div class="about-principles-grid" role="list">
+                    <div class="about-principle-item" role="listitem">
+                        <span class="material-icons-outlined about-principle-icon" aria-hidden="true">visibility</span>
+                        <div class="about-principle-content">
+                            <strong>Claridad y simplicidad</strong>
+                            <span>Información presentada de forma clara y fácil de entender</span>
+                        </div>
+                    </div>
+                    <div class="about-principle-item" role="listitem">
+                        <span class="material-icons-outlined about-principle-icon" aria-hidden="true">accessibility_new</span>
+                        <div class="about-principle-content">
+                            <strong>Accesibilidad para todas las personas</strong>
+                            <span>Diseño inclusivo que garantiza el acceso universal</span>
+                        </div>
+                    </div>
+                    <div class="about-principle-item" role="listitem">
+                        <span class="material-icons-outlined about-principle-icon" aria-hidden="true">build</span>
+                        <div class="about-principle-content">
+                            <strong>Enfoque práctico y aplicable</strong>
+                            <span>Herramientas diseñadas para ser utilizadas en contextos reales</span>
+                        </div>
+                    </div>
+                    <div class="about-principle-item" role="listitem">
+                        <span class="material-icons-outlined about-principle-icon" aria-hidden="true">tune</span>
+                        <div class="about-principle-content">
+                            <strong>Flexibilidad en el uso</strong>
+                            <span>Adaptación de las herramientas según cada necesidad</span>
+                        </div>
+                    </div>
+                    <div class="about-principle-item" role="listitem">
+                        <span class="material-icons-outlined about-principle-icon" aria-hidden="true">trending_up</span>
+                        <div class="about-principle-content">
+                            <strong>Mejora continua</strong>
+                            <span>Evolución constante basada en feedback y aprendizaje</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección 7: Accesibilidad y usabilidad -->
+            <section class="about-section" aria-labelledby="accesibilidad">
+                <h2 id="accesibilidad">
+                    <span class="material-icons-outlined about-section-icon" aria-hidden="true">accessibility_new</span>
+                    Accesibilidad y usabilidad
+                </h2>
+                <p>
+                    Este proyecto ha sido diseñado teniendo en cuenta principios de accesibilidad y usabilidad, con el objetivo de garantizar una experiencia inclusiva.
+                </p>
+                <p>
+                    Se promueve la navegación por teclado, el uso de lenguaje claro y un diseño visual que facilite la lectura y la interacción.
+                </p>
+                <p>
+                    La Caja de Herramientas cumple con los estándares <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2.1 nivel AA, asegurando que todas las personas puedan acceder y utilizar la plataforma de manera efectiva.
+                </p>
+            </section>
+
+            <!-- Sección 8: Evolución y mejora continua -->
+            <section class="about-section" aria-labelledby="evolucion">
+                <h2 id="evolucion">
+                    <span class="material-icons-outlined about-section-icon" aria-hidden="true">trending_up</span>
+                    Evolución y mejora continua
+                </h2>
+                <p>
+                    La Caja de Herramientas es un proyecto en constante evolución. Los contenidos y funcionalidades pueden actualizarse con el tiempo para responder a nuevas necesidades y aprendizajes.
+                </p>
+                <p>
+                    Los comentarios y sugerencias de los usuarios son fundamentales para su mejora. Si deseas compartir tu experiencia o proponer mejoras, puedes hacerlo a través de nuestros <a href="contacto.html" class="about-link">canales de contacto</a>.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">Caja de Herramientas</h3>
+                <p class="footer-description">
+                    Herramientas colaborativas para el desarrollo de proyectos innovadores.
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-section-title">Recursos</h4>
+                <ul class="footer-links">
+                    <li><a href="guias-uso.html" class="footer-link">Guías de uso</a></li>
+                    <li><a href="contacto.html" class="footer-link">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-section-title">Información</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html" class="footer-link">Inicio</a></li>
+                    <li><a href="acerca-de.html" class="footer-link">Acerca de</a></li>
+                    <li><a href="contacto.html" class="footer-link">Contacto</a></li>
+                    <li><a href="politica-privacidad.html" class="footer-link">Política de privacidad</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-section-title">Accesibilidad</h4>
+                <p class="footer-accessibility">
+                    Este sitio cumple con los estándares WCAG 2.1 nivel AA para garantizar una experiencia accesible para todos los usuarios.
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p class="footer-copyright">
+                    &copy; <span id="current-year"></span> Bancolombia. Todos los derechos reservados.
+                </p>
+                <div class="footer-badge">
+                    <span class="material-icons-outlined" aria-hidden="true">verified</span>
+                    <span>Accesible</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/libs/gsap.min.js"></script>
+    <script src="js/loader.js" defer></script>
+    <script src="js/page-transition.js" defer></script>
+    <script src="js/mobile-menu.js" defer></script>
+    <script src="js/animaciones.js" defer></script>
+    <script defer src="js/accesibilidad.js"></script>
+    <script>
+        // Actualizar año en el footer
+        document.addEventListener('DOMContentLoaded', () => {
+            const yearElement = document.getElementById('current-year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>

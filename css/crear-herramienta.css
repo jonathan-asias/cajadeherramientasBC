@@ -91,6 +91,7 @@ body {
 
 .back-link .material-icons-outlined {
     font-size: 20px;
+    text-decoration: none; /* El icono no debe tener subrayado */
 }
 
 .header-title {
@@ -156,6 +157,15 @@ body {
     font-weight: 500;
     color: var(--text-primary);
     letter-spacing: -0.2px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.section-title-icon {
+    color: var(--blue-google);
+    font-size: 28px;
+    flex-shrink: 0;
 }
 
 .form-grid {
@@ -298,7 +308,7 @@ body {
     border: none;
     width: 32px;
     height: 32px;
-    border-radius: 8px;
+    border-radius: 9999px; /* Botón completamente redondeado */
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -315,11 +325,11 @@ body {
 }
 
 .btn-add {
-    background: var(--card-bg);
+    background: #fdda24; /* Amarillo principal */
     color: var(--text-primary);
-    border: 1px solid var(--border-light);
+    border: none;
     padding: 10px 20px;
-    border-radius: 8px;
+    border-radius: 9999px; /* Botón completamente redondeado */
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
@@ -332,12 +342,12 @@ body {
 }
 
 .btn-add:hover {
-    background: var(--hover-bg);
-    border-color: var(--text-secondary);
+    background: #FDE773; /* Amarillo claro en hover */
+    border-color: transparent;
 }
 
 .btn-add:active {
-    background: var(--hover-bg-strong);
+    background: #FDE258; /* Amarillo intermedio al presionar */
 }
 
 .btn-add .material-icons-outlined {
@@ -410,7 +420,7 @@ body {
     border: none;
     width: 32px;
     height: 32px;
-    border-radius: 50%;
+    border-radius: 9999px; /* Botón completamente redondeado */
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -453,7 +463,7 @@ body {
     border: none;
     width: 28px;
     height: 28px;
-    border-radius: 6px;
+    border-radius: 9999px; /* Botón completamente redondeado */
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -522,7 +532,7 @@ body {
 .btn {
     padding: 10px 24px;
     border: none;
-    border-radius: 8px;
+    border-radius: 9999px; /* Botón completamente redondeado */
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
@@ -536,13 +546,13 @@ body {
 }
 
 .btn-primary {
-    background: var(--blue-google);
-    color: #FFFFFF;
+    background: #fdda24; /* Amarillo principal */
+    color: var(--text-primary);
     box-shadow: var(--shadow-1);
 }
 
 .btn-primary:hover {
-    background: #1557B0;
+    background: #FDE773; /* Amarillo claro en hover */
     box-shadow: var(--shadow-2);
     transform: translateY(-1px);
 }
@@ -553,18 +563,19 @@ body {
 }
 
 .btn-secondary {
-    background: var(--card-bg);
-    color: var(--text-primary);
-    border: 1px solid var(--border-light);
+    background: #2c2a29; /* Negro para botones secundarios */
+    color: #FFFFFF; /* Texto blanco para contraste */
+    border: 1px solid #2c2a29;
 }
 
 .btn-secondary:hover {
-    background: var(--hover-bg);
-    border-color: var(--text-secondary);
+    background: #3a3837; /* Negro más claro en hover */
+    border-color: #3a3837;
+    color: #FFFFFF;
 }
 
 .btn-secondary:active {
-    background: var(--hover-bg-strong);
+    background: #1f1d1c; /* Negro más oscuro al presionar */
 }
 
 .btn:disabled {

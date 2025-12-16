@@ -35,6 +35,15 @@
             color: var(--bc-text-primary);
             margin-bottom: var(--bc-spacing-lg);
             line-height: var(--bc-line-height-tight);
+            display: flex;
+            align-items: center;
+            gap: var(--bc-spacing-sm);
+        }
+
+        .guide-title-icon {
+            color: var(--bc-accent-blue);
+            font-size: 32px;
+            flex-shrink: 0;
         }
 
         .guide-subtitle {
@@ -45,6 +54,15 @@
             margin-bottom: var(--bc-spacing-md);
             padding-bottom: var(--bc-spacing-sm);
             border-bottom: 2px solid var(--bc-accent-yellow);
+            display: flex;
+            align-items: center;
+            gap: var(--bc-spacing-sm);
+        }
+
+        .guide-subtitle-icon {
+            color: var(--bc-accent-blue);
+            font-size: 28px;
+            flex-shrink: 0;
         }
 
         .guide-text {
@@ -134,6 +152,10 @@
             color: var(--bc-accent-blue-light);
         }
 
+        .back-link .material-icons-outlined {
+            text-decoration: none; /* El icono no debe tener subrayado */
+        }
+
         .back-link:focus-visible {
             outline: 3px solid var(--bc-focus);
             outline-offset: 2px;
@@ -152,9 +174,23 @@
             background: var(--bc-accent-gray-light);
             border-radius: var(--bc-radius-sm);
             border: 1px solid var(--bc-border);
+            display: flex;
+            align-items: flex-start;
+            gap: var(--bc-spacing-md);
         }
 
-        .guide-feature-item strong {
+        .guide-feature-icon {
+            color: var(--bc-accent-blue);
+            font-size: 32px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .guide-feature-content {
+            flex: 1;
+        }
+
+        .guide-feature-content strong {
             display: block;
             color: var(--bc-text-primary);
             margin-bottom: var(--bc-spacing-xs);
@@ -191,18 +227,43 @@
                 <img src="img/BC_logo.png" alt="Logo Caja de Herramientas" class="logo-image">
             </div>
             <h1 class="header-title">Caja de Herramientas</h1>
-            <nav class="header-nav">
+            <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-menu">
+                <span class="material-icons-outlined" aria-hidden="true">menu</span>
+            </button>
+            <nav class="header-nav" aria-label="Navegación principal">
                 <a href="index.html" class="header-link">
                     <span class="material-icons-outlined" aria-hidden="true">home</span>
                     Inicio
                 </a>
-                <a href="crear-herramienta.html" class="header-link header-link-primary">
+                <a href="#" class="header-link header-link-primary">
                     <span class="material-icons-outlined" aria-hidden="true">add_circle</span>
                     Crear herramienta
                 </a>
             </nav>
         </div>
     </header>
+
+    <!-- Menú móvil -->
+    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
+        <div id="mobile-menu-content" class="mobile-menu-content">
+            <div class="mobile-menu-header">
+                <h2 id="mobile-menu-title" class="mobile-menu-title">Menú</h2>
+                <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Cerrar menú">
+                    <span class="material-icons-outlined" aria-hidden="true">close</span>
+                </button>
+            </div>
+            <nav class="mobile-nav" aria-label="Navegación móvil">
+                <a href="index.html" class="header-link">
+                    <span class="material-icons-outlined" aria-hidden="true">home</span>
+                    Inicio
+                </a>
+                <a href="#" class="header-link header-link-primary">
+                    <span class="material-icons-outlined" aria-hidden="true">add_circle</span>
+                    Crear herramienta
+                </a>
+            </nav>
+        </div>
+    </div>
 
     <!-- Main Content -->
     <main id="mainContent" class="main-container" role="main">
@@ -214,7 +275,10 @@
             </a>
 
             <!-- Título principal -->
-            <h1 class="guide-title">Guías de Uso</h1>
+            <h1 class="guide-title">
+                <span class="material-icons-outlined guide-title-icon" aria-hidden="true">menu_book</span>
+                Guías de Uso
+            </h1>
 
             <!-- Sección 1: Introducción -->
             <section class="guide-section" aria-labelledby="intro-guide">
@@ -225,7 +289,10 @@
 
             <!-- Sección 2: Organización -->
             <section class="guide-section" aria-labelledby="organizacion">
-                <h2 id="organizacion" class="guide-subtitle">¿Cómo está organizada la Caja de Herramientas?</h2>
+                <h2 id="organizacion" class="guide-subtitle">
+                    <span class="material-icons-outlined guide-subtitle-icon" aria-hidden="true">view_module</span>
+                    ¿Cómo está organizada la Caja de Herramientas?
+                </h2>
                 <p class="guide-text">
                     Las herramientas están organizadas en tarjetas (cards) que presentan información clave como el nombre de la herramienta, su categoría y una breve descripción. Cada tarjeta representa una herramienta diferente.
                 </p>
@@ -236,7 +303,10 @@
 
             <!-- Sección 3: Uso de filtros -->
             <section class="guide-section" aria-labelledby="filtros">
-                <h2 id="filtros" class="guide-subtitle">Uso de filtros</h2>
+                <h2 id="filtros" class="guide-subtitle">
+                    <span class="material-icons-outlined guide-subtitle-icon" aria-hidden="true">filter_list</span>
+                    Uso de filtros
+                </h2>
                 <p class="guide-text">
                     En la parte superior encontrarás filtros que te permiten refinar la búsqueda según diferentes criterios, como categoría o tipo de herramienta.
                 </p>
@@ -251,7 +321,10 @@
 
             <!-- Sección 4: Visualización -->
             <section class="guide-section" aria-labelledby="visualizacion">
-                <h2 id="visualizacion" class="guide-subtitle">Visualización de una herramienta</h2>
+                <h2 id="visualizacion" class="guide-subtitle">
+                    <span class="material-icons-outlined guide-subtitle-icon" aria-hidden="true">visibility</span>
+                    Visualización de una herramienta
+                </h2>
                 <p class="guide-text">
                     Al hacer clic sobre una tarjeta, se abrirá una ventana con la información completa de la herramienta seleccionada.
                 </p>
@@ -268,7 +341,10 @@
 
             <!-- Sección 5: Uso en proyectos -->
             <section class="guide-section" aria-labelledby="proyectos">
-                <h2 id="proyectos" class="guide-subtitle">¿Cómo usar una herramienta en tu proyecto?</h2>
+                <h2 id="proyectos" class="guide-subtitle">
+                    <span class="material-icons-outlined guide-subtitle-icon" aria-hidden="true">rocket_launch</span>
+                    ¿Cómo usar una herramienta en tu proyecto?
+                </h2>
                 <p class="guide-text">
                     Cada herramienta está pensada para ser utilizada de forma práctica. Puedes aplicarla en sesiones de trabajo, talleres, procesos de aprendizaje o desarrollo de proyectos.
                 </p>
@@ -295,27 +371,42 @@
                 <h3 class="guide-subtitle" style="font-size: var(--bc-font-size-lg); margin-top: var(--bc-spacing-md); border-bottom: 1px solid var(--bc-border);">Incluye:</h3>
                 <div class="guide-feature-list">
                     <div class="guide-feature-item">
-                        <strong>Navegación por teclado</strong>
-                        <span>Usa Tab para navegar entre elementos</span>
+                        <span class="material-icons-outlined guide-feature-icon" aria-hidden="true">keyboard</span>
+                        <div class="guide-feature-content">
+                            <strong>Navegación por teclado</strong>
+                            <span>Usa Tab para navegar entre elementos</span>
+                        </div>
                     </div>
                     <div class="guide-feature-item">
-                        <strong>Contraste adecuado</strong>
-                        <span>Colores que cumplen estándares WCAG</span>
+                        <span class="material-icons-outlined guide-feature-icon" aria-hidden="true">contrast</span>
+                        <div class="guide-feature-content">
+                            <strong>Contraste adecuado</strong>
+                            <span>Colores que cumplen estándares WCAG</span>
+                        </div>
                     </div>
                     <div class="guide-feature-item">
-                        <strong>Texto claro</strong>
-                        <span>Lenguaje simple y legible</span>
+                        <span class="material-icons-outlined guide-feature-icon" aria-hidden="true">text_fields</span>
+                        <div class="guide-feature-content">
+                            <strong>Texto claro</strong>
+                            <span>Lenguaje simple y legible</span>
+                        </div>
                     </div>
                     <div class="guide-feature-item">
-                        <strong>Lectores de pantalla</strong>
-                        <span>Compatible con tecnologías asistivas</span>
+                        <span class="material-icons-outlined guide-feature-icon" aria-hidden="true">hearing</span>
+                        <div class="guide-feature-content">
+                            <strong>Lectores de pantalla</strong>
+                            <span>Compatible con tecnologías asistivas</span>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <!-- Sección 7: Buenas prácticas -->
             <section class="guide-section" aria-labelledby="buenas-practicas">
-                <h2 id="buenas-practicas" class="guide-subtitle">Buenas prácticas</h2>
+                <h2 id="buenas-practicas" class="guide-subtitle">
+                    <span class="material-icons-outlined guide-subtitle-icon" aria-hidden="true">star</span>
+                    Buenas prácticas
+                </h2>
                 <ul class="guide-list">
                     <li>Explora diferentes herramientas antes de elegir una.</li>
                     <li>Comparte las herramientas con tu equipo.</li>
@@ -326,7 +417,10 @@
 
             <!-- Sección 8: Cierre motivacional -->
             <section class="guide-section" aria-labelledby="cierre">
-                <h2 id="cierre" class="guide-subtitle">Cierre motivacional</h2>
+                <h2 id="cierre" class="guide-subtitle">
+                    <span class="material-icons-outlined guide-subtitle-icon" aria-hidden="true">favorite</span>
+                    Cierre motivacional
+                </h2>
                 <p class="guide-text">
                     La Caja de Herramientas está en constante evolución. Te invitamos a explorar, aprender y aplicar las herramientas de la manera que mejor se adapte a tu proceso.
                 </p>
@@ -348,16 +442,16 @@
                 <h4 class="footer-section-title">Recursos</h4>
                 <ul class="footer-links">
                     <li><a href="guias-uso.html" class="footer-link">Guías de uso</a></li>
-                    <li><a href="#" class="footer-link">Soporte</a></li>
+                    <li><a href="contacto.html" class="footer-link">Contacto</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
                 <h4 class="footer-section-title">Información</h4>
                 <ul class="footer-links">
-                    <li><a href="#" class="footer-link">Acerca de</a></li>
-                    <li><a href="#" class="footer-link">Contacto</a></li>
-                    <li><a href="#" class="footer-link">Política de privacidad</a></li>
+                    <li><a href="acerca-de.html" class="footer-link">Acerca de</a></li>
+                    <li><a href="contacto.html" class="footer-link">Contacto</a></li>
+                    <li><a href="politica-privacidad.html" class="footer-link">Política de privacidad</a></li>
                 </ul>
             </div>
             
@@ -382,6 +476,10 @@
         </div>
     </footer>
 
+    <script src="js/libs/gsap.min.js"></script>
+    <script src="js/loader.js" defer></script>
+    <script src="js/page-transition.js" defer></script>
+    <script src="js/mobile-menu.js" defer></script>
     <script>
         // Actualizar año en el footer
         document.addEventListener('DOMContentLoaded', () => {
@@ -391,6 +489,7 @@
             }
         });
     </script>
+    <script defer src="js/accesibilidad.js"></script>
 </body>
 </html>
 

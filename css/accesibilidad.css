@@ -11,10 +11,10 @@
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: var(--bc-accent-blue, #00365F);
-    color: #FFFFFF;
+    background: #fdda24; /* Amarillo principal */
+    color: #000000; /* Icono negro */
     border: none;
-    box-shadow: var(--bc-shadow-lg, 0 4px 12px rgba(0, 54, 95, 0.3));
+    box-shadow: var(--bc-shadow-lg, 0 4px 12px rgba(253, 218, 36, 0.3));
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -26,8 +26,9 @@
 
 #btn-accesibilidad-toggle:hover {
     transform: scale(1.1);
-    box-shadow: var(--bc-shadow-xl, 0 6px 16px rgba(0, 54, 95, 0.4));
-    background: var(--bc-accent-blue-light, #004A7A);
+    box-shadow: var(--bc-shadow-xl, 0 6px 16px rgba(253, 218, 36, 0.4));
+    background: #FDE773; /* Amarillo claro en hover */
+    color: #000000; /* Icono negro */
 }
 
 #btn-accesibilidad-toggle:active {
@@ -36,6 +37,7 @@
 
 #btn-accesibilidad-toggle .material-icons-outlined {
     font-size: 28px;
+    color: #000000; /* Icono negro */
 }
 
 /* Overlay para el panel */
@@ -166,7 +168,7 @@
     flex: 1;
     padding: 10px 16px;
     border: 1px solid var(--border-light, #DADCE0);
-    border-radius: 8px;
+    border-radius: 9999px; /* Botón completamente redondeado */
     background: var(--card-bg, #FFFFFF);
     color: var(--text-primary, #202124);
     font-size: 16px;
@@ -189,9 +191,9 @@
 }
 
 .a11y-font-btn.active {
-    background: var(--bc-accent-blue, #00365F);
-    color: #FFFFFF;
-    border-color: var(--bc-accent-blue, #00365F);
+    background: #fdda24; /* Amarillo principal */
+    color: #000000; /* Texto negro */
+    border-color: #fdda24;
 }
 
 /* Switches estilo Material */
@@ -264,7 +266,7 @@
 }
 
 .a11y-switch input:checked + .a11y-switch-slider {
-    background-color: var(--bc-accent-blue, #00365F);
+    background-color: #fdda24; /* Amarillo principal */
 }
 
 .a11y-switch input:checked + .a11y-switch-slider:before {
@@ -345,6 +347,42 @@ body.alto-contraste .modal-tag {
 /* Botones con borde blanco y fondo oscuro */
 body.alto-contraste button,
 body.alto-contraste .btn-crear-herramienta,
+body.alto-contraste .header-link-primary,
+body.alto-contraste .btn-primary,
+body.alto-contraste .btn-add {
+    background: #fdda24 !important; /* Amarillo principal */
+    color: #000000 !important;
+    border: 2px solid #000000 !important;
+}
+
+body.alto-contraste .btn-crear-herramienta:hover,
+body.alto-contraste .header-link-primary:hover,
+body.alto-contraste .btn-primary:hover,
+body.alto-contraste .btn-add:hover,
+body.alto-contraste button:hover {
+    background: #FDE773 !important; /* Amarillo claro en hover */
+    color: #000000 !important;
+    border-color: #000000 !important;
+}
+
+body.alto-contraste .header-link:hover {
+    background: #2c2a29 !important; /* Negro en hover */
+    color: #FFFFFF !important; /* Texto blanco */
+    border: 2px solid #FFFFFF !important; /* Borde blanco para alto contraste */
+    border-radius: 9999px !important; /* Botón completamente redondeado */
+}
+
+body.alto-contraste .btn-secondary {
+    background: #2c2a29 !important; /* Negro para botones secundarios */
+    color: #FFFFFF !important;
+    border: 2px solid #FFFFFF !important;
+}
+
+body.alto-contraste .btn-secondary:hover {
+    background: #3a3837 !important; /* Negro más claro en hover */
+    border-color: #FFFFFF !important;
+}
+
 body.alto-contraste .a11y-font-btn,
 body.alto-contraste .a11y-close {
     background: #111111 !important;
@@ -352,11 +390,15 @@ body.alto-contraste .a11y-close {
     border: 2px solid #FFFFFF !important;
 }
 
-body.alto-contraste .btn-crear-herramienta:hover,
-body.alto-contraste button:hover {
-    background: #FFFF00 !important;
-    color: #000000 !important;
-    border-color: #FFFF00 !important;
+body.alto-contraste .a11y-font-btn.active {
+    background: #fdda24 !important; /* Amarillo principal */
+    color: #000000 !important; /* Texto negro */
+    border: 2px solid #000000 !important;
+}
+
+body.alto-contraste .a11y-switch input:checked + .a11y-switch-slider {
+    background-color: #fdda24 !important; /* Amarillo principal */
+    border: 2px solid #000000 !important;
 }
 
 /* Inputs y selects */
@@ -405,10 +447,14 @@ body.alto-contraste img {
 
 /* Botón flotante de accesibilidad */
 body.alto-contraste #btn-accesibilidad-toggle {
-    background: #FFFF00 !important;
+    background: #fdda24 !important; /* Amarillo principal */
     color: #000000 !important;
-    border: 2px solid #FFFFFF !important;
-    box-shadow: 0 4px 12px rgba(255, 255, 0, 0.6) !important;
+    border: 2px solid #000000 !important;
+    box-shadow: 0 4px 12px rgba(253, 218, 36, 0.6) !important;
+}
+
+body.alto-contraste #btn-accesibilidad-toggle:hover {
+    background: #FDE773 !important; /* Amarillo claro en hover */
 }
 
 body.alto-contraste #btn-accesibilidad-toggle .material-icons-outlined {
@@ -503,30 +549,120 @@ body.modo-oscuro .modal-tag {
 
 /* Botones */
 body.modo-oscuro button,
-body.modo-oscuro .btn-crear-herramienta,
 body.modo-oscuro .a11y-font-btn,
 body.modo-oscuro .a11y-close,
-body.modo-oscuro .btn-add,
-body.modo-oscuro .btn,
+body.modo-oscuro .btn-secondary,
 body.modo-oscuro .modal-close {
     background: #2D2D2D !important;
     color: #EAEAEA !important;
     border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-body.modo-oscuro .btn-crear-herramienta {
-    background: var(--bc-accent-yellow, #FDE258) !important;
+body.modo-oscuro .btn-secondary {
+    background: #2c2a29 !important; /* Negro para botones secundarios */
+    color: #FFFFFF !important;
+    border-color: #2c2a29 !important;
+}
+
+body.modo-oscuro .btn-secondary:hover {
+    background: #3a3837 !important; /* Negro más claro en hover */
+    border-color: #3a3837 !important;
+}
+
+body.modo-oscuro .btn-crear-herramienta,
+body.modo-oscuro .header-link-primary,
+body.modo-oscuro .btn-primary,
+body.modo-oscuro .btn-add {
+    background: #fdda24 !important; /* Amarillo principal */
     color: var(--bc-text-primary, #000000) !important;
 }
 
-body.modo-oscuro .btn-crear-herramienta:hover {
-    background: var(--bc-accent-yellow-dark, #EDC602) !important;
+body.modo-oscuro .btn-crear-herramienta:hover,
+body.modo-oscuro .header-link-primary:hover,
+body.modo-oscuro .btn-primary:hover,
+body.modo-oscuro .btn-add:hover {
+    background: #FDE773 !important; /* Amarillo claro en hover */
+}
+
+body.modo-oscuro #btn-accesibilidad-toggle {
+    background: #fdda24 !important; /* Amarillo principal */
+    color: #000000 !important; /* Icono negro */
+}
+
+body.modo-oscuro #btn-accesibilidad-toggle:hover {
+    background: #FDE773 !important; /* Amarillo claro en hover */
+    color: #000000 !important; /* Icono negro */
+}
+
+body.modo-oscuro #btn-accesibilidad-toggle .material-icons-outlined {
+    color: #000000 !important; /* Icono negro */
+}
+
+body.modo-oscuro .header-link:hover {
+    background: #2c2a29 !important; /* Negro en hover */
+    color: #FFFFFF !important; /* Texto blanco */
+    border-radius: 9999px !important; /* Botón completamente redondeado */
+}
+
+/* Menú móvil en modo oscuro */
+body.modo-oscuro .mobile-menu-content {
+    background: #1E1E1E !important;
+    color: #EAEAEA !important;
+}
+
+body.modo-oscuro .mobile-menu-title {
+    color: #EAEAEA !important;
+}
+
+body.modo-oscuro .mobile-menu-close {
+    color: #EAEAEA !important;
+}
+
+body.modo-oscuro .mobile-menu-close:hover {
+    background: #3D3D3D !important;
+}
+
+/* Menú móvil en alto contraste */
+body.alto-contraste .mobile-menu-content {
+    background: #000000 !important;
+    border: 2px solid #FFFFFF !important;
+    color: #FFFFFF !important;
+}
+
+body.alto-contraste .mobile-menu-title {
+    color: #FFFFFF !important;
+    border-bottom: 2px solid #FFFFFF !important;
+}
+
+body.alto-contraste .mobile-menu-close {
+    color: #FFFFFF !important;
+    border: 2px solid #FFFFFF !important;
+}
+
+body.alto-contraste .mobile-menu-close:hover {
+    background: #FFFF00 !important;
+    color: #000000 !important;
+}
+
+body.alto-contraste .menu-toggle {
+    border: 2px solid currentColor !important;
+}
+
+body.alto-contraste .menu-toggle:hover {
+    background: #FFFF00 !important;
+    color: #000000 !important;
 }
 
 body.modo-oscuro button:hover,
 body.modo-oscuro .a11y-font-btn:hover,
 body.modo-oscuro .a11y-close:hover {
     background: #3D3D3D !important;
+}
+
+body.modo-oscuro .a11y-font-btn.active {
+    background: #fdda24 !important; /* Amarillo principal */
+    color: #000000 !important; /* Texto negro */
+    border-color: #fdda24 !important;
 }
 
 /* Enlaces */
@@ -560,7 +696,7 @@ body.modo-oscuro .a11y-switch-slider {
 }
 
 body.modo-oscuro .a11y-switch input:checked + .a11y-switch-slider {
-    background-color: var(--bc-accent-blue, #00365F) !important;
+    background-color: #fdda24 !important; /* Amarillo principal */
 }
 
 /* Espaciado amplio */
@@ -650,9 +786,5 @@ body.modo-oscuro #panelAccesibilidad {
     border: 2px solid currentColor;
 }
 
-body.alto-contraste #btn-accesibilidad-toggle {
-    background: #FFFF00 !important;
-    color: #000000 !important;
-    border: 2px solid #FFFFFF !important;
-}
+/* Estilos adicionales para alto contraste ya definidos arriba */
 
