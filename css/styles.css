@@ -488,21 +488,242 @@ p, label, select, input, textarea {
     margin-bottom: var(--bc-spacing-xl);
 }
 
+/* Texto introductorio de filtros */
+.filters-intro {
+    text-align: center;
+    color: var(--bc-text-secondary);
+    font-size: var(--bc-font-size-sm);
+    margin-bottom: var(--bc-spacing-md);
+    font-style: italic;
+}
+
 .filters-container {
     background: var(--bc-bg-base);
     border-radius: var(--bc-radius-md);
     padding: var(--bc-spacing-lg);
     display: flex;
     flex-wrap: wrap;
-    gap: var(--bc-spacing-lg);
+    gap: var(--bc-spacing-md);
     box-shadow: var(--bc-shadow-md);
     border: 1px solid var(--bc-border);
+    justify-content: center;
 }
 
-.filter-group {
-    flex: 1;
-    min-width: 200px;
+/* ============================================
+   FILTROS DROPDOWN CON CHECKBOXES
+   ============================================ */
+
+.filter-dropdown {
     position: relative;
+    flex: 1;
+    min-width: 250px;
+    max-width: 320px;
+}
+
+.filter-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: var(--bc-spacing-sm);
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--bc-bg-base);
+    border: 2px solid var(--bc-border);
+    border-radius: var(--bc-radius-md);
+    cursor: pointer;
+    transition: all var(--bc-transition-fast);
+    font-family: inherit;
+    font-size: var(--bc-font-size-sm);
+    color: var(--bc-text-primary);
+    text-align: left;
+}
+
+.filter-dropdown-toggle:hover {
+    border-color: var(--bc-accent-yellow);
+    background-color: var(--bc-hover-bg);
+}
+
+.filter-dropdown-toggle:focus-visible {
+    outline: 3px solid var(--bc-focus);
+    outline-offset: 2px;
+}
+
+.filter-dropdown-toggle[aria-expanded="true"] {
+    border-color: var(--bc-accent-yellow);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.filter-dropdown-icon {
+    font-size: 20px;
+    color: var(--bc-accent-yellow);
+    flex-shrink: 0;
+}
+
+.filter-dropdown-label {
+    flex: 1;
+    font-weight: var(--bc-font-weight-semibold);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.filter-dropdown-count {
+    background: var(--bc-accent-yellow);
+    color: var(--bc-text-primary);
+    font-size: 11px;
+    font-weight: var(--bc-font-weight-bold);
+    padding: 2px 8px;
+    border-radius: var(--bc-radius-full);
+    display: none;
+}
+
+.filter-dropdown-count:not(:empty) {
+    display: inline-block;
+}
+
+.filter-dropdown-arrow {
+    font-size: 20px;
+    color: var(--bc-text-secondary);
+    transition: transform var(--bc-transition-fast);
+    flex-shrink: 0;
+}
+
+.filter-dropdown-toggle[aria-expanded="true"] .filter-dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* Menú desplegable */
+.filter-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bc-bg-base);
+    border: 2px solid var(--bc-accent-yellow);
+    border-top: none;
+    border-radius: 0 0 var(--bc-radius-md) var(--bc-radius-md);
+    box-shadow: var(--bc-shadow-lg);
+    z-index: 50;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.2s ease;
+}
+
+.filter-dropdown.open .filter-dropdown-menu {
+    max-height: 300px;
+    overflow-y: auto;
+    opacity: 1;
+}
+
+/* Opción del dropdown */
+.filter-dropdown-option {
+    display: flex;
+    align-items: center;
+    gap: var(--bc-spacing-sm);
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background-color var(--bc-transition-fast);
+    font-size: var(--bc-font-size-sm);
+    color: var(--bc-text-secondary);
+}
+
+.filter-dropdown-option:hover {
+    background-color: var(--bc-hover-bg);
+}
+
+/* Checkbox oculto */
+.filter-dropdown-option .filter-checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Checkbox personalizado */
+.filter-checkbox-custom {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--bc-border-strong);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--bc-transition-fast);
+    flex-shrink: 0;
+}
+
+.filter-checkbox-custom::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: var(--bc-accent-yellow);
+    border-radius: 2px;
+    transform: scale(0);
+    transition: transform var(--bc-transition-fast);
+}
+
+.filter-dropdown-option:has(.filter-checkbox:checked) .filter-checkbox-custom {
+    border-color: var(--bc-accent-yellow);
+    background: var(--bc-accent-yellow-light);
+}
+
+.filter-dropdown-option:has(.filter-checkbox:checked) .filter-checkbox-custom::after {
+    transform: scale(1);
+}
+
+.filter-dropdown-option:has(.filter-checkbox:checked) {
+    background-color: rgba(253, 218, 36, 0.1);
+    color: var(--bc-text-primary);
+    font-weight: var(--bc-font-weight-semibold);
+}
+
+.filter-dropdown-option:has(.filter-checkbox:focus-visible) .filter-checkbox-custom {
+    outline: 3px solid var(--bc-focus);
+    outline-offset: 2px;
+}
+
+.filter-option-text {
+    flex: 1;
+}
+
+/* Estado con filtros activos */
+.filter-dropdown.has-selection .filter-dropdown-toggle {
+    border-color: var(--bc-accent-yellow);
+    background-color: rgba(253, 218, 36, 0.08);
+}
+
+/* Botón limpiar filtros */
+.btn-limpiar-filtros {
+    display: flex;
+    align-items: center;
+    gap: var(--bc-spacing-xs);
+    padding: 10px 16px;
+    background: transparent;
+    border: 2px solid var(--bc-border);
+    border-radius: var(--bc-radius-full);
+    color: var(--bc-text-secondary);
+    font-family: inherit;
+    font-size: var(--bc-font-size-sm);
+    font-weight: var(--bc-font-weight-semibold);
+    cursor: pointer;
+    transition: all var(--bc-transition-fast);
+    white-space: nowrap;
+}
+
+.btn-limpiar-filtros:hover {
+    background: var(--bc-hover-bg);
+    border-color: var(--bc-text-secondary);
+    color: var(--bc-text-primary);
+}
+
+.btn-limpiar-filtros:focus-visible {
+    outline: 3px solid var(--bc-focus);
+    outline-offset: 2px;
+}
+
+.btn-limpiar-filtros .material-icons-outlined {
+    font-size: 18px;
 }
 
 .filter-group.has-active-filter::after {
@@ -745,8 +966,61 @@ body.alto-contraste .tool-card:focus-visible {
     font-size: var(--bc-font-size-lg);
     font-weight: var(--bc-font-weight-semibold);
     color: var(--bc-text-primary);
-    margin-bottom: var(--bc-spacing-md);
+    margin-bottom: var(--bc-spacing-sm);
     line-height: var(--bc-line-height-tight);
+}
+
+/* Descripción breve en las cards */
+.card-description {
+    font-size: var(--bc-font-size-sm);
+    color: var(--bc-text-secondary);
+    line-height: var(--bc-line-height-normal);
+    margin-bottom: var(--bc-spacing-md);
+    flex: 1;
+}
+
+/* Badges en las cards */
+.card-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--bc-spacing-xs);
+    margin-top: auto;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: var(--bc-radius-full);
+    font-size: 11px;
+    font-weight: var(--bc-font-weight-semibold);
+    white-space: nowrap;
+}
+
+.badge-icon {
+    font-size: 12px !important;
+}
+
+/* Badge de usuarios - Amarillo */
+.badge-usuario {
+    background: var(--bc-accent-yellow-light);
+    color: var(--bc-text-primary);
+    border: 1px solid var(--bc-accent-yellow);
+}
+
+/* Badge de uso - Azul */
+.badge-uso {
+    background: rgba(26, 115, 232, 0.1);
+    color: var(--bc-accent-blue);
+    border: 1px solid var(--bc-accent-blue);
+}
+
+/* Badge de tipo - Gris */
+.badge-tipo {
+    background: var(--bc-accent-gray-light);
+    color: var(--bc-text-secondary);
+    border: 1px solid var(--bc-border);
 }
 
 .card-meta {
@@ -953,15 +1227,37 @@ body.alto-contraste .tool-card:focus-visible {
 
 .modal-tags {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: var(--bc-spacing-sm);
+}
+
+/* Grupo de tags en modal */
+.modal-tag-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--bc-spacing-xs);
+}
+
+.modal-tag-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: var(--bc-font-size-xs);
+    font-weight: var(--bc-font-weight-bold);
+    color: var(--bc-text-secondary);
+    margin-right: var(--bc-spacing-xs);
+}
+
+.modal-tag-label .tag-icon {
+    font-size: 16px;
 }
 
 .modal-tag {
     display: inline-flex;
     align-items: center;
     gap: var(--bc-spacing-xs);
-    padding: 6px 12px;
+    padding: 4px 10px;
     background: var(--bc-hover-bg);
     color: var(--bc-text-secondary);
     border-radius: var(--bc-radius-full);
@@ -974,6 +1270,27 @@ body.alto-contraste .tool-card:focus-visible {
     flex-shrink: 0;
     font-size: 16px;
     opacity: 0.9;
+}
+
+/* Tag de usuarios - Amarillo */
+.modal-tag.usuarios {
+    background: var(--bc-accent-yellow-light);
+    color: var(--bc-text-primary);
+    border-color: var(--bc-accent-yellow);
+}
+
+/* Tag de uso - Azul */
+.modal-tag.uso {
+    background: rgba(26, 115, 232, 0.1);
+    color: var(--bc-accent-blue);
+    border-color: var(--bc-accent-blue);
+}
+
+/* Tag de tipo - Gris */
+.modal-tag.tipo {
+    background: var(--bc-accent-gray-light);
+    color: var(--bc-text-secondary);
+    border-color: var(--bc-border);
 }
 
 .modal-tag.categoria {
@@ -1313,6 +1630,11 @@ textarea:focus-visible {
         flex-direction: column;
         gap: var(--bc-spacing-md);
         padding: var(--bc-spacing-md);
+    }
+
+    .filter-dropdown {
+        min-width: 100%;
+        max-width: 100%;
     }
 
     .filter-group {

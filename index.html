@@ -90,37 +90,117 @@
     <!-- Main Content -->
     <main id="mainContent" class="main-container" role="main">
         <!-- Filtros -->
-        <section class="filters-section">
+        <section class="filters-section" aria-labelledby="filtros-titulo">
+            <p class="filters-intro">Selecciona uno o varios filtros para encontrar la herramienta que mejor se adapte a tu necesidad.</p>
             <div class="filters-container">
-                <div class="filter-group">
-                    <label for="filtro-categoria" class="filter-label">
-                        <span class="material-icons-outlined" aria-hidden="true">category</span>
-                        Categoría
-                    </label>
-                    <select id="filtro-categoria" class="filter-select" aria-label="Filtrar por categoría">
-                        <option value="">Todas las categorías</option>
-                    </select>
+                
+                <!-- Botón limpiar filtros -->
+                <button type="button" id="btn-limpiar-filtros" class="btn-limpiar-filtros" style="display: none;" aria-label="Limpiar todos los filtros">
+                    <span class="material-icons-outlined" aria-hidden="true">filter_alt_off</span>
+                    Limpiar filtros
+                </button>
+                
+                <!-- Filtro 1: ¿Quién va a usar la herramienta? -->
+                <div class="filter-dropdown" data-filter="usuarios">
+                    <button type="button" class="filter-dropdown-toggle" aria-expanded="false" aria-haspopup="listbox">
+                        <span class="material-icons-outlined filter-dropdown-icon" aria-hidden="true">person</span>
+                        <span class="filter-dropdown-label">¿Quién va a usar la herramienta?</span>
+                        <span class="filter-dropdown-count" aria-live="polite"></span>
+                        <span class="material-icons-outlined filter-dropdown-arrow" aria-hidden="true">expand_more</span>
+                    </button>
+                    <div class="filter-dropdown-menu" role="listbox" aria-label="Opciones de usuario">
+                        <label class="filter-dropdown-option">
+                            <input type="checkbox" name="usuarios" value="Diseñador" class="filter-checkbox">
+                            <span class="filter-checkbox-custom"></span>
+                            <span class="filter-option-text">Diseñador</span>
+                        </label>
+                        <label class="filter-dropdown-option">
+                            <input type="checkbox" name="usuarios" value="Desarrollador" class="filter-checkbox">
+                            <span class="filter-checkbox-custom"></span>
+                            <span class="filter-option-text">Desarrollador</span>
+                        </label>
+                        <label class="filter-dropdown-option">
+                            <input type="checkbox" name="usuarios" value="Creador de contenido" class="filter-checkbox">
+                            <span class="filter-checkbox-custom"></span>
+                            <span class="filter-option-text">Creador de contenido</span>
+                        </label>
+                        <label class="filter-dropdown-option">
+                            <input type="checkbox" name="usuarios" value="Asesor" class="filter-checkbox">
+                            <span class="filter-checkbox-custom"></span>
+                            <span class="filter-option-text">Asesor</span>
+                        </label>
+                        <label class="filter-dropdown-option">
+                            <input type="checkbox" name="usuarios" value="Equipo de trabajo" class="filter-checkbox">
+                            <span class="filter-checkbox-custom"></span>
+                            <span class="filter-option-text">Equipo de trabajo</span>
+                        </label>
+                        <label class="filter-dropdown-option">
+                            <input type="checkbox" name="usuarios" value="Transversal" class="filter-checkbox">
+                            <span class="filter-checkbox-custom"></span>
+                            <span class="filter-option-text">Transversal</span>
+                        </label>
+                    </div>
                 </div>
 
-                <div class="filter-group">
-                    <label for="filtro-duracion" class="filter-label">
-                        <span class="material-icons-outlined" aria-hidden="true">schedule</span>
-                        Duración
-                    </label>
-                    <select id="filtro-duracion" class="filter-select" aria-label="Filtrar por duración">
-                        <option value="">Todas las duraciones</option>
-                    </select>
+                <!-- Filtro 2: ¿Para qué lo usarás? -->
+                <div class="filter-dropdown" data-filter="uso">
+                    <button type="button" class="filter-dropdown-toggle" aria-expanded="false" aria-haspopup="listbox">
+                        <span class="material-icons-outlined filter-dropdown-icon" aria-hidden="true">business</span>
+                        <span class="filter-dropdown-label">¿Para qué lo usarás?</span>
+                        <span class="filter-dropdown-count" aria-live="polite"></span>
+                        <span class="material-icons-outlined filter-dropdown-arrow" aria-hidden="true">expand_more</span>
+                    </button>
+                    <div class="filter-dropdown-menu" role="listbox" aria-label="Opciones de uso">
+                        <label class="filter-dropdown-option">
+                            <input type="checkbox" name="uso" value="Área del banco 1" class="filter-checkbox">
+                            <span class="filter-checkbox-custom"></span>
+                            <span class="filter-option-text">Área del banco 1</span>
+                        </label>
+                        <label class="filter-dropdown-option">
+                            <input type="checkbox" name="uso" value="Área del banco 2" class="filter-checkbox">
+                            <span class="filter-checkbox-custom"></span>
+                            <span class="filter-option-text">Área del banco 2</span>
+                        </label>
+                        <label class="filter-dropdown-option">
+                            <input type="checkbox" name="uso" value="Área del banco 3" class="filter-checkbox">
+                            <span class="filter-checkbox-custom"></span>
+                            <span class="filter-option-text">Área del banco 3</span>
+                        </label>
+                    </div>
                 </div>
 
-                <div class="filter-group">
-                    <label for="filtro-participantes" class="filter-label">
-                        <span class="material-icons-outlined" aria-hidden="true">people</span>
-                        Participantes
-                    </label>
-                    <select id="filtro-participantes" class="filter-select" aria-label="Filtrar por número de participantes">
-                        <option value="">Todos los grupos</option>
-                    </select>
+                <!-- Filtro 3: ¿Qué tipo de herramienta buscas? -->
+                <div class="filter-dropdown" data-filter="tipo">
+                    <button type="button" class="filter-dropdown-toggle" aria-expanded="false" aria-haspopup="listbox">
+                        <span class="material-icons-outlined filter-dropdown-icon" aria-hidden="true">widgets</span>
+                        <span class="filter-dropdown-label">¿Qué tipo de herramienta buscas?</span>
+                        <span class="filter-dropdown-count" aria-live="polite"></span>
+                        <span class="material-icons-outlined filter-dropdown-arrow" aria-hidden="true">expand_more</span>
+                    </button>
+                    <div class="filter-dropdown-menu" role="listbox" aria-label="Opciones de tipo">
+                        <label class="filter-dropdown-option">
+                            <input type="checkbox" name="tipo" value="Manual de uso" class="filter-checkbox">
+                            <span class="filter-checkbox-custom"></span>
+                            <span class="filter-option-text">Manual de uso</span>
+                        </label>
+                        <label class="filter-dropdown-option">
+                            <input type="checkbox" name="tipo" value="Infografías" class="filter-checkbox">
+                            <span class="filter-checkbox-custom"></span>
+                            <span class="filter-option-text">Infografías</span>
+                        </label>
+                        <label class="filter-dropdown-option">
+                            <input type="checkbox" name="tipo" value="Enlaces externos" class="filter-checkbox">
+                            <span class="filter-checkbox-custom"></span>
+                            <span class="filter-option-text">Enlaces externos</span>
+                        </label>
+                        <label class="filter-dropdown-option">
+                            <input type="checkbox" name="tipo" value="Guías" class="filter-checkbox">
+                            <span class="filter-checkbox-custom"></span>
+                            <span class="filter-option-text">Guías</span>
+                        </label>
+                    </div>
                 </div>
+
             </div>
         </section>
 
@@ -153,9 +233,9 @@
             <div class="modal-header">
                 <h2 id="modal-titulo" class="modal-title"></h2>
                 <div class="modal-tags" role="list" aria-label="Características de la herramienta">
-                    <span id="modal-categoria" class="modal-tag" role="listitem"></span>
-                    <span id="modal-duracion" class="modal-tag" role="listitem"></span>
-                    <span id="modal-participantes" class="modal-tag" role="listitem"></span>
+                    <div id="modal-usuarios" class="modal-tag-group" role="listitem"></div>
+                    <div id="modal-uso" class="modal-tag-group" role="listitem"></div>
+                    <div id="modal-tipo" class="modal-tag-group" role="listitem"></div>
                 </div>
             </div>
             <div class="modal-body">
