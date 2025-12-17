@@ -513,8 +513,43 @@ p, label, select, input, textarea {
 /* Slides */
 .carousel-slides {
     position: relative;
-    min-height: 280px;
+    min-height: 320px;
+}
+
+/* Layout de slide con imagen */
+.slide-layout {
+    display: flex;
+    align-items: stretch;
+    min-height: 320px;
+}
+
+.slide-layout.slide-img-left {
+    flex-direction: row;
+}
+
+.slide-layout.slide-img-right {
+    flex-direction: row-reverse;
+}
+
+.slide-image {
+    flex: 0 0 40%;
+    max-width: 40%;
+    overflow: hidden;
+}
+
+.slide-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.slide-content {
+    flex: 1;
     padding: var(--bc-spacing-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .carousel-slide {
@@ -665,14 +700,28 @@ p, label, select, input, textarea {
     outline-offset: 2px;
 }
 
-/* Responsive */
+/* Responsive carrusel */
 @media (max-width: 768px) {
     .guide-carousel-section {
         padding: var(--bc-spacing-lg) var(--bc-spacing-md);
     }
 
     .carousel-slides {
-        min-height: 320px;
+        min-height: auto;
+    }
+
+    .slide-layout {
+        flex-direction: column !important;
+        min-height: auto;
+    }
+
+    .slide-image {
+        flex: none;
+        max-width: 100%;
+        height: 180px;
+    }
+
+    .slide-content {
         padding: var(--bc-spacing-lg);
     }
 
