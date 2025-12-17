@@ -702,8 +702,8 @@ function anunciarResultadosFiltro(cantidad) {
     }
     
     const mensaje = cantidad === 0 
-        ? 'No se encontraron herramientas con los filtros seleccionados.'
-        : `Se encontraron ${cantidad} herramienta${cantidad !== 1 ? 's' : ''} con los filtros seleccionados.`;
+        ? 'No se encontraron herramientas para los criterios seleccionados. Prueba combinando diferentes roles, propósitos o tipos de recurso.'
+        : `Se encontraron ${cantidad} herramienta${cantidad !== 1 ? 's' : ''} para los criterios seleccionados.`;
     
     anuncio.textContent = mensaje;
     

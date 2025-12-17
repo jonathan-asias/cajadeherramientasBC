@@ -5,7 +5,7 @@ Aplicación web para gestionar y visualizar herramientas de trabajo colaborativo
 ## 🚀 Características
 
 - Interfaz moderna y accesible
-- Filtros por categoría, duración y participantes
+- Filtros por rol, propósito y tipo de recurso
 - Vista detallada de cada herramienta
 - Diseño responsive
 - Animaciones suaves con GSAP
