@@ -6,13 +6,19 @@
     <title>Crear Nueva Herramienta - Caja de Herramientas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <!-- Variables CSS - Cargar primero -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/crear-herramienta.css">
     <link rel="stylesheet" href="css/accesibilidad.css">
     <link rel="stylesheet" href="css/loader.css">
 </head>
 <body>
+    <!-- Enlace para saltar al contenido principal (accesibilidad) -->
+    <a href="#mainContent" class="skip-link">Saltar al contenido principal</a>
+    
     <!-- Header -->
     <header class="header">
         <div class="header-content">
@@ -20,7 +26,10 @@
                 <img src="img/BC_logo.png" alt="Logo Caja de Herramientas" class="logo-image">
             </div>
             <h1 class="header-title">Caja de Herramientas</h1>
-            <nav class="header-nav">
+            <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-menu">
+                <span class="material-icons-outlined" aria-hidden="true">menu</span>
+            </button>
+            <nav class="header-nav" aria-label="Navegación principal">
                 <a href="index.html" class="header-link">
                     <span class="material-icons-outlined" aria-hidden="true">home</span>
                     Inicio
@@ -33,14 +42,36 @@
         </div>
     </header>
 
+    <!-- Menú móvil -->
+    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
+        <div id="mobile-menu-content" class="mobile-menu-content">
+            <div class="mobile-menu-header">
+                <h2 id="mobile-menu-title" class="mobile-menu-title">Menú</h2>
+                <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Cerrar menú">
+                    <span class="material-icons-outlined" aria-hidden="true">close</span>
+                </button>
+            </div>
+            <nav class="mobile-nav" aria-label="Navegación móvil">
+                <a href="index.html" class="header-link">
+                    <span class="material-icons-outlined" aria-hidden="true">home</span>
+                    Inicio
+                </a>
+                <a href="guias-uso.html" class="header-link">
+                    <span class="material-icons-outlined" aria-hidden="true">menu_book</span>
+                    Guías de uso
+                </a>
+            </nav>
+        </div>
+    </div>
+
     <!-- Main Container -->
-    <main class="main-container">
-        <div style="margin-bottom: var(--bc-spacing-lg);">
-            <a href="index.html" class="back-link" style="display: inline-flex; align-items: center; gap: var(--bc-spacing-xs); color: var(--bc-accent-blue); text-decoration: none; font-weight: var(--bc-font-weight-semibold); margin-bottom: var(--bc-spacing-md);">
+    <main id="mainContent" class="crear-herramienta-container">
+        <div class="page-header">
+            <a href="index.html" class="back-link">
                 <span class="material-icons-outlined" aria-hidden="true">arrow_back</span>
                 Volver a la Caja de Herramientas
             </a>
-            <h2 style="font-size: var(--bc-font-size-2xl); font-weight: var(--bc-font-weight-bold); color: var(--bc-text-primary); margin-bottom: var(--bc-spacing-lg);">Crear Nueva Herramienta</h2>
+            <h2 class="page-title">Crear Nueva Herramienta</h2>
         </div>
         <form id="formulario-herramienta" class="formulario-container">
             
@@ -68,57 +99,64 @@
                         <span class="error-message" id="error-titulo"></span>
                     </div>
 
-                    <div class="form-group">
-                        <label for="categoria" class="form-label">
-                            Categoría <span class="required">*</span>
+                    <div class="form-group full-width">
+                        <label class="form-label">
+                            Usuarios <span class="required">*</span>
                         </label>
-                        <select id="categoria" name="categoria" class="form-select" required>
-                            <option value="">Selecciona una categoría</option>
-                        </select>
-                        <span class="error-message" id="error-categoria"></span>
+                        <div class="checkbox-group" id="usuarios-container">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="usuarios" value="Diseñador"> Diseñador
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="usuarios" value="Desarrollador"> Desarrollador
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="usuarios" value="Asesor"> Asesor
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="usuarios" value="Equipo de trabajo"> Equipo de trabajo
+                            </label>
+                        </div>
+                        <span class="error-message" id="error-usuarios"></span>
                     </div>
 
-                    <div class="form-group">
-                        <label for="nueva-categoria" class="form-label">
-                            Nueva Categoría
+                    <div class="form-group full-width">
+                        <label class="form-label">
+                            Área de uso <span class="required">*</span>
                         </label>
-                        <input 
-                            type="text" 
-                            id="nueva-categoria" 
-                            name="nueva-categoria" 
-                            class="form-input" 
-                            placeholder="O crea una nueva categoría"
-                        >
+                        <div class="checkbox-group" id="uso-container">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="uso" value="Área del banco 1"> Área del banco 1
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="uso" value="Área del banco 2"> Área del banco 2
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="uso" value="Área del banco 3"> Área del banco 3
+                            </label>
+                        </div>
+                        <span class="error-message" id="error-uso"></span>
                     </div>
 
-                    <div class="form-group">
-                        <label for="duracion" class="form-label">
-                            Duración <span class="required">*</span>
+                    <div class="form-group full-width">
+                        <label class="form-label">
+                            Tipo de recurso <span class="required">*</span>
                         </label>
-                        <input 
-                            type="text" 
-                            id="duracion" 
-                            name="duracion" 
-                            class="form-input" 
-                            placeholder="Ej: 30-60 min"
-                            required
-                        >
-                        <span class="error-message" id="error-duracion"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="participantes" class="form-label">
-                            Participantes <span class="required">*</span>
-                        </label>
-                        <input 
-                            type="text" 
-                            id="participantes" 
-                            name="participantes" 
-                            class="form-input" 
-                            placeholder="Ej: 2-10"
-                            required
-                        >
-                        <span class="error-message" id="error-participantes"></span>
+                        <div class="checkbox-group" id="tipo-container">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="tipo" value="Guías"> Guías
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="tipo" value="Manual de uso"> Manual de uso
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="tipo" value="Infografías"> Infografías
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="tipo" value="Plantillas"> Plantillas
+                            </label>
+                        </div>
+                        <span class="error-message" id="error-tipo"></span>
                     </div>
                 </div>
             </section>
@@ -282,11 +320,141 @@
         </form>
     </main>
 
+    <!-- Modal Preview -->
+    <div id="modal-preview" class="modal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="preview-titulo" aria-describedby="preview-descripcion" aria-hidden="true">
+        <div class="modal-overlay" aria-hidden="true"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modal-preview-close" aria-label="Cerrar modal" type="button">
+                <span class="material-icons-outlined" aria-hidden="true">close</span>
+            </button>
+            <div id="preview-image-container" class="modal-image-container" aria-hidden="true"></div>
+            <div class="modal-header">
+                <h2 id="preview-titulo" class="modal-title"></h2>
+                <div class="modal-tags" role="list" aria-label="Características de la herramienta">
+                    <div id="preview-usuarios" class="modal-tag-group" role="listitem"></div>
+                    <div id="preview-uso" class="modal-tag-group" role="listitem"></div>
+                    <div id="preview-tipo" class="modal-tag-group" role="listitem"></div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Descripción</h3>
+                    <p id="preview-descripcion" class="modal-text"></p>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Objetivo</h3>
+                    <p id="preview-objetivo" class="modal-text"></p>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Materiales</h3>
+                    <ul id="preview-materiales" class="modal-list"></ul>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Pasos</h3>
+                    <ol id="preview-pasos" class="modal-list modal-list-numbered"></ol>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary" id="btn-editar">
+                    <span class="material-icons-outlined">edit</span>
+                    Editar
+                </button>
+                <button type="button" class="btn btn-primary" id="btn-confirmar">
+                    <span class="material-icons-outlined">check</span>
+                    Confirmar Herramienta
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">Caja de Herramientas</h3>
+                <p class="footer-description">
+                    Herramientas colaborativas para el desarrollo de proyectos innovadores.
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-section-title">Recursos</h4>
+                <ul class="footer-links">
+                    <li><a href="guias-uso.html" class="footer-link">Guías de uso</a></li>
+                    <li><a href="contacto.html" class="footer-link">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-section-title">Información</h4>
+                <ul class="footer-links">
+                    <li><a href="acerca-de.html" class="footer-link">Acerca de</a></li>
+                    <li><a href="contacto.html" class="footer-link">Contacto</a></li>
+                    <li><a href="politica-privacidad.html" class="footer-link">Política de privacidad</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-section-title">Accesibilidad</h4>
+                <p class="footer-accessibility">
+                    Este sitio cumple con los estándares WCAG 2.1 nivel AA para garantizar una experiencia accesible para todos los usuarios.
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p class="footer-copyright">
+                    &copy; <span id="current-year"></span> Bancolombia. Todos los derechos reservados.
+                </p>
+                <div class="footer-badge">
+                    <span class="material-icons-outlined" aria-hidden="true">verified</span>
+                    <span>Accesible</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script src="js/libs/gsap.min.js"></script>
     <script src="js/loader.js" defer></script>
     <script src="js/page-transition.js" defer></script>
     <script src="js/crear-herramienta.js"></script>
     <script defer src="js/accesibilidad.js"></script>
+    
+    <!-- Script para menú móvil y año -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Año actual en el footer
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+            
+            // Menú móvil
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuClose = document.getElementById('mobile-menu-close');
+            
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', function() {
+                    mobileMenu.classList.add('active');
+                    menuToggle.setAttribute('aria-expanded', 'true');
+                });
+                
+                mobileMenuClose.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                });
+                
+                mobileMenu.addEventListener('click', function(e) {
+                    if (e.target === mobileMenu) {
+                        mobileMenu.classList.remove('active');
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
 

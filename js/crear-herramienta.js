@@ -10,8 +10,6 @@ let archivoAdjunto = null;
 
 // Elementos del DOM
 const formulario = document.getElementById('formulario-herramienta');
-const categoriaSelect = document.getElementById('categoria');
-const nuevaCategoriaInput = document.getElementById('nueva-categoria');
 const materialesContainer = document.getElementById('materiales-container');
 const pasosContainer = document.getElementById('pasos-container');
 const btnAgregarMaterial = document.getElementById('btn-agregar-material');
@@ -31,7 +29,6 @@ const btnCancelar = document.getElementById('btn-cancelar');
 async function init() {
     try {
         await cargarHerramientas();
-        inicializarCategorias();
         configurarEventListeners();
     } catch (error) {
         console.error('Error al inicializar:', error);
@@ -57,27 +54,11 @@ async function cargarHerramientas() {
 }
 
 /**
- * Inicializa el select de categorías con las existentes
+ * Obtiene valores seleccionados de un grupo de checkboxes
  */
-function inicializarCategorias() {
-    // Obtener categorías únicas de las herramientas existentes
-    const categorias = [...new Set(herramientasExistentes.map(h => h.categoria))].sort();
-    
-    categorias.forEach(categoria => {
-        const option = document.createElement('option');
-        option.value = categoria;
-        option.textContent = categoria;
-        categoriaSelect.appendChild(option);
-    });
-    
-    // Agregar opción para nueva categoría
-    const nuevaOption = document.createElement('option');
-    nuevaOption.value = '__nueva__';
-    nuevaOption.textContent = '➕ Crear nueva categoría';
-    categoriaSelect.appendChild(nuevaOption);
-    
-    // Inicialmente ocultar el input de nueva categoría
-    nuevaCategoriaInput.style.display = 'none';
+function obtenerCheckboxSeleccionados(nombre) {
+    const checkboxes = document.querySelectorAll(`input[name="${nombre}"]:checked`);
+    return Array.from(checkboxes).map(cb => cb.value);
 }
 
 /**
@@ -90,9 +71,6 @@ function configurarEventListeners() {
     // Botones de agregar
     btnAgregarMaterial.addEventListener('click', agregarMaterial);
     btnAgregarPaso.addEventListener('click', agregarPaso);
-    
-    // Select de categoría
-    categoriaSelect.addEventListener('change', manejarCambioCategoria);
     
     // Archivos
     imagenInput.addEventListener('change', manejarImagen);
@@ -112,21 +90,6 @@ function configurarEventListeners() {
     // Agregar un material y paso inicial
     agregarMaterial();
     agregarPaso();
-}
-
-/**
- * Maneja el cambio en el select de categoría
- */
-function manejarCambioCategoria() {
-    if (categoriaSelect.value === '__nueva__') {
-        nuevaCategoriaInput.style.display = 'block';
-        nuevaCategoriaInput.required = true;
-        nuevaCategoriaInput.focus();
-    } else {
-        nuevaCategoriaInput.style.display = 'none';
-        nuevaCategoriaInput.required = false;
-        nuevaCategoriaInput.value = '';
-    }
 }
 
 /**
@@ -283,56 +246,179 @@ async function manejarSubmit(event) {
         return;
     }
     
-    // Obtener categoría
-    let categoria = categoriaSelect.value;
-    if (categoria === '__nueva__') {
-        categoria = nuevaCategoriaInput.value.trim();
-        if (!categoria) {
-            mostrarError('Debes ingresar un nombre para la nueva categoría.');
-            return;
-        }
+    // Validar checkboxes
+    const usuarios = obtenerCheckboxSeleccionados('usuarios');
+    const uso = obtenerCheckboxSeleccionados('uso');
+    const tipo = obtenerCheckboxSeleccionados('tipo');
+    
+    if (usuarios.length === 0) {
+        mostrarError('Debes seleccionar al menos un usuario.');
+        return;
+    }
+    
+    if (uso.length === 0) {
+        mostrarError('Debes seleccionar al menos un área de uso.');
+        return;
+    }
+    
+    if (tipo.length === 0) {
+        mostrarError('Debes seleccionar al menos un tipo de recurso.');
+        return;
     }
     
     try {
         // Crear objeto de herramienta
-        const nuevaHerramienta = crearObjetoHerramienta(categoria, materiales, pasos);
+        const nuevaHerramienta = crearObjetoHerramienta(usuarios, uso, tipo, materiales, pasos);
         
-        // Agregar a la lista existente
-        const herramientasActualizadas = [...herramientasExistentes, nuevaHerramienta];
-        
-        // Generar y descargar JSON
-        descargarJSON(herramientasActualizadas);
-        
-        // Mostrar mensaje de éxito
-        mostrarExito();
-        
-        // Deshabilitar botón de guardar temporalmente
-        const btnGuardar = document.getElementById('btn-guardar');
-        btnGuardar.disabled = true;
-        
-        // Opcional: Resetear formulario después de 2 segundos
-        setTimeout(() => {
-            if (confirm('¿Deseas crear otra herramienta?')) {
-                formulario.reset();
-                materialesContainer.innerHTML = '';
-                pasosContainer.innerHTML = '';
-                imagenBase64 = null;
-                archivoAdjunto = null;
-                imagenPreview.style.display = 'none';
-                archivoInfo.style.display = 'none';
-                agregarMaterial();
-                agregarPaso();
-                btnGuardar.disabled = false;
-                ocultarMensajes();
-            } else {
-                window.location.href = 'index.html';
-            }
-        }, 2000);
+        // Mostrar modal de preview
+        mostrarModalPreview(nuevaHerramienta);
         
     } catch (error) {
         console.error('Error al crear herramienta:', error);
         mostrarError('Error al crear la herramienta. Por favor, intenta nuevamente.');
     }
+}
+
+// Variable para guardar la herramienta temporal
+let herramientaTemporal = null;
+
+/**
+ * Obtiene el icono según el tipo de herramienta
+ */
+function obtenerIconoPorTipo(tipos) {
+    if (!tipos || tipos.length === 0) return 'build';
+    
+    const tipo = tipos[0].toLowerCase();
+    
+    if (tipo.includes('guía') || tipo.includes('guias')) return 'menu_book';
+    if (tipo.includes('manual')) return 'description';
+    if (tipo.includes('infografía') || tipo.includes('infografia')) return 'insert_chart';
+    if (tipo.includes('plantilla')) return 'dashboard';
+    
+    return 'build';
+}
+
+/**
+ * Muestra el modal de preview con los datos de la herramienta
+ */
+function mostrarModalPreview(herramienta) {
+    herramientaTemporal = herramienta;
+    
+    const modal = document.getElementById('modal-preview');
+    
+    // Llenar datos del modal
+    document.getElementById('preview-titulo').textContent = herramienta.titulo;
+    document.getElementById('preview-descripcion').textContent = herramienta.descripcion;
+    document.getElementById('preview-objetivo').textContent = herramienta.objetivo;
+    
+    // Usuarios
+    const usuariosContainer = document.getElementById('preview-usuarios');
+    usuariosContainer.innerHTML = `
+        <span class="modal-tag-label"><span class="material-icons-outlined tag-icon" aria-hidden="true">person</span>Para:</span>
+        ${herramienta.usuarios.map(u => `<span class="modal-tag usuarios">${u}</span>`).join('')}
+    `;
+    
+    // Uso
+    const usoContainer = document.getElementById('preview-uso');
+    usoContainer.innerHTML = `
+        <span class="modal-tag-label"><span class="material-icons-outlined tag-icon" aria-hidden="true">business</span>Uso:</span>
+        ${herramienta.uso.map(u => `<span class="modal-tag uso">${u}</span>`).join('')}
+    `;
+    
+    // Tipo
+    const tipoContainer = document.getElementById('preview-tipo');
+    tipoContainer.innerHTML = `
+        <span class="modal-tag-label"><span class="material-icons-outlined tag-icon" aria-hidden="true">widgets</span>Tipo:</span>
+        ${herramienta.tipo.map(t => `<span class="modal-tag tipo">${t}</span>`).join('')}
+    `;
+    
+    // Materiales
+    const materialesLista = document.getElementById('preview-materiales');
+    materialesLista.innerHTML = herramienta.materiales.map(m => `<li>${m}</li>`).join('');
+    
+    // Pasos
+    const pasosLista = document.getElementById('preview-pasos');
+    pasosLista.innerHTML = herramienta.pasos.map(p => `<li>${p}</li>`).join('');
+    
+    // Imagen o icono placeholder
+    const imageContainer = document.getElementById('preview-image-container');
+    imageContainer.style.display = 'flex';
+    imageContainer.style.backgroundColor = '#fdda24';
+    imageContainer.style.justifyContent = 'center';
+    imageContainer.style.alignItems = 'center';
+    imageContainer.style.minHeight = '200px';
+    
+    if (herramienta.imagen) {
+        imageContainer.innerHTML = `<img src="${herramienta.imagen}" alt="${herramienta.titulo}" class="modal-image" />`;
+        imageContainer.style.backgroundColor = '#fdda24';
+    } else {
+        // Mostrar icono según el tipo de herramienta
+        const icono = obtenerIconoPorTipo(herramienta.tipo);
+        imageContainer.innerHTML = `<span class="material-icons-outlined modal-icon">${icono}</span>`;
+    }
+    
+    // Mostrar modal
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    
+    // Configurar eventos del modal
+    configurarEventosModal();
+}
+
+/**
+ * Configura los eventos del modal de preview
+ */
+function configurarEventosModal() {
+    const modal = document.getElementById('modal-preview');
+    const btnCerrar = document.getElementById('modal-preview-close');
+    const btnEditar = document.getElementById('btn-editar');
+    const btnConfirmar = document.getElementById('btn-confirmar');
+    const overlay = modal.querySelector('.modal-overlay');
+    
+    // Cerrar modal
+    const cerrarModal = () => {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    };
+    
+    btnCerrar.onclick = cerrarModal;
+    btnEditar.onclick = cerrarModal;
+    overlay.onclick = cerrarModal;
+    
+    // Confirmar herramienta
+    btnConfirmar.onclick = () => {
+        if (herramientaTemporal) {
+            // Agregar a la lista existente
+            const herramientasActualizadas = [...herramientasExistentes, herramientaTemporal];
+            
+            // Generar y descargar JSON
+            descargarJSON(herramientasActualizadas);
+            
+            // Cerrar modal
+            cerrarModal();
+            
+            // Mostrar mensaje de éxito
+            mostrarExito();
+            
+            // Preguntar si desea crear otra
+            setTimeout(() => {
+                if (confirm('¿Deseas crear otra herramienta?')) {
+                    formulario.reset();
+                    materialesContainer.innerHTML = '';
+                    pasosContainer.innerHTML = '';
+                    imagenBase64 = null;
+                    archivoAdjunto = null;
+                    imagenPreview.style.display = 'none';
+                    archivoInfo.style.display = 'none';
+                    agregarMaterial();
+                    agregarPaso();
+                    ocultarMensajes();
+                } else {
+                    window.location.href = 'index.html';
+                }
+            }, 1500);
+        }
+    };
 }
 
 /**
@@ -358,7 +444,7 @@ function obtenerPasos() {
 /**
  * Crea el objeto de herramienta con todos los datos
  */
-function crearObjetoHerramienta(categoria, materiales, pasos) {
+function crearObjetoHerramienta(usuarios, uso, tipo, materiales, pasos) {
     // Calcular nuevo ID
     const nuevoID = herramientasExistentes.length > 0
         ? Math.max(...herramientasExistentes.map(h => h.id)) + 1
@@ -367,19 +453,15 @@ function crearObjetoHerramienta(categoria, materiales, pasos) {
     const herramienta = {
         id: nuevoID,
         titulo: document.getElementById('titulo').value.trim(),
-        categoria: categoria,
-        duracion: document.getElementById('duracion').value.trim(),
-        participantes: document.getElementById('participantes').value.trim(),
+        imagen: imagenBase64,
         descripcion: document.getElementById('descripcion').value.trim(),
+        usuarios: usuarios,
+        uso: uso,
+        tipo: tipo,
         objetivo: document.getElementById('objetivo').value.trim(),
         materiales: materiales,
         pasos: pasos
     };
-    
-    // Agregar imagen si existe
-    if (imagenBase64) {
-        herramienta.imagen = imagenBase64;
-    }
     
     // Agregar archivo adjunto si existe
     if (archivoAdjunto) {
