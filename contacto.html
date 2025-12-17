@@ -126,7 +126,6 @@
             width: 64px;
             height: 64px;
             border-radius: var(--bc-radius-full);
-            background: var(--bc-accent-blue-light);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -136,7 +135,24 @@
 
         .contact-card-icon .material-icons-outlined {
             font-size: 32px;
-            color: var(--bc-accent-blue);
+            color: #FFFFFF;
+        }
+
+        /* Colores vivos para cada icono */
+        .contact-card:nth-child(1) .contact-card-icon {
+            background: #FF6B6B; /* Coral */
+        }
+        .contact-card:nth-child(2) .contact-card-icon {
+            background: #4ECDC4; /* Turquesa */
+        }
+        .contact-card:nth-child(3) .contact-card-icon {
+            background: #FFE66D; /* Amarillo */
+        }
+        .contact-card:nth-child(3) .contact-card-icon .material-icons-outlined {
+            color: #2c2a29; /* Texto oscuro para fondo amarillo */
+        }
+        .contact-card:nth-child(4) .contact-card-icon {
+            background: #A66CFF; /* Púrpura */
         }
 
         .contact-card h3 {
