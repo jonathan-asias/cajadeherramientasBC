@@ -9,9 +9,12 @@
        ============================================ */
     --bc-bg-base: #FFFFFF;
     --bc-bg-secondary: #F8F9FA;
+    --bc-bg-quaternary: #000000;
+    --bc-bg-tertiary: #F5B6CD;
     --bc-text-primary: #000000;
     --bc-text-secondary: #4A4A4A;
     --bc-text-tertiary: #6B6B6B;
+    --bc-text-quaternary: #2c2a29;
     --bc-border: rgba(0, 0, 0, 0.12);
     --bc-border-light: rgba(0, 0, 0, 0.08);
     --bc-border-strong: rgba(0, 0, 0, 0.2);
@@ -88,6 +91,14 @@
     --bc-line-height-tight: 1.2;
     --bc-line-height-normal: 1.5;
     --bc-line-height-relaxed: 1.75;
+
+    /* ============================================
+       LAYOUT GLOBAL (sin hacks 100vw / márgenes negativos)
+       ============================================ */
+    --layout-max-width: 1280px;
+    --layout-max-width-wide: 1440px;
+    --layout-gutter: var(--bc-spacing-lg);
+    --layout-header-offset: 72px;
 }
 
 /* ============================================
@@ -108,5 +119,25 @@
     --shadow-3: var(--bc-shadow-lg);
     --transition-fast: var(--bc-transition-fast);
     --transition-base: var(--bc-transition-base);
+}
+
+/* ============================================
+   PREFERS-REDUCED-MOTION (WCAG 2.1 / vestibular, epilepsia)
+   Carga temprana: este archivo enlaza casi todas las páginas.
+   Animaciones GSAP: js/animaciones.js (matchMedia + duración 0).
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+    }
 }
 

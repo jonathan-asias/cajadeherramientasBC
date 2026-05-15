@@ -1,0 +1,6 @@
+# Si el auditor busca robots en la raíz del dominio, publique este mismo contenido en https://solucionesvortico.com/robots.txt
+
+User-agent: *
+Allow: /
+
+Sitemap: https://solucionesvortico.com/Bancolombia/prueba/sitemap.xml

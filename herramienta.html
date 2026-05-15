@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramienta - Caja de Herramientas Bancolombia</title>
+    <meta name="description" content="Detalle de una herramienta de accesibilidad web de la Caja de Herramientas Bancolombia.">
+    <link rel="canonical" href="https://solucionesvortico.com/Bancolombia/prueba/herramienta.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Herramienta - Caja de Herramientas Bancolombia">
+    <meta property="og:description" content="Detalle de una herramienta de accesibilidad web de la Caja de Herramientas Bancolombia.">
+    <meta property="og:url" content="https://solucionesvortico.com/Bancolombia/prueba/herramienta.html">
+    <link rel="icon" type="image/png" href="./img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <!-- Variables CSS - Cargar primero -->
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/accesibilidad.css">
+</head>
+<body class="page-herramienta">
+    <!-- Enlace para saltar al contenido principal (accesibilidad) -->
+    <a href="#mainContent" class="skip-link">Saltar al contenido principal</a>
+    
+    <div id="site-header"></div>
+
+    <!-- Main Content -->
+    <main id="mainContent" class="main-container">
+        <div id="herramienta-container" class="herramienta-container">
+            <!-- El contenido se carga dinámicamente con JavaScript -->
+            <div id="herramienta-loader" class="herramienta-loader" role="status" aria-live="polite" aria-busy="true">
+                <span class="material-icons-outlined" aria-hidden="true">autorenew</span>
+                <p>Cargando herramienta…</p>
+            </div>
+        </div>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="./js/libs/gsap.min.js"></script>
+    <script src="./js/layout.js" defer></script>
+    <script src="./js/mobile-menu.js" defer></script>
+    <script src="./js/animaciones.js" defer></script>
+    <script src="./js/herramienta-detalle.js"></script>
+    <script defer src="./js/accesibilidad.js"></script>
+</body>
+</html>

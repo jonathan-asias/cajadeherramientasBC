@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramientas - Caja de Herramientas Bancolombia</title>
+    <meta name="description" content="Listado filtrable de herramientas de accesibilidad web: por rol, propósito y tipo de recurso.">
+    <link rel="canonical" href="https://solucionesvortico.com/Bancolombia/prueba/herramientas.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Herramientas - Caja de Herramientas Bancolombia">
+    <meta property="og:description" content="Explora y filtra herramientas de accesibilidad web por rol, uso y tipo de recurso.">
+    <meta property="og:url" content="https://solucionesvortico.com/Bancolombia/prueba/herramientas.html">
+    <meta property="og:image" content="https://solucionesvortico.com/Bancolombia/prueba/img/imagen_CH.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="./img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <!-- Variables CSS - Cargar primero -->
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/accesibilidad.css">
+</head>
+<body class="page-herramientas">
+    <!-- Enlace para saltar al contenido principal (accesibilidad) -->
+    <a href="#mainContent" class="skip-link">Saltar al contenido principal</a>
+    
+    <div id="site-header"></div>
+
+    <!-- Main Content -->
+    <main id="mainContent" class="main-container">
+        <section class="herramientas-seccion-inicial">
+            <div class="herramientas-seccion-inicial-content">
+                <nav class="herramientas-breadcrumb" aria-label="Breadcrumb">
+                    <ol class="herramientas-breadcrumb-list">
+                        <li class="herramientas-breadcrumb-item">
+                            <a href="./index.html" class="herramientas-breadcrumb-link">Inicio</a>
+                        </li>
+                        <li class="herramientas-breadcrumb-item">
+                            <span class="herramientas-breadcrumb-separator" aria-hidden="true">
+                                <span class="material-icons-outlined">chevron_right</span>
+                            </span>
+                        </li>
+                        <li class="herramientas-breadcrumb-item">
+                            <span class="herramientas-breadcrumb-current" aria-current="page">Herramientas</span>
+                        </li>
+                    </ol>
+                </nav>
+                <div class="herramientas-seccion-inicial-left">
+                    <h1 class="herramientas-titulo-principal">Herramientas de accesibilidad</h1>
+                    <p class="herramientas-texto-intro">
+                        Aquí encontrarás herramientas pensadas para distintos roles, contextos de uso y tipos de recurso, que te ayudarán a comprender conceptos, aplicar metodologías y fortalecer procesos de trabajo individual o en equipo. Explora, filtra y selecciona la herramienta que mejor se adapte a quién eres, para qué la necesitas y cómo deseas utilizarla.
+                    </p>
+                </div>
+                <div class="herramientas-seccion-inicial-right">
+                    <img src="./img/objetivo1.png" width="1024" height="1024" alt="Ilustración de herramientas de accesibilidad" class="herramientas-imagen-intro" />
+                </div>
+            </div>
+        </section>
+        <section class="filters-section" aria-label="Filtros de búsqueda">
+            <div class="filters-container">
+                <div class="filter-dropdown favoritos-dropdown" data-filter="favoritos">
+                    <button type="button" class="filter-dropdown-toggle" aria-expanded="false" aria-controls="filter-menu-favoritos" id="btn-filtro-favoritos-toggle">
+                        <span class="material-icons-outlined filter-dropdown-icon" aria-hidden="true">star</span>
+                        <span class="filter-dropdown-label">Favoritos</span>
+                        <span class="material-icons-outlined filter-dropdown-arrow" aria-hidden="true">expand_more</span>
+                    </button>
+                    <div id="filter-menu-favoritos" class="filter-dropdown-menu" role="group" aria-label="Filtro de favoritos">
+                        <button type="button" class="filter-dropdown-option-button" data-favoritos-action="show">
+                            Mostrar favoritos
+                        </button>
+                        <button type="button" class="filter-dropdown-option-button" data-favoritos-action="hide">
+                            Ocultar favoritos
+                        </button>
+                    </div>
+                </div>
+                <div class="filter-dropdown" data-filter="usuarios">
+                    <button type="button" class="filter-dropdown-toggle" aria-expanded="false" aria-controls="filter-menu-usuarios">
+                        <span class="material-icons-outlined filter-dropdown-icon" aria-hidden="true">person</span>
+                        <span class="filter-dropdown-label">¿Quién va a usar la herramienta?</span>
+                        <span class="filter-dropdown-count"></span>
+                        <span class="material-icons-outlined filter-dropdown-arrow" aria-hidden="true">expand_more</span>
+                    </button>
+                    <div id="filter-menu-usuarios" class="filter-dropdown-menu" role="group" aria-label="Filtro de usuarios">
+                        <!-- Opciones se generan dinámicamente -->
+                    </div>
+                </div>
+                <div class="filter-dropdown" data-filter="uso">
+                    <button type="button" class="filter-dropdown-toggle" aria-expanded="false" aria-controls="filter-menu-uso">
+                        <span class="material-icons-outlined filter-dropdown-icon" aria-hidden="true">business</span>
+                        <span class="filter-dropdown-label">¿Para qué la usarás?</span>
+                        <span class="filter-dropdown-count"></span>
+                        <span class="material-icons-outlined filter-dropdown-arrow" aria-hidden="true">expand_more</span>
+                    </button>
+                    <div id="filter-menu-uso" class="filter-dropdown-menu" role="group" aria-label="Filtro de uso">
+                        <!-- Opciones se generan dinámicamente -->
+                    </div>
+                </div>
+       
+                <button type="button" id="btn-limpiar-filtros" class="btn-limpiar-filtros" aria-label="Limpiar filtros" disabled aria-disabled="true">
+                    <span class="material-icons-outlined" aria-hidden="true">filter_alt_off</span>
+                    Limpiar filtros
+                </button>
+            </div>
+        </section>
+        <section class="tools-section" aria-label="Herramientas disponibles">
+            <section id="favorites-section" class="favorites-section" aria-label="Herramientas favoritas" style="display: none;">
+                <div class="favorites-header">
+                    <h2 class="favorites-title">Tus favoritos</h2>
+                    <p class="favorites-subtitle">Guarda las herramientas que usas con mayor frecuencia.</p>
+                </div>
+                <div id="favorites-grid" class="tools-grid" aria-live="polite" aria-atomic="false"></div>
+                <div id="favorites-empty" class="no-results" style="display: none;" role="status" aria-live="polite" aria-atomic="true">
+                    <span class="material-icons-outlined no-results-icon" aria-hidden="true">star_outline</span>
+                    <p>Aún no se han seleccionado favoritos.</p>
+                </div>
+            </section>
+
+            <div id="tools-grid" class="tools-grid" aria-live="polite" aria-atomic="false">
+                <!-- Las cards se generan dinámicamente con JavaScript -->
+            </div>
+            <div id="no-results" class="no-results" style="display: none;" role="status" aria-live="polite" aria-atomic="true">
+                <span class="material-icons-outlined no-results-icon" aria-hidden="true">search_off</span>
+                <p>No se encontraron herramientas para mostrar.</p>
+            </div>
+        </section>
+    </main>
+
+  
+
+    <div id="site-footer"></div>
+
+    <script src="js/libs/gsap.min.js"></script>
+    <script src="js/layout.js" defer></script>
+    <script src="js/mobile-menu.js" defer></script>
+    <script src="js/animaciones.js" defer></script>
+    <script src="js/app.js"></script>
+    <script defer src="js/accesibilidad.js"></script>
+</body>
+</html>

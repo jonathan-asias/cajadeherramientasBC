@@ -12,15 +12,32 @@ if (!gsapDisponible) {
     console.error('GSAP no está cargado. Asegúrate de incluir gsap.min.js antes de este archivo.');
 }
 
-// Detectar preferencia de movimiento reducido
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Preferencia del sistema: reducir movimiento (vestibular, epilepsia, etc.)
+const reduceMotionMql = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-// Configurar defaults de GSAP según preferencias de accesibilidad (solo si GSAP está disponible)
-if (gsapDisponible) {
+function prefersReducedMotion() {
+    return reduceMotionMql.matches;
+}
+
+function syncGsapDefaults() {
+    if (!gsapDisponible) return;
+    const reduced = prefersReducedMotion();
     gsap.defaults({
-        duration: reduceMotion ? 0 : 0.5,
-        ease: 'power2.out'
+        duration: reduced ? 0 : 0.5,
+        ease: reduced ? 'none' : 'power2.out'
     });
+}
+
+syncGsapDefaults();
+
+function onReduceMotionPreferenceChange() {
+    syncGsapDefaults();
+}
+
+if (typeof reduceMotionMql.addEventListener === 'function') {
+    reduceMotionMql.addEventListener('change', onReduceMotionPreferenceChange);
+} else if (typeof reduceMotionMql.addListener === 'function') {
+    reduceMotionMql.addListener(onReduceMotionPreferenceChange);
 }
 
 /**
@@ -33,7 +50,7 @@ if (gsapDisponible) {
  * Obtiene la duración ajustada según preferencias de accesibilidad
  */
 function getDuration(baseDuration) {
-    return reduceMotion ? 0 : baseDuration;
+    return prefersReducedMotion() ? 0 : baseDuration;
 }
 
 /**
@@ -51,6 +68,11 @@ function animarEntradaCards() {
     const cards = document.querySelectorAll('.tool-card');
     
     if (cards.length === 0) return;
+
+    if (prefersReducedMotion()) {
+        gsap.set(cards, { opacity: 1, y: 0, clearProps: 'transform' });
+        return;
+    }
     
     // Configurar estado inicial
     gsap.set(cards, {
@@ -77,6 +99,11 @@ function animarEntradaImagenesCards() {
     const imageContainers = document.querySelectorAll('.card-image-container');
     
     if (imageContainers.length === 0) return;
+
+    if (prefersReducedMotion()) {
+        gsap.set(imageContainers, { opacity: 1, y: 0, clearProps: 'transform' });
+        return;
+    }
     
     gsap.from(imageContainers, {
         opacity: 0,
@@ -100,7 +127,7 @@ function configurarHoverCards() {
         let hoverAnimation = null;
         
         card.addEventListener('mouseenter', () => {
-            if (reduceMotion) return;
+            if (prefersReducedMotion()) return;
             
             // Matar animación anterior si existe
             if (hoverAnimation) hoverAnimation.kill();
@@ -121,7 +148,7 @@ function configurarHoverCards() {
         });
         
         card.addEventListener('mouseleave', () => {
-            if (reduceMotion) return;
+            if (prefersReducedMotion()) return;
             
             // Matar animación anterior si existe
             if (hoverAnimation) hoverAnimation.kill();
@@ -147,8 +174,14 @@ function configurarHoverCards() {
  * Animación de apertura del modal
  */
 function animarAperturaModal(modal, overlay, modalContent) {
-    if (!gsapDisponible || reduceMotion) {
+    if (!gsapDisponible) {
         modal.style.display = 'flex';
+        return;
+    }
+    if (prefersReducedMotion()) {
+        modal.style.display = 'flex';
+        if (overlay) gsap.set(overlay, { opacity: 1 });
+        if (modalContent) gsap.set(modalContent, { scale: 1, y: 0, opacity: 1, clearProps: 'transform' });
         return;
     }
     
@@ -196,8 +229,15 @@ function animarAperturaModal(modal, overlay, modalContent) {
  * Animación de cierre del modal
  */
 function animarCierreModal(modal, overlay, modalContent, callback) {
-    if (!gsapDisponible || reduceMotion) {
+    if (!gsapDisponible) {
         modal.style.display = 'none';
+        if (callback) callback();
+        return;
+    }
+    if (prefersReducedMotion()) {
+        modal.style.display = 'none';
+        if (overlay) gsap.set(overlay, { clearProps: 'opacity' });
+        if (modalContent) gsap.set(modalContent, { clearProps: 'opacity,scale,transform' });
         if (callback) callback();
         return;
     }
@@ -238,7 +278,7 @@ function animarSalidaCards(cards, callback) {
         return;
     }
     
-    if (!gsapDisponible || reduceMotion) {
+    if (!gsapDisponible || prefersReducedMotion()) {
         cards.forEach(card => card.remove());
         if (callback) callback();
         return;
@@ -262,7 +302,12 @@ function animarSalidaCards(cards, callback) {
  * Animación de entrada de cards filtradas
  */
 function animarEntradaCardsFiltradas(cards) {
-    if (!gsapDisponible || cards.length === 0 || reduceMotion) return;
+    if (!gsapDisponible || cards.length === 0) return;
+
+    if (prefersReducedMotion()) {
+        gsap.set(cards, { opacity: 1, y: 0, clearProps: 'transform' });
+        return;
+    }
     
     // Configurar estado inicial
     gsap.set(cards, {
@@ -282,80 +327,6 @@ function animarEntradaCardsFiltradas(cards) {
 
 /**
  * ============================================
- * ANIMACIONES DE LOADER DEL MODAL
- * ============================================
- */
-
-/**
- * Mostrar loader del modal con animación
- */
-function mostrarLoaderModal() {
-    const modalLoader = document.getElementById('modalLoader');
-    if (!modalLoader || !gsapDisponible) {
-        if (modalLoader) modalLoader.classList.add('visible');
-        return;
-    }
-
-    if (reduceMotion) {
-        modalLoader.classList.add('visible');
-        return;
-    }
-
-    // Configurar estado inicial
-    gsap.set(modalLoader, {
-        opacity: 0,
-        scale: 0.95
-    });
-
-    // Mostrar loader
-    modalLoader.classList.add('visible');
-
-    // Animar entrada
-    gsap.to(modalLoader, {
-        opacity: 1,
-        scale: 1,
-        duration: getDuration(0.3),
-        ease: 'power2.out'
-    });
-
-    // Animar rotación del ícono
-    const loaderIcon = modalLoader.querySelector('.modal-loader-icon');
-    if (loaderIcon) {
-        gsap.to(loaderIcon, {
-            rotation: 360,
-            repeat: -1,
-            ease: 'linear',
-            duration: getDuration(1.2)
-        });
-    }
-}
-
-/**
- * Ocultar loader del modal con animación
- */
-function ocultarLoaderModal() {
-    const modalLoader = document.getElementById('modalLoader');
-    if (!modalLoader) return;
-
-    if (!gsapDisponible || reduceMotion) {
-        modalLoader.classList.remove('visible');
-        return;
-    }
-
-    // Animar salida
-    gsap.to(modalLoader, {
-        opacity: 0,
-        scale: 0.95,
-        duration: getDuration(0.3),
-        ease: 'power2.in',
-        onComplete: () => {
-            modalLoader.classList.remove('visible');
-        }
-    });
-}
-
-/**
- * ============================================
  * ANIMACIONES DE PANEL DE ACCESIBILIDAD
  * ============================================
  */
@@ -364,8 +335,13 @@ function ocultarLoaderModal() {
  * Animación de apertura del panel de accesibilidad
  */
 function animarAperturaPanelAccesibilidad(panel) {
-    if (!gsapDisponible || reduceMotion) {
+    if (!gsapDisponible) {
         panel.classList.add('visible');
+        return;
+    }
+    if (prefersReducedMotion()) {
+        panel.classList.add('visible');
+        gsap.set(panel, { clearProps: 'x,opacity,transform' });
         return;
     }
     
@@ -388,8 +364,14 @@ function animarAperturaPanelAccesibilidad(panel) {
  * Animación de cierre del panel de accesibilidad
  */
 function animarCierrePanelAccesibilidad(panel, callback) {
-    if (!gsapDisponible || reduceMotion) {
+    if (!gsapDisponible) {
         panel.classList.remove('visible');
+        if (callback) callback();
+        return;
+    }
+    if (prefersReducedMotion()) {
+        panel.classList.remove('visible');
+        gsap.set(panel, { clearProps: 'x,opacity,transform' });
         if (callback) callback();
         return;
     }
@@ -419,7 +401,7 @@ function configurarAnimacionesBotonesPanel() {
     
     botones.forEach(btn => {
         btn.addEventListener('click', () => {
-            if (reduceMotion) return;
+            if (prefersReducedMotion()) return;
             
             gsap.fromTo(btn, 
                 { scale: 0.95 }, 
@@ -473,8 +455,9 @@ window.AnimacionesGSAP = {
     animarAperturaPanelAccesibilidad,
     animarCierrePanelAccesibilidad,
     configurarAnimacionesBotonesPanel,
-    mostrarLoaderModal,
-    ocultarLoaderModal,
-    reduceMotion
+    prefersReducedMotion,
+    get reduceMotion() {
+        return prefersReducedMotion();
+    }
 };
 

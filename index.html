@@ -4,413 +4,208 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caja de Herramientas - Bancolombia</title>
+    <meta name="description" content="Guías y herramientas para accesibilidad web en Bancolombia. Recursos prácticos por rol para equipos digitales.">
+    <link rel="canonical" href="https://solucionesvortico.com/Bancolombia/prueba/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Caja de Herramientas - Bancolombia">
+    <meta property="og:description" content="Guías y herramientas para accesibilidad web en Bancolombia. Recursos prácticos por rol para equipos digitales.">
+    <meta property="og:url" content="https://solucionesvortico.com/Bancolombia/prueba/">
+    <meta property="og:image" content="https://solucionesvortico.com/Bancolombia/prueba/img/Ilustracion1-bancolombia%202.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="./img/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <!-- Variables CSS - Cargar primero -->
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/accesibilidad.css">
-    <link rel="stylesheet" href="css/loader.css">
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/accesibilidad.css">
+    <link rel="stylesheet" href="./css/guide-modal.css">
 </head>
-<body>
+<body class="page-index">
     <!-- Enlace para saltar al contenido principal (accesibilidad) -->
     <a href="#mainContent" class="skip-link">Saltar al contenido principal</a>
-    
-    <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-            <div class="header-logo">
-                <img src="img/BC_logo.png" alt="Logo Caja de Herramientas" class="logo-image">
-            </div>
-            <h1 class="header-title">Caja de Herramientas</h1>
-            <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-menu">
-                <span class="material-icons-outlined" aria-hidden="true">menu</span>
-            </button>
-            <nav class="header-nav" aria-label="Navegación principal">
-                <a href="guias-uso.html" class="header-link">
-                    <span class="material-icons-outlined" aria-hidden="true">menu_book</span>
-                    Guías de uso
-                </a>
-                <a href="#" class="header-link header-link-primary">
-                    <span class="material-icons-outlined" aria-hidden="true">add_circle</span>
-                    Crear herramienta
-                </a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Menú móvil -->
-    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
-        <div id="mobile-menu-content" class="mobile-menu-content">
-            <div class="mobile-menu-header">
-                <h2 id="mobile-menu-title" class="mobile-menu-title">Menú</h2>
-                <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Cerrar menú">
-                    <span class="material-icons-outlined" aria-hidden="true">close</span>
-                </button>
-            </div>
-            <nav class="mobile-nav" aria-label="Navegación móvil">
-                <a href="guias-uso.html" class="header-link">
-                    <span class="material-icons-outlined" aria-hidden="true">menu_book</span>
-                    Guías de uso
-                </a>
-                <a href="#" class="header-link header-link-primary">
-                    <span class="material-icons-outlined" aria-hidden="true">add_circle</span>
-                    Crear herramienta
-                </a>
-            </nav>
-        </div>
-    </div>
+    <!-- Cabecera y menú móvil: partials/header.html (layout.js); accesibilidad del drawer en js/mobile-menu.js -->
+    <div id="site-header"></div>
 
     <!-- Mensaje Inicial -->
     <section class="intro-message" aria-labelledby="intro-title">
         <div class="intro-content">
             
             <div class="intro-text">
-                <h2 id="intro-title" class="intro-title">
-                    Caja de Herramientas para el Aprendizaje y la Innovación
-                </h2>
+                <h1 id="intro-title" class="intro-title">
+                    Caja de herramientas para la implementación de accesibilidad web
+                </h1>
+                <h2 class="intro-subtitle">Recursos prácticos de accesibilidad web | Guía práctica de accesibilidad web</h2>
+            
                 <p class="intro-description">
-                    La Caja de Herramientas es un espacio diseñado para facilitar el acceso a metodologías, recursos y herramientas prácticas que apoyan el aprendizaje, la colaboración y el desarrollo de proyectos.
-                </p>
-                <p class="intro-support">
-                    Aquí encontrarás herramientas pensadas para distintos roles, contextos de uso y tipos de recurso, que te ayudarán a comprender conceptos, aplicar metodologías y fortalecer procesos de trabajo individual o en equipo.
-                    Explora, filtra y selecciona la herramienta que mejor se adapte a quién eres, para qué la necesitas y cómo deseas utilizarla.
+                    Esta herramienta es un espacio diseñado para compartir metodologías, recursos y herramientas prácticas que facilitan la implementación de accesibilidad en el sitio web.
                 </p>
             </div>
             <div class="intro-image-wrapper">
-                <img src="img/imagen_CH.png" alt="Ilustración de caja de herramientas digital con elementos de diseño, código, seguridad y creatividad" class="intro-image">
+                <img src="./img/Ilustracion1-bancolombia 2.png" width="756" height="384" alt="Ilustración de caja de herramientas digital con elementos de diseño, código, seguridad y creatividad" class="intro-image">
             </div>
         </div>
     </section>
 
-    <!-- Carrusel de Guía de Uso -->
-    <section class="guide-carousel-section" aria-labelledby="carousel-title">
-        <div class="guide-carousel-container">
-            <h2 id="carousel-title" class="guide-carousel-title">
-                <span class="material-icons-outlined" aria-hidden="true">info</span>
-                Cómo usar las herramientas de accesibilidad
-            </h2>
+   
+
+    <!-- Banner Informativo -->
+    <section class="info-banner" aria-labelledby="info-banner-title">
+        <div class="info-banner-content">
+            <div class="info-banner-icon">
+                <img src="./img/ilustracion_tdc 1.png" width="177" height="130" alt="Icono de información" class="info-banner-icon-image">
+            </div>
+            <div class="info-banner-text">
+                <p id="info-banner-title">
+                    El objetivo de esta caja de herramientas es facilitar el acceso a información clara, confiable y aplicable, para que los equipos puedan usar las herramientas de accesibilidad de forma consciente y pertinente, ajustándolas a las necesidades reales de cada contexto, producto y etapa del proceso.
+                </p>
+            </div>
+            <div class="info-banner-button">
+                <button type="button" class="btn-consultar-guias" id="btn-consultar-guias">
+                    Consulta la guía de uso
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Guías de uso (carrusel) -->
+    <div id="guide-modal"
+         class="guide-modal"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="guide-modal-title"
+         aria-describedby="guide-modal-desc"
+         hidden>
+        <div id="guide-modal-overlay" class="guide-modal__overlay" aria-hidden="true"></div>
+        <div id="guide-modal-content" class="guide-modal__content">
+            <button type="button" id="guide-modal-close" class="guide-modal__close" aria-label="Cerrar guía de uso">
+                <span class="material-icons-outlined" aria-hidden="true">close</span>
+            </button>
+
+            <div class="guide-modal-body">
+                <h2 id="guide-modal-title">Guía de uso</h2>
+                <p id="guide-modal-desc" class="visually-hidden">
+                    Modal con carrusel informativo. Usa Tab para navegar y Escape para cerrar.
+                </p>
+
+                <div class="guide-carousel" aria-roledescription="Carrusel" aria-label="Guías de uso">
+                    <div class="guide-carousel__viewport" tabindex="-1">
+                        <article id="guide-carousel-slide-1" class="guide-carousel__slide is-active" data-slide="0" aria-label="1 de 4">
+                            <h3 class="guide-carousel__title">1. Introducción</h3>
+                            <p class="guide-carousel__text">
+                                Esta guía te ayudará a comprender cómo usar la Caja de Herramientas de manera sencilla y efectiva.
+                            </p>
+                            <p class="guide-carousel__text">
+                                No necesitas conocimientos técnicos previos para comenzar.
+                            </p>
+                            <p class="guide-carousel__text">
+                                Aquí encontrarás cómo explorar herramientas, aplicar filtros y tomar decisiones relacionadas con accesibilidad.
+                            </p>
+                        </article>
+
+                        <article id="guide-carousel-slide-2" class="guide-carousel__slide" data-slide="1" aria-label="2 de 4" inert>
+                            <h3 class="guide-carousel__title">2. ¿De qué se trata esta caja?</h3>
+                            <p class="guide-carousel__text">
+                                La Caja de Herramientas reúne recursos que apoyan la toma de decisiones relacionadas con la accesibilidad en productos, servicios y canales.
+                            </p>
+                            <p class="guide-carousel__text">
+                                Su objetivo es facilitar que la accesibilidad se incorpore de forma consistente en el trabajo diario.
+                            </p>
+                        </article>
+
+                        <article id="guide-carousel-slide-3" class="guide-carousel__slide" data-slide="2" aria-label="3 de 4" inert>
+                            <h3 class="guide-carousel__title">3. Exploración y uso</h3>
+                            <p class="guide-carousel__text">Las herramientas están organizadas en tarjetas que incluyen:</p>
+                            <ul class="guide-carousel__list">
+                                <li>Nombre de la herramienta</li>
+                                <li>Rol al que está dirigida</li>
+                                <li>Propósito</li>
+                                <li>Tipo de recurso</li>
+                            </ul>
+                            <p class="guide-carousel__text">
+                                Puedes explorar libremente o usar filtros para encontrar lo que necesitas.
+                            </p>
+                        </article>
+
+                        <article id="guide-carousel-slide-4" class="guide-carousel__slide" data-slide="3" aria-label="4 de 4" inert>
+                            <h3 class="guide-carousel__title">4. Recomendaciones clave:</h3>
+                          
+                    
+                            <ul class="guide-carousel__list">
+                                <li>Lee la descripción completa</li>
+                                <li>Identifica el objetivo</li>
+                                <li>Adáptala a tu contexto</li>
+                                <li>No hay una única forma correcta</li>
+                            </ul>
+                        </article>
+                    </div>
+
+                    <div class="guide-carousel__controls" aria-label="Controles del carrusel">
+                        <button type="button" class="guide-carousel__btn" id="guide-carousel-prev">Anterior</button>
+                        <div class="guide-carousel__dots" role="tablist" aria-label="Diapositivas">
+                            <button type="button" class="guide-carousel__dot is-active" role="tab" aria-selected="true" aria-controls="guide-carousel-slide-1" data-go="0" aria-label="Diapositiva 1 de 4"></button>
+                            <button type="button" class="guide-carousel__dot" role="tab" aria-selected="false" aria-controls="guide-carousel-slide-2" data-go="1" aria-label="Diapositiva 2 de 4"></button>
+                            <button type="button" class="guide-carousel__dot" role="tab" aria-selected="false" aria-controls="guide-carousel-slide-3" data-go="2" aria-label="Diapositiva 3 de 4"></button>
+                            <button type="button" class="guide-carousel__dot" role="tab" aria-selected="false" aria-controls="guide-carousel-slide-4" data-go="3" aria-label="Diapositiva 4 de 4"></button>
+                        </div>
+                        <button type="button" class="guide-carousel__btn" id="guide-carousel-next">Siguiente</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sección de Exploración de Herramientas -->
+    <section class="explore-section" aria-labelledby="explore-title">
+        <div class="explore-content">
+            <h2 id="explore-title" class="explore-title">Explora las herramientas de accesibilidad</h2>
+            <p class="explore-subtitle">Encuentra la herramienta que necesitas de forma ágil por medio de los filtros rápidos.</p>
+            <div class="explore-button-wrapper">
+                <a href="./herramientas.html" class="btn-conoce-herramientas">Conoce todas las herramientas</a>
+            </div>
             
-            <div class="guide-carousel" role="region" aria-roledescription="carrusel" aria-label="Guía de uso de herramientas">
-                <div class="carousel-slides" id="carousel-slides">
-                    
-                    <!-- Slide 1: Introducción (imagen izquierda) -->
-                    <div class="carousel-slide active" role="group" aria-roledescription="slide" aria-label="Paso 1 de 10">
-                        <div class="slide-layout slide-img-left">
-                            <div class="slide-image">
-                                <img src="img/carrusel/Creative Graphic Design Workspace.png" alt="" aria-hidden="true">
-                            </div>
-                            <div class="slide-content">
-                                <h3 class="slide-title">Introducción</h3>
-                                <p>Esta caja reúne herramientas que apoyan la toma de decisiones relacionadas con la accesibilidad en los productos, servicios y canales del banco.</p>
-                                <p>Su objetivo es facilitar que la accesibilidad se incorpore de manera consistente en el trabajo diario, desde el diseño hasta la operación.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 2: Cuándo usar (imagen derecha) -->
-                    <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Paso 2 de 10">
-                        <div class="slide-layout slide-img-right">
-                            <div class="slide-content">
-                                <h3 class="slide-title">Cuándo usar una herramienta</h3>
-                                <p>Usa una herramienta de accesibilidad cuando una decisión pueda afectar la forma en que una persona accede, entiende o utiliza un producto o servicio del banco:</p>
-                                <ul>
-                                    <li>Creación o ajuste de contenidos</li>
-                                    <li>Diseño o modificación de interfaces</li>
-                                    <li>Desarrollo o cambio de funcionalidades</li>
-                                    <li>Revisión de experiencias existentes</li>
-                                </ul>
-                            </div>
-                            <div class="slide-image">
-                                <img src="img/carrusel/ux-indonesia-qC2n6RQU4Vw-unsplash.jpg" alt="" aria-hidden="true">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 3: Uso individual (imagen izquierda) -->
-                    <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Paso 3 de 10">
-                        <div class="slide-layout slide-img-left">
-                            <div class="slide-image">
-                                <img src="img/carrusel/Woman at Creative Workspace.png" alt="" aria-hidden="true">
-                            </div>
-                            <div class="slide-content">
-                                <h3 class="slide-title">Uso individual</h3>
-                                <p>Este modo aplica cuando la decisión depende de un rol específico o cuando se necesita una revisión puntual en solitario.</p>
-                                <p>La herramienta ayuda a contrastar criterios, identificar riesgos y fortalecer la decisión antes de avanzar.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 4: Uso conjunto (imagen derecha) -->
-                    <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Paso 4 de 10">
-                        <div class="slide-layout slide-img-right">
-                            <div class="slide-content">
-                                <h3 class="slide-title">Uso conjunto</h3>
-                                <p>Este modo aplica cuando la decisión involucra a varios roles o áreas, o cuando es necesario alinear criterios.</p>
-                                <p>En estos casos, la herramienta ayuda a ordenar la conversación y a dejar acuerdos claros.</p>
-                            </div>
-                            <div class="slide-image">
-                                <img src="img/carrusel/Creative Workspace Collaboration.png" alt="" aria-hidden="true">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 5: Antes de empezar (imagen izquierda) -->
-                    <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Paso 5 de 10">
-                        <div class="slide-layout slide-img-left">
-                            <div class="slide-image">
-                                <img src="img/carrusel/kelly-sikkema-gcHFXsdcmJE-unsplash.jpg" alt="" aria-hidden="true">
-                            </div>
-                            <div class="slide-content">
-                                <h3 class="slide-title">Antes de empezar</h3>
-                                <p>Asegúrate de tener claridad sobre:</p>
-                                <ul>
-                                    <li>Qué decisión se va a tomar o revisar</li>
-                                    <li>En qué punto del proceso se encuentra el trabajo</li>
-                                    <li>Qué impacto puede tener en las personas usuarias</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 6: Durante el uso (imagen derecha) -->
-                    <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Paso 6 de 10">
-                        <div class="slide-layout slide-img-right">
-                            <div class="slide-content">
-                                <h3 class="slide-title">Durante el uso</h3>
-                                <p>Cada herramienta indica cómo trabajar la información. Durante su aplicación:</p>
-                                <ul>
-                                    <li>Sigue la secuencia propuesta y adáptala</li>
-                                    <li>Registra los hallazgos y dudas relevantes</li>
-                                    <li>Evita usarla solo como requisito a cumplir</li>
-                                </ul>
-                            </div>
-                            <div class="slide-image">
-                                <img src="img/carrusel/alvaro-reyes-KxVlKiqQObU-unsplash.jpg" alt="" aria-hidden="true">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 7: Revisión de resultados (imagen izquierda) -->
-                    <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Paso 7 de 10">
-                        <div class="slide-layout slide-img-left">
-                            <div class="slide-image">
-                                <img src="img/carrusel/Flowchart Creation.png" alt="" aria-hidden="true">
-                            </div>
-                            <div class="slide-content">
-                                <h3 class="slide-title">Revisión de resultados</h3>
-                                <p>Al finalizar, revisa los resultados obtenidos:</p>
-                                <ul>
-                                    <li>En uso individual, confirma si la decisión es adecuada</li>
-                                    <li>En uso conjunto, define próximos pasos y responsabilidades</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 8: Cierre y registro (imagen derecha) -->
-                    <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Paso 8 de 10">
-                        <div class="slide-layout slide-img-right">
-                            <div class="slide-content">
-                                <h3 class="slide-title">Cierre y registro</h3>
-                                <p>Deja explícito:</p>
-                                <ul>
-                                    <li>Qué decisión se tomó</li>
-                                    <li>Qué ajustes se harán o no en este momento</li>
-                                    <li>Si es necesario compartir el resultado</li>
-                                </ul>
-                                <p>El registro permite dar continuidad y mantener trazabilidad.</p>
-                            </div>
-                            <div class="slide-image">
-                                <img src="img/carrusel/faizur-rehman-dJpupM4LiS4-unsplash.jpg" alt="" aria-hidden="true">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 9: Integración (imagen izquierda) -->
-                    <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Paso 9 de 10">
-                        <div class="slide-layout slide-img-left">
-                            <div class="slide-image">
-                                <img src="img/carrusel/Touchscreen Interaction.png" alt="" aria-hidden="true">
-                            </div>
-                            <div class="slide-content">
-                                <h3 class="slide-title">Integración al trabajo diario</h3>
-                                <p>Los resultados deben incorporarse al flujo habitual de trabajo del banco, ya sea en diseño, desarrollo, validación o seguimiento.</p>
-                                <p>Cuando una barrera no puede resolverse de inmediato, debe quedar identificada y gestionada de forma responsable.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 10: Evolución y cierre (imagen derecha) -->
-                    <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="Paso 10 de 10">
-                        <div class="slide-layout slide-img-right">
-                            <div class="slide-content">
-                                <h3 class="slide-title">Evolución de la caja y cierre</h3>
-                                <p>Esta caja de herramientas está en evolución constante. Las herramientas actuales y las que se incorporen seguirán este mismo marco de uso.</p>
-                                <p><strong>La accesibilidad es parte de la calidad de nuestros productos y servicios.</strong></p>
-                            </div>
-                            <div class="slide-image">
-                                <img src="img/carrusel/amelie-mourichon-wusOJ-2uY6w-unsplash.jpg" alt="" aria-hidden="true">
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-                
-                <!-- Controles del carrusel -->
-                <div class="carousel-controls">
-                    <button type="button" class="carousel-btn carousel-btn-prev" id="carousel-prev" aria-label="Paso anterior" disabled>
-                        <span class="material-icons-outlined" aria-hidden="true">chevron_left</span>
-                    </button>
-                    
-                    <div class="carousel-progress" role="status" aria-live="polite">
-                        <span id="carousel-current">1</span> de <span id="carousel-total">10</span>
-                    </div>
-                    
-                    <button type="button" class="carousel-btn carousel-btn-next" id="carousel-next" aria-label="Siguiente paso">
-                        <span class="material-icons-outlined" aria-hidden="true">chevron_right</span>
+            <p class="explore-filters-text"> <strong>Selecciona una opción de acuerdo a tus necesidades</strong>    </p>
+            
+            <!-- Botones de Filtrado Rápido -->
+            <div class="quick-filters-container">
+                <button type="button" class="quick-filter-btn" data-filter-type="usuarios" aria-expanded="false" aria-controls="filter-options-section">
+                    <span class="material-icons-outlined quick-filter-icon" aria-hidden="true">person</span>
+                    <span class="quick-filter-text">¿Quién va a usar la herramienta?</span>
+                </button>
+                <button type="button" class="quick-filter-btn" data-filter-type="uso" aria-expanded="false" aria-controls="filter-options-section">
+                    <span class="material-icons-outlined quick-filter-icon" aria-hidden="true">business</span>
+                    <span class="quick-filter-text">¿Para qué la usarás?</span>
+                </button>
+        
+            </div>
+            
+            <!-- Sección de Opciones (se muestra dinámicamente) -->
+            <div id="filter-options-section" class="filter-options-section" role="region" aria-labelledby="filter-options-title" hidden>
+                <div class="filter-options-header">
+                    <h3 id="filter-options-title" class="filter-options-title">Opciones de filtro</h3>
+                    <button type="button" class="filter-options-close" aria-label="Cerrar opciones">
+                        <span class="material-icons-outlined" aria-hidden="true">close</span>
                     </button>
                 </div>
-                
-                <!-- Indicadores de progreso -->
-                <div class="carousel-indicators" role="tablist" aria-label="Pasos de la guía">
-                    <button type="button" class="carousel-indicator active" role="tab" aria-selected="true" aria-label="Ir al paso 1" data-slide="0"></button>
-                    <button type="button" class="carousel-indicator" role="tab" aria-selected="false" aria-label="Ir al paso 2" data-slide="1"></button>
-                    <button type="button" class="carousel-indicator" role="tab" aria-selected="false" aria-label="Ir al paso 3" data-slide="2"></button>
-                    <button type="button" class="carousel-indicator" role="tab" aria-selected="false" aria-label="Ir al paso 4" data-slide="3"></button>
-                    <button type="button" class="carousel-indicator" role="tab" aria-selected="false" aria-label="Ir al paso 5" data-slide="4"></button>
-                    <button type="button" class="carousel-indicator" role="tab" aria-selected="false" aria-label="Ir al paso 6" data-slide="5"></button>
-                    <button type="button" class="carousel-indicator" role="tab" aria-selected="false" aria-label="Ir al paso 7" data-slide="6"></button>
-                    <button type="button" class="carousel-indicator" role="tab" aria-selected="false" aria-label="Ir al paso 8" data-slide="7"></button>
-                    <button type="button" class="carousel-indicator" role="tab" aria-selected="false" aria-label="Ir al paso 9" data-slide="8"></button>
-                    <button type="button" class="carousel-indicator" role="tab" aria-selected="false" aria-label="Ir al paso 10" data-slide="9"></button>
+                <div id="filter-options-content" class="filter-options-content">
+                    <!-- Las opciones se generan dinámicamente con JavaScript -->
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Main Content -->
-    <main id="mainContent" class="main-container" role="main">
-        <!-- Filtros -->
-        <section class="filters-section" aria-labelledby="filtros-titulo">
-            <p class="filters-intro">Explora las herramientas aplicando filtros por rol, propósito y tipo de recurso.</p>
-            <div class="filters-container">
-                
-                <!-- Botón limpiar filtros -->
-                <button type="button" id="btn-limpiar-filtros" class="btn-limpiar-filtros" style="display: none;" aria-label="Limpiar todos los filtros">
-                    <span class="material-icons-outlined" aria-hidden="true">filter_alt_off</span>
-                    Limpiar filtros
-                </button>
-                
-                <!-- Filtro 1: ¿Quién va a usar la herramienta? -->
-                <div class="filter-dropdown" data-filter="usuarios">
-                    <button type="button" class="filter-dropdown-toggle" aria-expanded="false" aria-haspopup="listbox">
-                        <span class="material-icons-outlined filter-dropdown-icon" aria-hidden="true">person</span>
-                        <span class="filter-dropdown-label">¿Quién va a usar la herramienta?</span>
-                        <span class="filter-dropdown-count" aria-live="polite"></span>
-                        <span class="material-icons-outlined filter-dropdown-arrow" aria-hidden="true">expand_more</span>
-                    </button>
-                    <div class="filter-dropdown-menu" role="listbox" aria-label="Opciones de usuario">
-                        <label class="filter-dropdown-option">
-                            <input type="checkbox" name="usuarios" value="Diseñador" class="filter-checkbox">
-                            <span class="filter-checkbox-custom"></span>
-                            <span class="filter-option-text">Diseñador</span>
-                        </label>
-                        <label class="filter-dropdown-option">
-                            <input type="checkbox" name="usuarios" value="Desarrollador" class="filter-checkbox">
-                            <span class="filter-checkbox-custom"></span>
-                            <span class="filter-option-text">Desarrollador</span>
-                        </label>
-                        <label class="filter-dropdown-option">
-                            <input type="checkbox" name="usuarios" value="Creador de contenido" class="filter-checkbox">
-                            <span class="filter-checkbox-custom"></span>
-                            <span class="filter-option-text">Creador de contenido</span>
-                        </label>
-                        <label class="filter-dropdown-option">
-                            <input type="checkbox" name="usuarios" value="Asesor" class="filter-checkbox">
-                            <span class="filter-checkbox-custom"></span>
-                            <span class="filter-option-text">Asesor</span>
-                        </label>
-                        <label class="filter-dropdown-option">
-                            <input type="checkbox" name="usuarios" value="Equipo de trabajo" class="filter-checkbox">
-                            <span class="filter-checkbox-custom"></span>
-                            <span class="filter-option-text">Equipo de trabajo</span>
-                        </label>
-                        <label class="filter-dropdown-option">
-                            <input type="checkbox" name="usuarios" value="Transversal" class="filter-checkbox">
-                            <span class="filter-checkbox-custom"></span>
-                            <span class="filter-option-text">Transversal</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Filtro 2: ¿Para qué lo usarás? -->
-                <div class="filter-dropdown" data-filter="uso">
-                    <button type="button" class="filter-dropdown-toggle" aria-expanded="false" aria-haspopup="listbox">
-                        <span class="material-icons-outlined filter-dropdown-icon" aria-hidden="true">business</span>
-                        <span class="filter-dropdown-label">¿Para qué lo usarás?</span>
-                        <span class="filter-dropdown-count" aria-live="polite"></span>
-                        <span class="material-icons-outlined filter-dropdown-arrow" aria-hidden="true">expand_more</span>
-                    </button>
-                    <div class="filter-dropdown-menu" role="listbox" aria-label="Opciones de uso">
-                        <label class="filter-dropdown-option">
-                            <input type="checkbox" name="uso" value="Área del banco 1" class="filter-checkbox">
-                            <span class="filter-checkbox-custom"></span>
-                            <span class="filter-option-text">Área del banco 1</span>
-                        </label>
-                        <label class="filter-dropdown-option">
-                            <input type="checkbox" name="uso" value="Área del banco 2" class="filter-checkbox">
-                            <span class="filter-checkbox-custom"></span>
-                            <span class="filter-option-text">Área del banco 2</span>
-                        </label>
-                        <label class="filter-dropdown-option">
-                            <input type="checkbox" name="uso" value="Área del banco 3" class="filter-checkbox">
-                            <span class="filter-checkbox-custom"></span>
-                            <span class="filter-option-text">Área del banco 3</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Filtro 3: ¿Qué tipo de herramienta buscas? -->
-                <div class="filter-dropdown" data-filter="tipo">
-                    <button type="button" class="filter-dropdown-toggle" aria-expanded="false" aria-haspopup="listbox">
-                        <span class="material-icons-outlined filter-dropdown-icon" aria-hidden="true">widgets</span>
-                        <span class="filter-dropdown-label">¿Qué tipo de herramienta buscas?</span>
-                        <span class="filter-dropdown-count" aria-live="polite"></span>
-                        <span class="material-icons-outlined filter-dropdown-arrow" aria-hidden="true">expand_more</span>
-                    </button>
-                    <div class="filter-dropdown-menu" role="listbox" aria-label="Opciones de tipo">
-                        <label class="filter-dropdown-option">
-                            <input type="checkbox" name="tipo" value="Manual de uso" class="filter-checkbox">
-                            <span class="filter-checkbox-custom"></span>
-                            <span class="filter-option-text">Manual de uso</span>
-                        </label>
-                        <label class="filter-dropdown-option">
-                            <input type="checkbox" name="tipo" value="Infografías" class="filter-checkbox">
-                            <span class="filter-checkbox-custom"></span>
-                            <span class="filter-option-text">Infografías</span>
-                        </label>
-                        <label class="filter-dropdown-option">
-                            <input type="checkbox" name="tipo" value="Enlaces externos" class="filter-checkbox">
-                            <span class="filter-checkbox-custom"></span>
-                            <span class="filter-option-text">Enlaces externos</span>
-                        </label>
-                        <label class="filter-dropdown-option">
-                            <input type="checkbox" name="tipo" value="Guías" class="filter-checkbox">
-                            <span class="filter-checkbox-custom"></span>
-                            <span class="filter-option-text">Guías</span>
-                        </label>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
+    <main id="mainContent" class="main-container">
         <!-- Grid de Cards -->
         <section class="tools-section" aria-label="Herramientas disponibles">
-            <div id="tools-grid" class="tools-grid" role="list" aria-live="polite" aria-atomic="false">
+            <div class="tools-section-header">
+                <button type="button" id="btn-limpiar-filtro-rapido" class="btn-limpiar-filtro-rapido" aria-label="Limpiar filtro y ocultar resultados">
+                    <span class="material-icons-outlined" aria-hidden="true">filter_alt_off</span>
+                    Limpiar filtro
+                </button>
+            </div>
+            <div id="tools-grid" class="tools-grid" aria-live="polite" aria-atomic="false">
                 <!-- Las cards se generan dinámicamente con JavaScript -->
             </div>
             <div id="no-results" class="no-results" style="display: none;" role="status" aria-live="polite" aria-atomic="true">
@@ -420,105 +215,17 @@
         </section>
     </main>
 
-    <!-- Modal para vista detallada -->
-    <div id="modal" class="modal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="modal-titulo" aria-describedby="modal-descripcion" aria-hidden="true">
-        <div class="modal-overlay" aria-hidden="true"></div>
-        <div class="modal-content">
-            <div id="modalLoader" aria-label="Cargando contenido del modal" role="status" aria-live="polite" aria-atomic="true">
-                <div class="modal-loader-content">
-                    <span class="material-icons-outlined modal-loader-icon" aria-hidden="true">autorenew</span>
-                    <p>Cargando…</p>
-                </div>
-            </div>
-            <button class="modal-close" aria-label="Cerrar modal" type="button">
-                <span class="material-icons-outlined" aria-hidden="true">close</span>
-            </button>
-            <div id="modal-image-container" class="modal-image-container" aria-hidden="true"></div>
-            <div class="modal-header">
-                <h2 id="modal-titulo" class="modal-title"></h2>
-                <div class="modal-tags" role="list" aria-label="Características de la herramienta">
-                    <div id="modal-usuarios" class="modal-tag-group" role="listitem"></div>
-                    <div id="modal-uso" class="modal-tag-group" role="listitem"></div>
-                    <div id="modal-tipo" class="modal-tag-group" role="listitem"></div>
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="modal-section">
-                    <h3 class="modal-section-title">Descripción</h3>
-                    <p id="modal-descripcion" class="modal-text"></p>
-                </div>
-                <div class="modal-section">
-                    <h3 class="modal-section-title">Objetivo</h3>
-                    <p id="modal-objetivo" class="modal-text"></p>
-                </div>
-                <div class="modal-section">
-                    <h3 class="modal-section-title">Materiales</h3>
-                    <ul id="modal-materiales" class="modal-list"></ul>
-                </div>
-                <div class="modal-section">
-                    <h3 class="modal-section-title">Pasos</h3>
-                    <ol id="modal-pasos" class="modal-list modal-list-numbered"></ol>
-                </div>
-            </div>
-        </div>
-    </div>
+   
 
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3 class="footer-title">Caja de Herramientas</h3>
-                <p class="footer-description">
-                    Herramientas colaborativas para el desarrollo de proyectos innovadores.
-                </p>
-            </div>
-            
-            <div class="footer-section">
-                <h4 class="footer-section-title">Recursos</h4>
-                <ul class="footer-links">
-                    <li><a href="guias-uso.html" class="footer-link">Guías de uso</a></li>
-                    <li><a href="contacto.html" class="footer-link">Contacto</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h4 class="footer-section-title">Información</h4>
-                <ul class="footer-links">
-                    <li><a href="acerca-de.html" class="footer-link">Acerca de</a></li>
-                    <li><a href="contacto.html" class="footer-link">Contacto</a></li>
-                    <li><a href="politica-privacidad.html" class="footer-link">Política de privacidad</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h4 class="footer-section-title">Accesibilidad</h4>
-                <p class="footer-accessibility">
-                    Este sitio cumple con los estándares WCAG 2.1 nivel AA para garantizar una experiencia accesible para todos los usuarios.
-                </p>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <div class="footer-bottom-content">
-                <p class="footer-copyright">
-                    &copy; <span id="current-year"></span> Bancolombia. Todos los derechos reservados.
-                </p>
-                <div class="footer-badge">
-                    <span class="material-icons-outlined" aria-hidden="true">verified</span>
-                    <span>Accesible</span>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <div id="site-footer"></div>
 
-    <script src="js/libs/gsap.min.js"></script>
-    <script src="js/loader.js" defer></script>
-    <script src="js/page-transition.js" defer></script>
-    <script src="js/mobile-menu.js" defer></script>
-    <script src="js/carousel.js" defer></script>
-    <script src="js/animaciones.js" defer></script>
-    <script src="js/app.js"></script>
-    <script defer src="js/accesibilidad.js"></script>
+    <script src="./js/libs/gsap.min.js"></script>
+    <script src="./js/layout.js" defer></script>
+    <script src="./js/mobile-menu.js" defer></script>
+    <script src="./js/animaciones.js" defer></script>
+    <script src="./js/app.js"></script>
+    <script defer src="./js/accesibilidad.js"></script>
+    <script src="./js/guias-modal.js" defer></script>
 </body>
 </html>
 

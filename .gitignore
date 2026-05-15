@@ -7,6 +7,10 @@ package-lock.json
 Thumbs.db
 desktop.ini
 
+# Cursor / agentes (solo desarrollo local)
+.agents/
+skills-lock.json
+
 # Archivos del editor
 .vscode/
 .idea/

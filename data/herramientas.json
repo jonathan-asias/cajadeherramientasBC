@@ -1,287 +1,1038 @@
 [
-  {
-    "id": 1,
-    "titulo": "Mapa de Empatía",
-    "imagen": null,
-    "descripcion": "Herramienta visual que permite entender profundamente a los usuarios, sus necesidades, pensamientos, sentimientos y comportamientos en un contexto específico.",
-    "usuarios": ["Diseñador", "Equipo de trabajo"],
-    "uso": ["Área del banco 1"],
-    "tipo": ["Guías", "Manual de uso"],
-    "objetivo": "Profundizar en el conocimiento del usuario objetivo, identificando sus necesidades, motivaciones, frustraciones y expectativas para diseñar soluciones más efectivas y centradas en las personas.",
-    "materiales": [
-      "Post-its de colores",
-      "Marcadores",
-      "Papel o pizarra grande",
-      "Plantilla de mapa de empatía (física o digital)"
-    ],
-    "pasos": [
-      "Define el perfil del usuario objetivo que quieres analizar",
-      "Divide el mapa en 4 cuadrantes: Qué dice, Qué piensa, Qué hace, Qué siente",
-      "Realiza investigación previa (entrevistas, observación, datos) sobre el usuario",
-      "Llena cada cuadrante con información específica y real del usuario",
-      "Identifica insights y oportunidades en las contradicciones o patrones encontrados",
-      "Prioriza los insights más relevantes para el proyecto"
-    ]
-  },
-  {
-    "id": 2,
-    "titulo": "Customer Journey Map",
-    "imagen": null,
-    "descripcion": "Visualización del recorrido completo que realiza un usuario al interactuar con un producto o servicio, desde el primer contacto hasta la finalización de su objetivo.",
-    "usuarios": ["Diseñador", "Asesor"],
-    "uso": ["Área del banco 1", "Área del banco 2"],
-    "tipo": ["Guías", "Infografías"],
-    "objetivo": "Identificar puntos de fricción, momentos de verdad y oportunidades de mejora en la experiencia del usuario a lo largo de todo su recorrido.",
-    "materiales": [
-      "Post-its",
-      "Marcadores de colores",
-      "Papel continuo o pizarra grande",
-      "Plantilla de journey map"
-    ],
-    "pasos": [
-      "Define el usuario persona y el escenario específico a mapear",
-      "Identifica todas las etapas del recorrido (Awareness, Consideration, Purchase, etc.)",
-      "Para cada etapa, documenta: acciones, pensamientos, emociones y touchpoints",
-      "Identifica puntos de dolor (pain points) y momentos de deleite (delight moments)",
-      "Prioriza las oportunidades de mejora más impactantes",
-      "Define acciones concretas para mejorar la experiencia"
-    ]
-  },
-  {
-    "id": 3,
-    "titulo": "Design Sprint",
-    "imagen": null,
-    "descripcion": "Metodología estructurada de 5 días para resolver problemas complejos y validar ideas de negocio mediante diseño, prototipado y testing con usuarios reales.",
-    "usuarios": ["Diseñador", "Desarrollador", "Equipo de trabajo"],
-    "uso": ["Área del banco 1", "Área del banco 2", "Área del banco 3"],
-    "tipo": ["Guías", "Manual de uso"],
-    "objetivo": "Acelerar el proceso de innovación, reducir riesgos y tomar decisiones informadas sobre productos o servicios en un tiempo muy corto, validando con usuarios reales.",
-    "materiales": [
-      "Espacio dedicado para 5 días",
-      "Post-its y marcadores",
-      "Pizarras o papel de rotafolio",
-      "Herramientas de prototipado (Figma, papel, etc.)",
-      "Plantillas de Design Sprint"
-    ],
-    "pasos": [
-      "Día 1 - Entender: Mapear el problema, definir el desafío y establecer objetivos",
-      "Día 2 - Diverge: Generar múltiples soluciones mediante sketching individual",
-      "Día 3 - Decidir: Seleccionar la mejor solución mediante votación y storyboard",
-      "Día 4 - Prototipar: Crear un prototipo realista y testeable de la solución",
-      "Día 5 - Validar: Probar el prototipo con usuarios reales y recopilar feedback"
-    ]
-  },
-  {
-    "id": 4,
-    "titulo": "User Story Mapping",
-    "imagen": null,
-    "descripcion": "Técnica visual para organizar y priorizar funcionalidades de un producto desde la perspectiva del usuario, creando un mapa narrativo de sus actividades.",
-    "usuarios": ["Desarrollador", "Diseñador", "Equipo de trabajo"],
-    "uso": ["Área del banco 2"],
-    "tipo": ["Manual de uso", "Guías"],
-    "objetivo": "Crear una visión compartida del producto, priorizar funcionalidades basándose en el valor para el usuario y planificar releases de manera incremental.",
-    "materiales": [
-      "Post-its de diferentes colores",
-      "Marcadores",
-      "Pared o pizarra grande",
-      "Cinta adhesiva"
-    ],
-    "pasos": [
-      "Identifica los usuarios objetivo y sus objetivos principales",
-      "Crea la línea de tiempo horizontal con las actividades principales del usuario",
-      "Agrega tareas específicas debajo de cada actividad",
-      "Organiza las tareas en orden de prioridad (de arriba hacia abajo)",
-      "Define las releases cortando el mapa horizontalmente",
-      "Prioriza las user stories para el primer release"
-    ]
-  },
-  {
-    "id": 5,
-    "titulo": "Prototipado en Papel",
-    "imagen": null,
-    "descripcion": "Creación rápida de bocetos en papel para visualizar y comunicar ideas de diseño de manera rápida y económica antes de invertir en desarrollo.",
-    "usuarios": ["Diseñador", "Creador de contenido"],
-    "uso": ["Área del banco 1"],
-    "tipo": ["Manual de uso", "Infografías"],
-    "objetivo": "Explorar múltiples ideas de diseño rápidamente, comunicar conceptos visualmente y obtener feedback temprano sin necesidad de herramientas complejas.",
-    "materiales": [
-      "Papel en blanco o plantillas de dispositivos",
-      "Lápices y marcadores",
-      "Regla (opcional)",
-      "Post-its para notas"
-    ],
-    "pasos": [
-      "Define las pantallas o flujos clave que necesitas prototipar",
-      "Crea bocetos rápidos de cada pantalla (no busques perfección)",
-      "Conecta las pantallas mostrando el flujo de navegación",
-      "Agrega anotaciones sobre interacciones y comportamientos",
-      "Comparte con el equipo o usuarios para obtener feedback",
-      "Itera rápidamente basándote en los comentarios recibidos"
-    ]
-  },
-  {
-    "id": 6,
-    "titulo": "A/B Testing",
-    "imagen": null,
-    "descripcion": "Metodología de experimentación que compara dos versiones de un elemento (A vs B) para determinar cuál funciona mejor según métricas específicas.",
-    "usuarios": ["Desarrollador", "Diseñador", "Transversal"],
-    "uso": ["Área del banco 2", "Área del banco 3"],
-    "tipo": ["Guías", "Enlaces externos"],
-    "objetivo": "Tomar decisiones basadas en datos reales del comportamiento de usuarios, optimizar conversiones y reducir la incertidumbre en cambios de diseño.",
-    "materiales": [
-      "Herramienta de testing (Google Optimize, Optimizely, etc.)",
-      "Plataforma de analytics",
-      "Diseños de las variantes A y B",
-      "Plan de test documentado"
-    ],
-    "pasos": [
-      "Define la hipótesis y la métrica principal a medir",
-      "Crea las dos variantes (A y B) con una sola diferencia entre ellas",
-      "Configura el test en la herramienta seleccionada",
-      "Define el tamaño de muestra y duración del test",
-      "Lanza el test y monitorea los resultados",
-      "Analiza los datos estadísticamente significativos",
-      "Implementa la variante ganadora o itera con nuevos tests"
-    ]
-  },
-  {
-    "id": 7,
-    "titulo": "Design Thinking Workshop",
-    "imagen": null,
-    "descripcion": "Taller estructurado que aplica el proceso de Design Thinking (Empatizar, Definir, Idear, Prototipar, Testear) para resolver problemas complejos de manera colaborativa.",
-    "usuarios": ["Equipo de trabajo", "Transversal"],
-    "uso": ["Área del banco 1", "Área del banco 2", "Área del banco 3"],
-    "tipo": ["Guías", "Manual de uso"],
-    "objetivo": "Generar soluciones innovadoras centradas en el usuario mediante un proceso estructurado de exploración, ideación y validación rápida.",
-    "materiales": [
-      "Post-its de múltiples colores",
-      "Marcadores y lápices",
-      "Pizarras o papel de rotafolio",
-      "Materiales de prototipado (cartón, tijeras, cinta, etc.)",
-      "Plantillas de Design Thinking"
-    ],
-    "pasos": [
-      "Fase 1 - Empatizar: Entender al usuario mediante entrevistas, observación o investigación",
-      "Fase 2 - Definir: Sintetizar insights y definir el problema a resolver",
-      "Fase 3 - Idear: Generar múltiples ideas sin juzgar (brainstorming, crazy 8s, etc.)",
-      "Fase 4 - Prototipar: Crear prototipos rápidos y tangibles de las mejores ideas",
-      "Fase 5 - Testear: Validar los prototipos con usuarios y recopilar feedback",
-      "Iterar: Refinar la solución basándose en los aprendizajes"
-    ]
-  },
-  {
-    "id": 8,
-    "titulo": "Card Sorting",
-    "imagen": null,
-    "descripcion": "Técnica de investigación que permite entender cómo los usuarios organizan y categorizan la información, ayudando a diseñar la estructura y navegación de un producto.",
-    "usuarios": ["Diseñador", "Asesor"],
-    "uso": ["Área del banco 1"],
-    "tipo": ["Guías", "Manual de uso"],
-    "objetivo": "Crear una arquitectura de información intuitiva que refleje el modelo mental de los usuarios, mejorando la usabilidad y findability del producto.",
-    "materiales": [
-      "Tarjetas o post-its con elementos de contenido",
-      "Superficie grande para organizar",
-      "Notas para categorías (opcional)",
-      "Herramienta digital (OptimalSort, Miro, etc.) si es remoto"
-    ],
-    "pasos": [
-      "Prepara tarjetas con todos los elementos de contenido a organizar",
-      "Invita a participantes a agrupar las tarjetas de manera lógica",
-      "Permite que creen sus propias categorías o usa categorías predefinidas",
-      "Observa y documenta los patrones de agrupación",
-      "Analiza los resultados para identificar consensos y discrepancias",
-      "Crea la arquitectura de información basada en los hallazgos"
-    ]
-  },
-  {
-    "id": 9,
-    "titulo": "Usability Testing",
-    "imagen": null,
-    "descripcion": "Método de evaluación donde usuarios reales interactúan con un producto mientras un moderador observa, identifica problemas de usabilidad y recopila feedback cualitativo.",
-    "usuarios": ["Diseñador", "Desarrollador", "Asesor"],
-    "uso": ["Área del banco 2", "Área del banco 3"],
-    "tipo": ["Guías", "Manual de uso"],
-    "objetivo": "Identificar problemas de usabilidad, entender cómo los usuarios realmente usan el producto y validar que el diseño cumple con las expectativas y necesidades del usuario.",
-    "materiales": [
-      "Prototipo o producto funcional",
-      "Guion de tareas para los usuarios",
-      "Grabadora de pantalla (opcional)",
-      "Notas para documentar observaciones",
-      "Espacio tranquilo para la sesión"
-    ],
-    "pasos": [
-      "Define los objetivos del test y las tareas críticas a evaluar",
-      "Recluta participantes que representen a los usuarios objetivo",
-      "Prepara el ambiente y las herramientas necesarias",
-      "Conduce la sesión: pide al usuario pensar en voz alta mientras completa las tareas",
-      "Observa sin intervenir, documenta problemas y comportamientos",
-      "Analiza los resultados y prioriza los problemas encontrados",
-      "Crea un plan de acción para resolver los issues más críticos"
-    ]
-  },
-  {
-    "id": 10,
-    "titulo": "Value Proposition Canvas",
-    "imagen": null,
-    "descripcion": "Herramienta estratégica que ayuda a diseñar productos y servicios que los clientes realmente quieren, alineando las características del producto con las necesidades del cliente.",
-    "usuarios": ["Asesor", "Equipo de trabajo", "Transversal"],
-    "uso": ["Área del banco 1", "Área del banco 2"],
-    "tipo": ["Guías", "Infografías"],
-    "objetivo": "Crear una propuesta de valor clara y diferenciada que resuene con los clientes objetivo, identificando cómo el producto resuelve sus problemas y genera beneficios.",
-    "materiales": [
-      "Plantilla de Value Proposition Canvas",
-      "Post-its",
-      "Marcadores",
-      "Pizarra o papel grande"
-    ],
-    "pasos": [
-      "Define el perfil del cliente: jobs to be done, pains y gains",
-      "Mapea la propuesta de valor: productos/servicios, pain relievers y gain creators",
-      "Conecta cada elemento del producto con necesidades específicas del cliente",
-      "Identifica gaps: necesidades no cubiertas o características innecesarias",
-      "Refina la propuesta de valor para maximizar el fit",
-      "Valida la propuesta con clientes reales"
-    ]
-  },
-  {
-    "id": 11,
-    "titulo": "Guía de Componentes UI",
-    "imagen": null,
-    "descripcion": "Documentación visual y técnica de los componentes de interfaz de usuario disponibles para proyectos digitales del banco.",
-    "usuarios": ["Desarrollador", "Diseñador"],
-    "uso": ["Área del banco 3"],
-    "tipo": ["Manual de uso", "Enlaces externos"],
-    "objetivo": "Estandarizar el uso de componentes visuales para mantener consistencia en todas las aplicaciones digitales.",
-    "materiales": [
-      "Acceso al sistema de diseño",
-      "Navegador web actualizado"
-    ],
-    "pasos": [
-      "Accede al sistema de diseño corporativo",
-      "Navega por las categorías de componentes",
-      "Selecciona el componente que necesitas",
-      "Revisa las especificaciones y ejemplos de uso",
-      "Implementa siguiendo las guías técnicas"
-    ]
-  },
-  {
-    "id": 12,
-    "titulo": "Infografía de Procesos Ágiles",
-    "imagen": null,
-    "descripcion": "Recurso visual que explica de forma clara y concisa los principales marcos de trabajo ágiles utilizados en el banco.",
-    "usuarios": ["Creador de contenido", "Equipo de trabajo", "Transversal"],
-    "uso": ["Área del banco 1", "Área del banco 2", "Área del banco 3"],
-    "tipo": ["Infografías"],
-    "objetivo": "Facilitar la comprensión de metodologías ágiles para equipos que están en proceso de transformación.",
-    "materiales": [
-      "Acceso al repositorio de recursos",
-      "Impresora (opcional para versión física)"
-    ],
-    "pasos": [
-      "Descarga la infografía del repositorio",
-      "Revisa los conceptos principales",
-      "Comparte con tu equipo",
-      "Úsala como referencia durante reuniones"
-    ]
-  }
+    {
+        "id": 1,
+        "titulo": "Uso de complementos para analisis semiautomatizados",
+        "imagen": "img/herramientas/1/principal.png",
+        "categoria": "Diagnostico",
+        "descripcion": "Los complementos o extensiones son herramientas que se instalan en el navegador para añadir funciones específicas. En accesibilidad, nos sirven para hacer revisiones rápidas de una página web y detectar algunas barreras frecuentes.",
+        "usuarios": [
+            "Diseñador",
+            "Montajista",
+            "Desarrollador",
+            "Certificador QA"
+        ],
+        "uso": [
+            "Diagnóstico"
+        ],
+        "tipo": [
+            "Guías",
+            "Manual de uso"
+        ],
+        "tituloAntesDeEmpezar": "Ten presente los dos tipos de extensiones que existen",
+        "antesDeEmpezar":[
+            {
+                "titulo": "Extensiones para análisis generales de la página",
+                "descripcion": "Son complementos que realizan un análisis automático general de la página para encontrar problemas"
+            },
+            {
+                "titulo": "Extensiones para evaluar elementos puntuales de la interfaz",
+                "descripcion":"Estos complementos buscan evaluar aspectos o detalles concretos en la página enfocados en criterios específicos"
+            }
+        ],
+        "recuerdaQue1":[
+            {
+                "titulo": "Recuerda que:",
+                "descripcion":"Estas extensiones permiten identificar hallazgos iniciales, pero no sustituyen la revisión manual ni las pruebas con usuarios o tecnologías de asistencia."
+            }
+        ],
+        "tituloPasos": "Guía general de uso de las extensiones en el navegador:",
+        "pasos": [
+            {
+                "imagen": "img/herramientas/1/paso1.png",
+                "paso": "Accede a la página de extensiones y complementos de google: https://chromewebstore.google.com/",
+                "descripcion":[
+                    {
+                        "texto": "Algunas extensiones poseen nombres en inglés, así que si no encuentras por palabras clave en español, intenta otras como accessibility, colorblind, reader, etc."
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/1/paso2.png",
+                "paso": "En el cuadro de búsqueda ingresa el nombre de la extensión o alguna palabra clave relacionada a la función que buscas",
+                "descripcion":[
+                    {
+                        "texto": "En algunas extensiones encontrarás enlaces a sus respectivas páginas, donde encontrarás también documentación y guías adicionales."
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/1/paso3.png",
+                "paso": "Haz clic en la opción “Obtener” para añadir la extensión automáticamente al navegador",
+                "descripcion":[
+                    {
+                        "texto": "La visualización de las extensiones permite anclarlas a la barra del navegador, de manera que se pueda acceder a estas más facilmente"
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/1/paso4.png",
+                "paso": "La función de extensiones la encontrarás usualmente en la parte superior derecha del navegador, desde donde podrás acceder a estas",
+                "descripcion":[
+                    {
+                        "texto":"La visualización de las extensiones permite anclarlas a la barra del navegador, de manera que se pueda acceder a estas más facilmente"
+                    }
+                ]
+            },
+            {
+                
+                "paso": "Dependiendo de la extensión esta se activará haciendo clic sobre su ícono o requerirá de unos pasos adicionales",
+                "descripcion":[
+                    {
+                        "imagen": "img/herramientas/1/paso5_1.png",
+                        "texto": "Accessible Web RAMP es una de las extensiones que requieren de pasos adicionales para ejecutar el escaneo de la página y sus contenidos."
+                    },
+                    {
+                        "imagen": "img/herramientas/1/paso5_2.png",
+                        "texto": "Algunas extensiones cambiaran la visualización del contenido de la página, esto es más frecuente en herramientas con un mayor grado de complejidad en su uso."
+                    },
+                    {
+                        "imagen": "img/herramientas/1/paso5_3.png",
+                        "texto": "En la mayoría de casos, las extensiones solamente añaden un overlay en la pantalla actual, indicando los hallazgos respectivos."
+                    }
+                ]
+            }
+        ],
+       
+        "tituloEnlaces": "Conoce algunas extensiones",
+        "subtituloEnlaces": "A continuación encontrarás algunas extensiones útiles para revisiones rápidas de accesibilidad.",
+        "enlaces": [
+            {
+                "titulo": "Wave",
+                "url": "https://chromewebstore.google.com/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh?pli=1",
+                "resumen": "WAVE permite revisar automáticamente una página y marcar errores y alertas de accesibilidad directamente sobre la interfaz. Los resultados se muestran mediante indicadores visuales que señalan problemas en elementos como imágenes, formularios, enlaces o estructura de contenido."
+            },
+            {
+                "titulo": "WCAG Contrast Checker",
+                "url": "https://chromewebstore.google.com/detail/wcag-color-contrast-check/plnahcmalebffmaghcpcmpaciebdhgdf",
+                "resumen": "Esta extensión permite comprobar si el contraste entre texto y fondo cumple los niveles mínimos recomendados por las WCAG. Identifica combinaciones de color que pueden dificultar la lectura y muestra si el contraste cumple o no con los criterios de accesibilidad web."
+            },
+            {
+                "titulo": "HeadingsMap",
+                "url": "https://chromewebstore.google.com/detail/wcag-color-contrast-check/plnahcmalebffmaghcpcmpaciebdhgdf",
+                "resumen": "HeadingsMap muestra la estructura de encabezados de una página (H1, H2, H3, etc.) y permite revisar si el contenido mantiene una jerarquía clara. Es útil para detectar saltos incorrectos de encabezados o estructuras que pueden dificultar la navegación con tecnologías de asistencia."
+            },
+            {
+                "titulo": "ARIA DevTools",
+                "url": "https://chromewebstore.google.com/detail/aria-devtools/dneemiigcbbgbdjlcdjjnianlikimpck?hl=en",
+                "resumen": "Esta extensión permite revisar los roles, atributos y etiquetas ARIA presentes en una página. Ayuda a identificar configuraciones incorrectas o inconsistencias que pueden afectar la interacción con las herramientas  de lectura de pantalla."
+            },
+            {
+                "titulo": "Colorblindly",
+                "url": "https://chromewebstore.google.com/detail/colorblindly/floniaahmccleoclneebhhmnjgdfijgg",
+                "resumen": "Colorblindly simula diferentes tipos de daltonismo para mostrar cómo perciben los colores las personas con distintas condiciones visuales. Sirve para detectar combinaciones de color que pueden resultar confusas o difíciles de distinguir."
+            },
+            {
+                "titulo": "Text Spacing Editor",
+                "url": "https://chromewebstore.google.com/detail/text-spacing-editor/amnelgbfbdlfjeaobejkfmjjnmeddaoj",
+                "resumen": "Permite modificar temporalmente el espaciado del texto (interlineado, espacio entre letras y palabras) para comprobar si la página sigue siendo legible cuando se aplican ajustes de lectura. Esto ayuda a verificar el cumplimiento de los criterios de accesibilidad relacionados con la legibilidad."
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "titulo": "Cómo crear documentos de texto accesibles",
+        "imagen": "img/herramientas/2/principal.png",
+        "categoria": "Diagnostico",
+        "descripcion": "Los documentos de texto son una de las herramientas más comunes en el manejo de información dentro del entorno bancario como: instructivos, circulares internas, formatos y formularios, entre otros.",
+        "usuarios": [
+            "Diseñador",
+            "Montajista",
+            "Content",
+            "General"
+        ],
+        "uso": [
+            "Diseño"
+        ],
+        "tipo": [
+            "Guías",
+            "Manual de uso"
+        ],
+        "tituloAntesDeEmpezar": "Consideraciones mínimas para la creación de textos accesibles",
+        "antesDeEmpezar":[
+            {
+                "titulo": "Prioriza una redacción clara",
+                "descripcion": "Un documento accesible empieza por un texto comprensible. Usa oraciones cortas y directas, evita tecnicismos innecesarios o explícalos. Expresa una idea por oración. Indica con precisión qué debe hacer la persona, cuándo y cómo, por ejemplo: incorrecto: “Se deberá proceder a la validación de la documentación correspondiente.”; mejor: “Valida los documentos requeridos antes de continuar.”"       
+            },
+            {
+                "titulo": "No dependas del color o la forma para dar información",
+                "descripcion":"Evita instrucciones como: “Haz clic en el botón azul” o “Completa el campo que está arriba”; en su lugar: nombra el elemento por su función o texto visible, por ejemplo: “Selecciona el botón ‘Continuar’”; de tal manera que no dependas de características sensoriales para transmitir información al usuario."
+            },
+            {
+                "titulo": "Siempre ten presente el contraste de color de los elementos y textos",
+                "descripcion":"El texto debe ser legible en cualquier condición. Usa contraste mínimo de: 4.5:1 para texto normal y 3:1 para texto grande (≥18 pt o ≥14 pt en negrita); también, el color no debe ser el único medio para transmitir información, por ejemplo: incorrecto: error indicado solo en rojo, ajuste: error en rojo + mensaje claro (“El documento está incompleto”)."
+            },
+            {
+                "titulo":"Entiende los limites del software usado y su aplicabilidad",
+                "descripcion":"Esta guía toma como referencia Microsoft Word (Microsoft 365); esto debido a que es el más usado de forma general, aun así, los principios aplican a otros procesadores de texto, aunque las rutas pueden variar."
+            },
+            {
+                "titulo": "Organiza las instrucciones antes del contenido",
+                "descripcion":"Cuando el documento tenga pasos o requisitos: ubica las instrucciones antes de la acción e indica condiciones, documentos requeridos y consecuencias, por ejemplo: para la opción “Los campos con asterisco (*) son obligatorios” pon la indicación antes del formulario y no después de este."
+            }
+        ],
+        
+        "recuerdaQue1":[
+            {
+                "titulo": "Ten presente que: ",
+                "descripcion":"Cuando construyas los documentos para la entidad siempre hagas uso de las fuentes tipográficas indicadas y propias de Bancolombia y el Grupo CIB, estas son las que se encuentran dentro de la familia tipográfica: CIB Font Logo, CIB Font Sans, CIB Font Serif, y CIB Font Numerales."
+            }
+        ],
+        "tituloPasos": "¿Cómo se crea un documento de texto accesible?",
+        "pasos": [
+            {
+                "imagen": "img/herramientas/2/paso1.png",
+                "paso": "Antes de iniciar la escritura del texto, configura el idioma principal del documento y de los fragmentos en otros idiomas.",
+                "descripcion":[
+                    {
+                        "texto": "Esto te permitirá: una correcta pronunciación en lectores de pantalla, revisión ortográfica adecuada tanto manual como automática."
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/2/paso2.png",
+                "paso": "Define la fuente predeterminada y el tamaño del texto usando fuentes legibles y tamaño adecuado.",
+                "descripcion":[
+                    {
+                        "texto": "Las recomendaciones generales son: tamaño mínimo recomendado de 12 puntos, usa tipografías legibles (evita decorativas), no abuses de mayúsculas sostenidas y mantén consistencia en todo el documento."
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/2/paso3.png",
+                "paso": "Establece la estructura de los contenidos con encabezados (jerarquías)",
+                "descripcion":[
+                    {
+                        "texto": "No formatees títulos manualmente, usa los estilos de Word con una jerarquía mínima tal que así: Título del documento, Encabezado 1, Encabezado 2, Encabezado 3; esto te permite tener una navegación estructurada así como una lectura por secciones y facilita el uso correcto de tecnologías de asistencia."
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/2/paso4.png",
+                "paso": "Establece el nivel de interlineado y el espaciado entre líneas.",
+                "descripcion":[
+                    {
+                        "texto":"Usa un interlineado de 1.5 para mejorar legibilidad, evita usar múltiples espacios o líneas en blanco, haz uso de estilos o espaciado de párrafo y usa el salto de página en lugar de presionar la tecla “Enter” de forma repetida."
+                    }
+                ]
+            },
+            {
+                
+                "paso": "Incluye el texto alternativo para las imágenes y los gráficos insertos en el documento.",
+                "descripcion":[
+                    {
+                        "imagen": "img/herramientas/2/paso5_1.png",
+                        "texto":"Para los elementos decorativos en el documento deben estar correctamente etiquetados como artefactos, de manera que al guardarse como PDF estos sean interpretados correctamente."
+                    },
+                    {
+                        "imagen": "img/herramientas/2/paso5_2.png",
+                        "texto":"Si no tienes del todo claro cómo y cuándo asignar las etiquetas de texto alternativo puedes guiarte con esta tabla."
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/2/GIFs/paso6.gif",
+                "paso": "Utiliza etiquetas de texto descriptivas para los hipervínculos del documento.",
+                "descripcion":[
+                    {
+                        "texto":"Evita enlaces genéricos o URLs visibles como: “Haz clic aquí”, “https://documento.pdf”; en su lugar puedes usar etiquetas como: “Consulta el instructivo de actualización de datos” o ”Descarga el formulario de solicitud (PDF, 2 MB)”; también, verifica que el enlace funcione y evita enlaces con acceso restringido si el documento es público."
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/2/Videos/paso7.mp4",
+                "paso": "Realiza una revisión automática de accesibilidad al finalizar la creación del documento.",
+                "descripcion":[
+                    {
+                        
+                        "texto": "Usa el revisor de accesibilidad de Word, pero ten en cuenta que solo detecta errores comunes y no reemplaza la revisión humana. Revisa manualmente: claridad del texto, estructura, enlaces, tablas y orden de lectura."
+                    }
+    
+                ]
+            }
+        ],
+        "recuerdaQue2":[
+            {
+                "titulo": "Ten presente que: ",
+                "descripcion":"En tanto el documento PDF sea generado a partir de un procesador de texto, este es considerado un documento accesible, siempre y cuando se hayan seguido las indicaciones correspondientes para la creación de un documento de texto accesible."
+            }
+        ],
+        "tituloEnlaces": "Casos clave",
+        "subtituloEnlaces": "Ten en cuenta los siguientes contextos en los que es muy frecuente cometer errores de escritura y preparación de documentos.",
+        "enlaces": [
+            {
+                "titulo": "Cuando el usuario no entiende si aplica para él",
+                "url": "",
+                "resumen": "Problema real: La persona lee todo… y al final descubre que no era su caso. ¿Qué hacer? Filtra desde el inicio, por ejemplo: Este documento aplica si: 1) vas a actualizar tus datos, 2) cambiaste de empleo, 3) abriste una nueva cuenta . ¿Por qué funciona?: Reduce lectura innecesaria y frustración."
+            },
+            {
+                "titulo": "Cuando alguien está diligenciando un formato (y abandona a la mitad)",
+                "url": "",
+                "resumen": "Problema real: La persona empieza… y en la mitad se da cuenta de que le falta un documento. ¿Qué hacer en el documento? Pon esto al inicio, no escondido, por ejemplo: Antes de empezar, ten a la mano: cédula, certificado, laboral extracto bancario. ¿Por qué funciona? Evita que la persona pierda tiempo y abandone. Esto impacta directamente la finalización de trámites."
+             },
+            {
+                "titulo": "Cuando alguien se equivoca subiendo archivos",
+                "url": "",
+                "resumen": "Problema real: La persona sube un archivo pesado o en formato incorrecto, este error lleva a la frustración y un posterior abandono. ¿Qué hacer? (antes del campo, no después): por ejemplo: ”Importante: El archivo debe ser PDF Máximo 2 MB”. ¿Por qué funciona?: Previene el error en lugar de reaccionar a él."
+            },
+            {
+                "titulo": "Cuando el documento tiene enlaces (y nadie sabe a dónde van)",
+                "url": "",
+                "resumen": "Problema real: La persona no hace clic porque no confía o no entiende el enlace. ¿Qué hacer? Nombra el destino, por ejemplo: Descarga el formato de solicitud (PDF, editable) . ¿Qué no hacer? Nombres genéricos o poco descriptivos como: Haz clic aquí . ¿Por qué funciona? Reduce la incertidumbre y genera una mejora en el uso real del documento."
+            },
+            {
+                "titulo": "Cuando alguien lee desde el celular, rápido y con poca atención",
+                "url": "",
+                "resumen": "Problema real: La persona hace un escaneo superficial, si no encuentra rápido lo importante, se pierde. ¿Qué hacer? Agrupa lo esencial arriba, por ejemplo: ”Antes de continuar: Este proceso toma 5 minutos, necesitas conexión estable y ten tu documento de identidad”. ¿Por qué funciona? Responde las tres preguntas básicas: cuánto, qué necesito, si puedo hacerlo ahora."
+            },
+            {
+                "titulo": "Cuando el documento tiene muchos pasos",
+                "url": "",
+                "resumen": "Problema real: La persona no sabe cuánto falta para finalizar una tarea esto genera ansiedad al usuario y un posterior abandono. ¿Qué hacer? Indica el estado actual del proceso, por ejemplo: Paso 1 de 3, Paso 2 de 3, Último paso. ¿Por qué funciona? Da al usuario una sensación de avance y control."
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "titulo": "Cómo crear hojas de cálculo accesibles",
+        "imagen": "img/herramientas/3/principal.png",
+        "categoria": "Diagnostico",
+        "descripcion": "Las hojas de cálculo son documentos que permiten el procesamiento de cálculos, filtros u operaciones de ordenamiento; el propósito de esta herramienta es que logres crear una hoja de cálculo que: se pueda leer sin perderse, se entienda sin explicaciones extra y no genere errores en decisiones, para aplicaciones como: bases de datos de clientes reportes y seguimientos de casos y cargues de información",
+        "usuarios": [
+            "Content",
+            "Diseñador",
+            "Montajista",
+            "General"
+        ],
+        "uso": [
+            "Diseño"
+        ],
+        "tipo": [
+            "Guías",
+            "Manual de uso"
+        ],
+        "tituloAntesDeEmpezar": "Consideraciones mínimas para la creación de hojas de cálculo accesibles",
+        "antesDeEmpezar":[
+            {
+                "titulo": "Crea la tabla para que pueda leerse sin inferencias",
+                "descripcion": "Una hoja de cálculo bien construida no obliga a completar sentido “por contexto”. Cada columna y cada valor deberían ser interpretables por sí mismos, sin depender de convenciones tácitas del equipo que la creó."
+            },
+            {
+                "titulo": "No utilices la forma para reemplazar el significado",
+                "descripcion":"El orden visual (colores, alineaciones, espacios) no debe cargar con la tarea de organizar la información. Estos recursos pueden acompañar, pero no reemplazar la estructura semántica."
+             },
+            {
+                "titulo": "Siempre ten presente el contraste de color de los elementos y textos",
+                "descripcion":"El texto debe ser legible en cualquier condición. Usa contraste mínimo de: 4.5:1 para texto normal y 3:1 para texto grande (≥18 pt o ≥14 pt en negrita); también, el color no debe ser el único medio para transmitir información, por ejemplo: incorrecto: error indicado solo en rojo, ajuste: error en rojo + mensaje claro (“El documento está incompleto”)." },
+            {
+                "titulo": "Recuerda que la consistencia es más importante que la precisión puntual",
+                "descripcion":"En hojas de cálculo extensas, pequeños cambios en la forma de nombrar, registrar o clasificar los datos generan rupturas en la lectura. Una columna que alterna entre “Activo”, “activo” y “A” no solo introduce ruido, sino que dificulta cualquier uso posterior del dato."
+            },
+            {
+                "titulo": "Puedes usar el vacío para comunicar, pero debe ser controlado",
+                "descripcion":"Las celdas vacías no son neutras. En muchos casos, se interpretan como ausencia de dato, pero también pueden leerse como error, omisión o información irrelevante. La ambigüedad del vacío es uno de los problemas menos visibles y más frecuentes en hojas de cálculo."
+            },
+            {
+                "titulo":"Ten presente que la estructura debe permitir un recorrido lineal",
+                "descripcion":"Una hoja de cálculo no se lee solo de forma visual; también se recorre. Esto implica que el orden en el que se disponen los datos debe permitir una navegación continua, sin saltos inesperados." 
+            },
+            {
+                "titulo": "Haz que la interpretación del dato no dependa del contexto de uso",
+                "descripcion":"Una hoja de cálculo no debería requerir explicación adicional para ser comprendida. Si su lectura depende de conocer el proceso en el que fue creada, el área que la produjo o la persona que la diligenció, su valor como soporte de información se reduce."
+            }
+        ],
+        
+        "recuerdaQue1":[
+            {
+                "titulo": "Ten presente que: ",
+                "descripcion":"Cuando construyas los documentos para la entidad siempre hagas uso de las fuentes tipográficas indicadas y propias de Bancolombia y el Grupo CIB, estas son las que se encuentran dentro de la familia tipográfica: CIB Font Logo, CIB Font Sans, CIB Font Serif, y CIB Font Numerales."
+            }
+        ],
+        "tituloPasos": "¿Cómo crear una hoja de cálculo accesible?",
+        "pasos": [
+            {
+                "imagen": "img/herramientas/3/paso1.png",
+                "paso": "Define qué representa la tabla, aclara qué significa cada fila y qué tipo de información contendrá cada columna.",
+                "descripcion":[
+                    {
+                        "texto": "Ten presente que si esto no está definido desde el inicio, la hoja pierde coherencia."
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/3/paso2.png",
+                "paso": "Incluye el texto alternativo para las imágenes y los gráficos externos insertos en el documento.",
+                "descripcion":[
+                    {
+                        "texto": ""}
+                ]
+            },
+            {
+                "imagen": "img/herramientas/3/GIFs/paso3.gif",
+                "paso": "Nombra cada una de las páginas del documento de acuerdo al contenido."
+                ,"descripcion":[
+                    {
+                        "texto":"Evita dejar los nombres predefinidos de las hojas tales como “Hoja 1”, “Hoja 2”, etc., ya que estos no son descriptivos y no proporcionan al usuario con la información necesaria para entender su función."
+                     }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/3/GIFs/paso4.gif",
+                "paso": "Utiliza etiquetas de texto descriptivas para los hipervínculos del documento.",
+                "descripcion":[
+                    {
+                        "texto": "También recuerda revisar los hipervínculos, de manera que no se encuentren caídos, dependan de permisos, etc., así siempre estarán disponibles para el usuario."
+
+                    }              
+                ]
+            },
+            {
+                
+                "paso": "Define el área de impresión ideal para el contenido de cada tabla sin que se pierda información.",
+                "descripcion":[
+                    {
+                        "imagen": "img/herramientas/3/paso5_1.png",
+                        "texto":"Las celdas seleccionadas con el cursor son las que establecerán el área de impresión; ten presente las dimensiones del documento a imprimir y cuál es la información que allí se va a presentar."
+                    },
+                    {
+                        "imagen": "img/herramientas/3/paso5_2.png",
+                        "texto":"La opción de imprimir títulos permite que los encabezados de las columnas se visualicen en las distintas áreas de impresión."
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/3/paso6.png",
+                "paso": "Cuando finalices el documento y antes de guardarlo, ubica el cursor en la primera celda del documento (A1)",
+                "descripcion":[
+                    {
+                        "texto":"Las hojas de cálculo al guardarse conservan la posición del cursor en la tabla de datos, con lo que al abrirlo nuevamente el primer dato leído será donde se haya ubicado el cursor, pudiendo generar confusión si no es la celda inicial."  
+                    }
+
+                ]
+            },
+            {
+                "imagen":"img/herramientas/3/GIFs/paso7.gif",
+                "paso": "Realiza una revisión automática de accesibilidad al finalizar la creación del documento.",
+                "descripcion":[
+                    {
+                        "texto":"Para la mayoría de documentos es posible realizar un análisis de accesibilidad por medio de las aplicaciones de Microsoft 365 (antes Microsoft Office)."
+                    }
+                ]
+            }
+        ],
+        
+        "tituloEnlaces": "Tips y recomendaciones",
+        "subtituloEnlaces": "Los siguientes son algunos tips que pueden ayudarte en la construcción de hojas de cálculo accesibles.",
+         "enlaces": [
+            {
+                "titulo": "El contenido debe ser autosuficiente",
+                "url": "",
+                "resumen": "Si necesitas explicar cómo leer la tabla, algo en la estructura no está funcionando. La hoja debería sostenerse sola." 
+            },
+            {
+                "titulo": "No dejes celdas vacías",
+                "url": "",
+                "resumen": "Cuando dudes entre dejar una celda vacía o escribir algo, escribe. El vacío rara vez se interpreta de una sola manera."
+             },
+            {
+                "titulo": "Clasifica cuanto necesites",
+                "url": "",
+                "resumen": "Si una columna empieza a admitir excepciones (“aquí también ponemos esto…”), es señal de que necesitas otra columna, no más flexibilidad."
+            },
+            {
+                "titulo": "Estructura antes que apariencia",
+                "url": "",
+                "resumen": "No organices la hoja para que “se vea ordenada”, sino para que se pueda recorrer sin detenerse. Lo visual engaña; la estructura no."
+            },
+            {
+                "titulo": "No interrumpas la navegación",
+                "url": "",
+                "resumen": "Evita separar información con espacios. En Excel, un espacio no ordena: interrumpe."
+            },
+            {
+                "titulo": "Identifica los errores",
+                "url": "",
+                "resumen": "Si no puedes filtrar una columna sin que aparezcan valores incoherentes, esa columna ya está mal construida."
+            },
+            {
+                "titulo": "Nombra apropiadamente",
+                "url": "",
+                "resumen": "Los nombres de las hojas deberían permitir entender el archivo sin abrirlo. Si necesitas abrirlo para orientarte, el nombre no está haciendo su trabajo." 
+            },
+            {
+                "titulo": "Revisa el orden de lectura",
+                "url": "",
+                "resumen": "Antes de enviar el archivo, vuelve al inicio (A1) y recórrelo como si no supieras nada. Si te pierdes, alguien más también lo hará."
+            },
+            {
+                "titulo": "No dependas del color",
+                "url": "",
+                "resumen": "Si usas color para destacar algo, asegúrate de que el texto diga lo mismo. El color no puede cargar con el significado."
+            },
+            {
+                "titulo": "Ajusta la estructura",
+                "url": "",
+                "resumen": "Cuando una hoja crece, la tentación es “arreglarla” visualmente. Resiste eso. Si hay que arreglar algo, es la estructura."
+            },
+            {
+                "titulo": "Piensa en la consistencia desde el inicio",
+                "url": "",
+                "resumen": "Si una tabla no puede exportarse o reutilizarse sin romperse, probablemente nunca estuvo bien construida."
+            },
+            {
+                "titulo": "Valida con alguien más",
+                "url": "",
+                "resumen": "Una buena señal: cuando alguien más puede usar tu hoja sin preguntarte nada. Todo lo demás es ruido."
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "titulo": "Cómo crear documentos y plantillas para presentaciones accesibles",
+        "imagen": "img/herramientas/4/principal.png",
+        "categoria": "Diagnostico",
+        "descripcion": "Una diapositiva está para sostener lo que se está diciendo, para acompañar y ayudar a seguir el hilo, no para duplicarlo ni enredarlo; cuando esto no está bien resuelto la diapositiva se fragmenta y se hace difícil de entender. Esta guía no se trata de hacer diapositivas “bonitas”, sino de evitar que fallen justo donde más importa: en la comprensión.",
+        "usuarios": [
+            "Diseñador",
+            "Montajista",
+            "Content",
+            "General"
+        ],
+        "uso": [
+            "Diseño"
+        ],
+        "tipo": [
+            "Guías",
+            "Manual de uso"
+        ],
+        "tituloAntesDeEmpezar": "Consideraciones mínimas",
+        "antesDeEmpezar":[
+            {
+                "titulo": "Define qué va a pasar en la exposición",
+                "descripcion": "No empieces por las diapositivas; aclara qué se va a explicar, en qué orden y qué necesita ver la persona para seguir ese recorrido. Cuando esto no está resuelto, las diapositivas terminan siendo un depósito de texto o una secuencia de imágenes sin relación clara."
+            },
+            {
+                "titulo": "No olvides los subtítulos para audios y videos insertos",
+                "descripcion":"Recuerda que todos los contenidos tempo-dependientes deben tener una transcripción correspondiente, esto para que las personas sordas puedan entender la información que se está transmitiendo." },
+            {
+                "titulo": "Siempre ten presente el contraste de color de los elementos y textos",
+                "descripcion":"El texto debe ser legible en cualquier condición. Usa contraste mínimo de: 4.5:1 para texto normal y 3:1 para texto grande (≥18 pt o ≥14 pt en negrita); también, el color no debe ser el único medio para transmitir información, por ejemplo: incorrecto: error indicado solo en rojo, ajuste: error en rojo + mensaje claro (“El documento está incompleto”)." },
+            {
+                "titulo": "Evita el uso de elementos animados o parpadeantes",
+                "descripcion":"Evita el uso de animaciones, elementos parpadeantes, imágenes animadas y transiciones automáticas; si es necesario para el contenido y su información deja una opción para detenerlos, de modo que se permita su lectura para los usuarios que así lo requieran." },
+            {
+                "titulo": "Inserta tablas reales en lugar de imágenes de tablas",
+                "descripcion":"Cuando sea necesario el uso de tablas en las diapositivas, evita usar imágenes de tablas, en su lugar intenta generar las tablas desde el mismo software y sigue las instrucciones y recomendaciones que se encuentran en la guía de creación de hojas de calculo accesibles." },
+            {
+                "titulo": "No hagas uso de tramas, gradaciones y colores muy fuertes o llamativos",
+                "descripcion":"En lo posible evita el uso de tramas, gradaciones de color o colores de fondo muy intensos en las diapositivas, esto debido a que con su uso se puede reducir el contraste efectivo entre el texto y los demás elementos visuales." },
+            {
+                "titulo":"Recuerda que lo importante no puede depender solo de cómo se ve",
+                "descripcion":"Color, tamaño, posición… todo esto ayuda, pero no puede ser lo único que da sentido. Si algo es clave, tiene que poder entenderse sin depender del contraste, de un ícono o de “lo que se nota más”. Cuando eso no pasa, parte del contenido simplemente se pierde." }
+        ],
+        
+        "recuerdaQue1":[
+            {
+                "titulo": "Ten presente que: ",
+                "descripcion":"Cuando construyas los documentos para la entidad siempre hagas uso de las fuentes tipográficas indicadas y propias de Bancolombia y el Grupo CIB, estas son las que se encuentran dentro de la familia tipográfica: CIB Font Logo, CIB Font Sans, CIB Font Serif, y CIB Font Numerales."
+            }
+        ],
+        
+        "tituloPasos": "¿Cómo se crea una presentación accesible?",
+        "pasos": [
+            {
+                "imagen": "img/herramientas/4/paso1.png",
+                "paso": "Antes de iniciar, define el idioma general de la presentación y las excepciones.",
+                "descripcion":[
+                    {
+                        "texto": "Si alguna parte del contenido se escribe en otro idioma, esta también debe indicarse según el idioma correspondiente seleccionando la opción “Texto seleccionado”."
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/4/paso2.png",
+                "paso": "Asigna títulos apropiados a cada diapositiva.",
+                "descripcion":[
+                    {
+                        "texto": "Hay dos formas de asignar título a una diapositiva. La primera es usar el título visible, que viene por defecto en los diseños del programa. La segunda es agregar un título oculto: una etiqueta que no aparece en pantalla, pero que sigue siendo reconocida por lectores de pantalla y otras herramientas de apoyo."
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/4/paso3.png",
+                "paso": "Usa estilos de texto legibles asignando un puntaje, espaciado y contraste apropiados."
+                ,"descripcion":[
+                    {
+                        "texto": "Ten en cuenta que, para asegurar la legibilidad en pantalla, el texto debería tener un tamaño mínimo de 12 puntos. En cuanto al espaciado, se recomienda usar interlineado de 1,5. Para el contraste, procura una relación de 4,5:1 en texto normal y de 3:1 en texto en negrita de al menos 14 puntos o en texto regular de 18 puntos o más."
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/4/paso4.png",
+                "paso": "Incluye el texto alternativo para las imágenes y los gráficos insertos en la presentación.",
+                "descripcion":[
+                    {
+                        "texto":"Ten presente que, si los diagramas son fundamentales para entender los contenidos, las descripciones deben ser completas, de modo que quien no puede verlos pueda comprenderlos igualmente; recuerda que si una imagen o gráfica no proporciona información relevante esta debe ser marcada como decorativa." }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/4/GIFs/paso5.gif",
+                "paso": "Utiliza etiquetas de texto descriptivas para los hipervínculos de la presentación.",
+                "descripcion":[
+                    {
+                        "texto":"También recuerda revisar los hipervínculos, de manera que no se encuentren caídos, dependan de permisos, etc., así siempre estarán disponibles para el usuario."
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/4/Videos/paso6.mp4",
+                "paso": "Cuando hayas finalizado una diapositiva, revisa y organiza el orden de lectura de esta.",
+                "descripcion":[
+                    {
+                        "texto":"Recuerda que el orden de lectura de los elementos en pantalla debe ser lógico y coherente, idealmente también debe corresponderse con la jerarquía visual de los contenidos y su orden debe mantener el significado."
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/4/GIFs/paso7.gif",
+                "paso": "Realiza una revisión automática de accesibilidad al finalizar la creación del documento.",
+                "descripcion":[
+                    {
+                        "texto":"En la mayoría de los documentos es posible realizar un análisis de accesibilidad mediante las aplicaciones de Microsoft 365 (antes Microsoft Office)."
+                    }
+                ]
+            }
+        ],
+        
+        "tituloEnlaces": "Tips",
+        "subtituloEnlaces": "Los siguientes son algunos tips para que tus presentaciones siempre sean accesibles.",
+         "enlaces": [
+            {
+                "titulo": "Busca el balance del contenido",
+                "url": "",
+                "resumen": "Si una diapositiva puede entenderse sin que hables, probablemente está sobrecargada. Y si no se entiende nada sin que hables, está incompleta. El punto está en ese lugar incómodo donde la diapositiva necesita tu voz, pero no depende de ella para tener sentido." 
+            },
+            {
+                "titulo": "No diseñes solo para ti",
+                "url": "",
+                "resumen": "No diseñes mirando la pantalla de cerca. Diseña pensando en alguien al fondo del auditorio, con el celular en la mano y la atención fragmentada. Si esa persona no logra seguirte, la presentación no está funcionando."
+             },
+            {
+                "titulo": "La coherencia es más importante que la cantidad",
+                "url": "",
+                "resumen": "Cuando sientas que “falta algo”, la reacción automática es meter más contenido. Casi nunca es eso. Lo que suele faltar es orden: qué va primero, qué sostiene a qué, qué puede quedarse por fuera."
+            },
+            {
+                "titulo": "Recuerda que la presentación complementa",
+                "url": "",
+                "resumen": "Una diapositiva que necesita ser explicada para entenderse no está apoyando la exposición: la está complicando. Lo ideal es que la explicación profundice, no que traduzca lo que ya está mal planteado."
+            },
+            {
+                "titulo": "No confundas presentación con informes",
+                "url": "",
+                "resumen": "Si alguien te pide la presentación “para revisarla después” y no se entiende sola, no necesariamente es un error. Una presentación no es un documento. Si necesitas que funcione en ambos escenarios, son dos piezas distintas."
+            },
+            {
+                "titulo": "Revisa y reordena",
+                "url": "",
+                "resumen": "Si quieres saber si la presentación realmente tiene hilo, prueba esto: lee solo los títulos de las diapositivas, uno tras otro, sin ver el contenido. Si no se arma una historia clara, la presentación no está hilada; solo está ordenada. Ajusta los títulos hasta que, por sí solos, cuenten el recorrido."
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "titulo": "Creación y aplicación de matrices de evaluación para accesibilidad",
+        "imagen": "img/herramientas/5/principal.png",
+        "categoria": "Diagnostico",
+        "descripcion": "Una matriz de evaluación permite analizar, de forma estructurada y verificable, el cumplimiento de criterios de accesibilidad en productos digitales. Su uso facilita identificar barreras, documentar hallazgos y priorizar acciones de mejora en función del impacto en los usuarios y del nivel de cumplimiento requerido.",
+        "usuarios": [
+            "Desarrollador","Diseñador","Certificador QA","Montajista","General"
+        ],
+        "uso": [
+            "Diseño"
+        ],
+        "tipo": [
+            "Guías",
+            "Manual de uso"
+        ],
+        "tituloAntesDeEmpezar": "Antes de empezar, ten en cuenta lo siguiente:",
+        "antesDeEmpezar":[
+            {
+                "titulo": "Define el alcance de la evaluación según el objetivo del proyecto",
+                "descripcion": "En la construcción de la matriz, debes tener claros puntos como: a) Tipo de experiencia: informativa, transaccional o mixta; b) Nivel de detalle: revisión general, diagnóstico o evaluación profunda; c) Momento del producto: diseño, desarrollo o producto en producción."
+            },
+            {
+                "titulo": "Entiende a qué se refiere el nivel de conocimiento",
+                "descripcion":"Para aplicar estas matrices es necesario poseer un conocimiento previo de los criterios de accesibilidad web de acuerdo a Web Accessibility Guidelines (WCAG). recuerda que siempre puedes revisar la guía de Introducción a los lineamientos y normativas de accesibilidad web si necesitas complementar tus conocimientos."
+            }
+        ],
+        
+        "tituloPasos": "¿Cómo construir una matriz de evaluación?",
+        "pasos": [
+            {
+                "imagen": "img/herramientas/5/paso1.png",
+                "paso": "Crea un documento de hoja de cálculo con nombres para las columnas como: nombre del criterio, descripción, cumplimiento, observaciones.",
+                "descripcion":[
+                    {
+                        "texto": "Las categorías mínimas dentro de la matriz son: elemento evaluado (flujo, pantalla o componente), criterio de accesibilidad, descripción del hallazgo, estado (cumple, no cumple, parcial), impacto en el usuario, severidad (crítica, alta, media, baja), evidencia (enlace, captura, referencia), recomendación."
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/5/paso2.png",
+                "paso": "Determina el nivel de profundidad de la evaluación de acuerdo a las necesidades del proyecto actual.",
+                "descripcion":[
+                    {
+                        "texto": "No se recomienda utilizar una única matriz para todos los casos. Es preferible definir su alcance según la naturaleza del contenido o del flujo evaluado, ajustando aspectos como el nivel de exigencia y las categorías de análisis (por ejemplo: contenido multimedia, navegación, estructura o interacción)."
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/5/paso3.png",
+                "paso": "Una vez definido el alcance, elige los criterios de accesibilidad que son aplicables a la evaluación."
+                ,"descripcion":[
+                    {
+                        "texto": "Construye los criterios a partir de principios universales de accesibilidad, adaptados al contexto del banco. Puedes agruparlos así: a) Percepción: el contenido se puede ver, leer o escuchar sin dificultad; b) Interacción: el producto se puede usar sin depender de una sola forma de interacción; c) Comprensión: la información y las acciones son claras y predecibles; y d) Consistencia: los elementos se comportan de forma esperada en todo el sistema."
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/5/paso4.png",
+                "paso": "Clasifica los criterios elegidos según la sección de contenido a evaluar.",
+                "descripcion":[
+                    {
+                        "texto":"Puedes organizar la matriz en distintas hojas según la lógica de evaluación definida. Por ejemplo: Por secciones de la interfaz (encabezado, contenido principal, pie de página); por tipo de componentes (tarjetas, banners, campos de texto, botones); por flujos de navegación (inicio, consulta, adquisición de un producto, confirmación). Elige la estructura que mejor permita ubicar los hallazgos y entender su impacto en la experiencia."
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/5/paso5.png",
+                "paso": "Detalla cada uno de los criterios.",
+                "descripcion":[
+                    {
+                        "texto":"Desglosa cada criterio en aspectos verificables, por ejemplo: texto legible sin esfuerzo, contrastes suficientes para distinguir información, navegación clara y sin pérdida de contexto, acciones identificables y comprensibles. Evita criterios abstractos, ya que cada uno debe poder evaluarse directamente en la interfaz." 
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/5/paso6.png",
+                "paso": "Ejecuta la evaluación del contenido de acuerdo a la categorización realizada, recuerda ser lo más detallado posible en las observaciones.",
+                "descripcion":[
+                    {
+                        "texto":"Según el criterio evaluado, puede ser necesario profundizar en aspectos específicos o más complejos del elemento. En estos casos, apóyate en las guías internas del banco y, cuando se requiera mayor precisión, consulta los estándares internacionales como las WCAG, donde se detallan técnicas y ejemplos de implementación que pueden servir como referencia."
+                    }
+                ]
+            }
+        ],
+        
+        "tituloEnlaces": "Tips",
+        "subtituloEnlaces": "Los siguientes son algunos tips para que tus presentaciones siempre sean accesibles.",
+         "enlaces": [
+            {
+                "titulo": "Tip 1",
+                "url": "",
+                "resumen": "Evalúa el producto por secciones (encabezado, contenido principal, pie de página, introducción), de modo que puedas aplicar el mismo criterio de forma sistemática en todo el conjunto."
+            },
+            {
+                "titulo": "Tip 2",
+                "url": "",
+                "resumen": "Utiliza los términos técnicos como referencia, pero acompáñalos de ejemplos claros que faciliten su comprensión dentro del equipo." 
+            },
+            {
+                "titulo": "Tip 3",
+                "url": "",
+                "resumen": "Si trabajas con hojas de cálculo, incorpora parámetros o fórmulas que permitan estimar niveles de cumplimiento y detectar áreas críticas de mejora."
+            },
+            {
+                "titulo": "Tip 4",
+                "url": "",
+                "resumen": "Registra los hallazgos en el momento de la evaluación; evitar reprocesos mejora la precisión y reduce sesgos."
+            },
+            {
+                "titulo": "Tip 5",
+                "url": "",
+                "resumen": "Verifica siempre el impacto del problema en una tarea concreta del usuario; esto facilita su priorización."
+            },
+            {
+                "titulo": "Tip 6",
+                "url": "",
+                "resumen": "Revisa estados dinámicos de la interfaz (errores, mensajes, validaciones), no solo el contenido estático."
+            }
+        ],
+        "tituloPlantilla":"Plantilla de ejemplo:",
+        "plantilla":[
+            {
+                "nombrePlantilla":"Matriz de evaluación por URLs",
+                "descripcion":"Esta plantilla agrupa los criterios indicados en la resolución 1519 de 2020, pensada para evaluar un sitio web a través de la revisión de cada una de las URLs requeridas.",
+                "url":"img/herramientas/5/documentos/MatrizdeevaluaciondeaccesibilidadporURL.xlsx"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "titulo": "Introducción a los lineamientos y normativas de accesibilidad web",
+        "imagen": "img/herramientas/6/principal.png",
+        "categoria": "Diagnostico",
+        "descripcion": "Esta guía presenta los principios y referentes normativos de accesibilidad digital, y muestra cómo se traducen en criterios aplicables dentro de los productos digitales del banco. Su propósito es alinear al equipo en un lenguaje común y facilitar su implementación en contextos reales.",
+        "usuarios": [
+            "Todos"
+        ],
+        "uso": [
+            "Formación y aplicación"
+        ],
+        "tipo": [
+            "Guías"
+        ],
+        "tituloAntesDeEmpezar": "Antes de empezar, ten en cuenta lo siguiente:",
+        "antesDeEmpezar":[
+            {
+                "titulo": "Conoce qué es la WCAG",
+                "descripcion": "Los estándares internacionales, como las WCAG (Lineamientos de Accesibilidad para el Contenido Web), definen principios y criterios para crear contenidos digitales accesibles. Estos funcionan como marco de referencia para identificar buenas prácticas y evitar barreras de uso." },
+            {
+                "titulo": "Revisa la normativa colombiana sobre accesibilidad web",
+                "descripcion":"En Colombia, la resolución 1519 del 2020 establece un nivel mínimo de accesibilidad que debe cumplirse en productos digitales para garantizar el acceso a la información a un público lo más amplio posible."
+            },
+            {
+                "titulo":"Entiende el alcance de la accesibilidad web",
+                "descripcion":"La accesibilidad no se limita a verificar condiciones técnicas; implica analizar cómo una persona, con distintas capacidades y contextos de uso, interpreta, recorre y actúa dentro de una interfaz. Más que una lista de requisitos, es un ejercicio de lectura crítica sobre la experiencia."
+}
+        ],
+        
+        "tituloPasos": "Considera las siguientes dimensiones de cara a la accesibilidad web",
+        "pasos": [
+            {
+                "imagen": "img/herramientas/6/paso1.png",
+                "paso": "Acceso a la información: lo que se puede percibir.",
+                "descripcion":[
+                    {
+                        "texto": "Evalúa si el contenido puede ser identificado sin depender de una única forma de percepción. No se trata solo de visibilidad, sino de discriminabilidad: que los elementos se distingan entre sí y que la información no se pierda por contraste insuficiente, uso exclusivo del color o saturación visual."
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/6/paso2.png",
+                "paso": "Posibilidad de acción: lo que se puede hacer.",
+                "descripcion":[
+                    {
+                        "texto": "Una interfaz accesible se puede usar sin restricciones innecesarias; todo importa tanto como lo que se ve. Analiza si las acciones disponibles: son alcanzables por distintos medios (teclado, táctil, asistencia), mantienen un orden lógico de navegación, no dependen de precisión extrema ni de tiempos rígidos."
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/6/paso3.png",
+                "paso": "Interpretación: lo que se entiende."
+                ,"descripcion":[
+                    {
+                        "texto": "La accesibilidad también es semántica. Un contenido puede ser técnicamente correcto y, aun así, resultar inaccesible si no se comprende. Esto ocurre cuando: las instrucciones son ambiguas, los mensajes no orientan la acción, el lenguaje exige conocimientos previos no explícitos."
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/6/paso4.png",
+                "paso": "Coherencia del sistema: lo que se puede anticipar.",
+                "descripcion":[
+                    {
+                        "texto": "Las interfaces accesibles reducen la incertidumbre. Revisa si: los elementos se comportan de forma consistente, las acciones producen resultados esperables, no hay cambios inesperados de contexto, la accesibilidad, en este punto, se relaciona con la estabilidad de la experiencia."
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/6/paso5.png",
+                "paso": "Condiciones de uso: lo que resiste el contexto.",
+                "descripcion":[
+                    {
+                        "texto":"La accesibilidad no ocurre en condiciones ideales. Considera: dispositivos con limitaciones, conectividad inestable, uso en movilidad o bajo distracción. Un producto accesible mantiene su funcionalidad incluso cuando el entorno no es óptimo"
+                    }
+                ]
+            }
+        ],
+        
+        "tituloEnlaces": "Tips y recomendaciones",
+        "subtituloEnlaces": "Los siguientes son algunos tips que pueden servirte para entender y complementar este aprendizaje.",
+         "enlaces": [
+            {
+                "titulo": "Tip 1",
+                "url": "",
+                "resumen": "Define la accesibilidad desde el momento en que se decide cómo va a existir el producto. Las decisiones iniciales de arquitectura, tecnologías y estructura del contenido no son neutras. Condicionan lo que será posible después. Cuando se deja para el final, la accesibilidad deja de ser diseño y se convierte en corrección."
+            },
+            {
+                "titulo": "Tip 2",
+                "url": "",
+                "resumen": "Elige las herramientas de desarrollo con criterios de accesibilidad, no solo de rendimiento o rapidez. No todos los CMS, frameworks o librerías resuelven igual la semántica, la navegación o la reutilización de componentes. Lo relevante no es la herramienta en sí, sino cómo permite sostener decisiones accesibles desde el código."
+            },
+            {
+                "titulo": "Tip 3",
+                "url": "",
+                "resumen": "Trabaja la accesibilidad como una condición del proyecto, no como una etapa. Debe atravesar las decisiones de diseño, la redacción de contenidos y el desarrollo. Cuando se trata como un módulo independiente, pierde coherencia y termina reducida a verificación." 
+            },
+            {
+                "titulo": "Tip 4",
+                "url": "",
+                "resumen": "Evalúa donde el producto realmente ocurre. Las interfaces se enfrentan a dispositivos inestables, conexiones limitadas, contextos de uso fragmentados y usuarios con distintos niveles de experiencia. Las barreras relevantes aparecen en esas condiciones, no en escenarios controlados."
+            },
+            {
+                "titulo": "Tip 5",
+                "url": "",
+                "resumen": "No delegues la evaluación en herramientas automáticas. Estas permiten detectar errores técnicos, pero no informan sobre comprensión, claridad o toma de decisiones. La accesibilidad se juega en lo que el usuario logra entender y hacer, no solo en lo que el sistema cumple." 
+            },
+            {
+                "titulo": "Tip 6",
+                "url": "",
+                "resumen": "Documenta lo que se evalúa, lo que falla y lo que se decide. Sin ese registro, los equipos pierden criterios, repiten errores o no pueden sostener mejoras en el tiempo. La accesibilidad requiere continuidad, no acciones aisladas." 
+            }
+        ],
+        "tituloPlantilla":"Si necesitas más información",
+        "plantilla":[
+            {
+                "nombrePlantilla":"Listado completo WCAG 2.2",
+                "descripcion":"En este enlace encontrarás el listado completo de las Pautas de Accesibilidad para el Contenido Web en su página oficial (en inglés) actualizados al año 2024.",
+                "web":"https://www.w3.org/TR/WCAG22/"
+            },
+            {
+                "nombrePlantilla":"Resolución 1519 de 2020",
+                "descripcion":"Por medio de este enlace podrás descargar el documento completo de la resolución 1519 de 2020 para que puedas revisar a detalle cada uno de sus parágrafos.",
+                "web":"https://normograma.mintic.gov.co/mintic/compilacion/docs/resolucion_mintic_1519_2020.htm"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "titulo": "Escritura UX, niveles de aprendizaje y accesibilidad cognitiva",
+        "imagen": "img/herramientas/7/principal.png",
+        "categoria": "Diagnostico",
+        "descripcion": "En interfaces bancarias, los textos guían decisiones y una mala redacción puede generar errores o desconfianza. La escritura UX facilita procesos complejos al acompañar al usuario; además, reduce la carga mental con lenguaje claro, estructura predecible y explicaciones breves.",
+        "usuarios": [
+            "Diseñador","Content","Montajista", "General"
+        ],
+        "uso": [
+            "Creación de contenido"
+        ],
+        "tipo": [
+            "Guías",
+            "Manual de uso"
+        ],
+        "tituloAntesDeEmpezar": "Aspectos a tener en cuenta antes de empezar",
+        "antesDeEmpezar":[
+            {
+                "titulo": "Define y entiende el nivel de lectura del contenido",
+                "descripcion": "Los textos de una interfaz deben redactarse considerando el nivel de lectura de la población usuaria. Diversas investigaciones en diseño de información y lenguaje claro recomiendan que los contenidos digitales se sitúen aproximadamente en un nivel equivalente a educación secundaria básica. Esto implica evitar estructuras sintácticas complejas, subordinaciones innecesarias y vocabulario especializado cuando no es indispensable."
+            },
+            {
+                "titulo": "Analiza la carga cognitiva de la interacción",
+                "descripcion":"Cada mensaje de la interfaz introduce una carga cognitiva que el usuario debe procesar. Cuando los textos son ambiguos, extensos o contienen múltiples instrucciones en una misma frase, es más difícil de procesar. Desde la accesibilidad cognitiva, el contenido debe: segmentar las instrucciones en pasos claros, explicitar la acción que se espera del usuario y evitar información redundante o irrelevante."
+            },
+            {
+                "titulo":"Se consistente con la terminología y verifica su comprensión",
+                "descripcion":"Los términos financieros utilizados en la interfaz deben emplearse de manera consistente y, cuando sea necesario, acompañarse de explicaciones breves que faciliten su comprensión. Además, la claridad del contenido debe verificarse mediante revisiones editoriales, análisis de legibilidad o pruebas con usuarios, con el fin de identificar posibles ambigüedades antes de su publicación."
+            }
+        ],
+        
+        "tituloPasos": "¿Qué debes saber para crear textos accesibles y entendibles?",
+        "pasos": [
+            {
+                "imagen": "img/herramientas/7/paso1.png",
+                "paso": "Identifica qué necesita hacer la persona.",
+                "descripcion":[
+                    {
+                        "texto": "Antes de escribir, define con claridad la acción que el usuario intenta realizar. En una interfaz bancaria esto puede ser consultar un saldo, agregar un destinatario o confirmar una transferencia; por ejemplo, una frase como “Ingrese la información solicitada” resulta ambigua, en cambio, “Escribe el número de cuenta a la que quieres enviar dinero” nombra directamente la acción que se espera."
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/7/paso2.png",
+                "paso": "Ajusta el nivel de lectura del contenido.",
+                "descripcion":[
+                    {
+                        "texto": "Los textos digitales deben poder ser comprendidos por personas con distintos niveles de escolaridad y experiencia tecnológica. Diversos estudios sobre diseño de información recomiendan que el contenido web se sitúe en un nivel de lectura equivalente a educación secundaria básica, esto permite que una mayor proporción de usuarios entienda las instrucciones sin dificultad."
+
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/7/paso3.png",
+                "paso": "Prefiere palabras concretas frente a términos abstractos."
+                ,"descripcion":[
+                    {
+                        "texto": "Las interfaces institucionales suelen usar términos como operación, proceso o gestión, estas palabras no siempre explican lo que realmente ocurre. Siempre que sea posible, reemplázalas por acciones concretas: “Confirmar la operación” → Confirmar la transferencia, “Realizar la gestión” → Solicitar el producto."
+
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/7/paso4.png",
+                "paso": "Usa estructuras de frase simples.",
+                "descripcion":[
+                    {
+                        "texto": "Las instrucciones largas o con varias ideas en una misma frase aumentan la carga cognitiva del lector; dividir la información en pasos cortos facilita la comprensión, especialmente cuando se trata de procesos con varias etapas, por ejemplo: ”Escribe el número de cuenta” → “Indica el monto que deseas enviar” → ”Confirma la transferencia”." 
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/7/paso5.png",
+                "paso": "Explica los conceptos financieros cuando sea necesario.",
+                "descripcion":[
+                    {
+                        "texto":"Explica los conceptos financieros cuando sea necesario; los servicios bancarios utilizan términos técnicos que no todas las personas conocen, cuando estos conceptos aparecen en la interfaz, conviene acompañarlos con una breve explicación."
+                    }
+                ]
+            },
+            {
+                "imagen": "img/herramientas/7/paso6.png",
+                "paso": "Mantén consistencia en el vocabulario.",
+                "descripcion":[
+                    {
+                        "texto":"Un mismo concepto debe nombrarse siempre de la misma forma dentro del sistema, cambiar la terminología puede generar confusión. Si en una parte de la interfaz se habla de transferencia, en otra sección no debería aparecer como envío de dinero o movimiento, a menos que exista una diferencia real entre esas acciones."
+                     }
+                ]
+            }
+        ],
+        
+        "tituloEnlaces": "Errores de redacción más comunes en interfaces financieras (y cómo corregirlos)",
+        "subtituloEnlaces": "A continuación se presentan algunos errores frecuentes en interfaces bancarias y formas más claras de redactarlos.",
+         "enlaces": [
+            {
+                "titulo": "Uso de términos abstractos",
+                "url": "",
+                "resumen": "Uno de los problemas más comunes es el uso de palabras institucionales que no describen la acción real del usuario, por ejemplo: texto frecuente en interfaces: “Confirme la operación para continuar.”, el problema: la palabra ”operación” es ambigua e imprecisa, no indica qué está ocurriendo; versión más clara: ”Confirma la transferencia para enviar el dinero.”, aquí la segunda versión nombra directamente la acción." 
+            },
+            {
+                "titulo": "Frases demasiado generales",
+                "url": "",
+                "resumen": "Las instrucciones genéricas obligan al usuario a interpretar qué debe hacer, por ejemplo: texto frecuente: “Ingrese la información solicitada.”, el problema: no indica qué tipo de información se necesita; versión más clara: ”Escribe el número de cuenta de la persona a la que quieres enviar dinero.”, aquí la instrucción es concreta." 
+            },
+            {
+                "titulo": "Lenguaje excesivamente formal o burocrático",
+                "url": "",
+                "resumen": "Muchas interfaces heredan el estilo de los documentos administrativos, por ejemplo: texto frecuente: “El sistema ha procesado exitosamente su solicitud.” , el problema: es distante y poco natural; versión más clara: “La transferencia se realizó con éxito.” o “Tu transferencia se completó.”; esto reduce la distancia entre sistema y usuario." 
+            },
+            {
+                "titulo": "Mensajes de error poco informativos",
+                "url": "",
+                "resumen": "En muchos sistemas financieros los mensajes de error no explican el problema, por ejemplo: texto frecuente: “Error en la transacción.”, el problema: no explica qué ocurrió ni qué hacer; versión más clara: “No pudimos enviar el dinero porque el número de cuenta no es válido. Revísalo e inténtalo nuevamente.”. Un buen mensaje de error debe indicar: qué ocurrió, por qué ocurrió y qué puede hacer la persona."
+            },
+            {
+                "titulo": "Instrucciones con demasiadas acciones",
+                "url": "",
+                "resumen": "Cuando varias acciones aparecen en una sola frase, el usuario debe procesar demasiada información, por ejemplo: texto frecuente: ”Ingrese los datos del beneficiario, el monto de la transferencia y confirme la operación.”, el problema: la frase exige interpretar tres acciones a la vez; versión más clara: a) Escribe el número de cuenta, b) Indica cuánto dinero quieres enviar, c) Confirma la transferencia. Dividir las instrucciones reduce la carga cognitiva."
+            },
+            {
+                "titulo": "Uso innecesario de términos técnicos",
+                "url": "",
+                "resumen": "Los servicios financieros utilizan conceptos que no todos los usuarios conocen, por ejemplo: texto frecuente: “Seleccione la cuenta destino.”, el problema: el término cuenta destino puede no ser evidente para todos; versión más clara: “Elige la cuenta donde quieres enviar el dinero.”, también puede añadirse una ayuda contextual: Cuenta destino, La cuenta que recibirá el dinero."
+            }
+        ],
+        "tituloPlantilla":"Si necesitas más información",
+        "plantilla":[
+            {
+                "nombrePlantilla":"W3C Cognitive Accessibility Task Force — Accesibilidad cognitiva",
+                "descripcion":"El grupo de trabajo de accesibilidad cognitiva del W3C ha desarrollado una de las guías más completas sobre cómo diseñar contenidos digitales comprensibles para personas con diferentes capacidades cognitivas.",
+                "web":"https://www.w3.org/TR/coga-usable/"
+            },
+            {
+                "nombrePlantilla":"Guía de lenguaje claro para entidades públicas en Colombia",
+                "descripcion":"El documento propone criterios para redactar información institucional de forma que pueda ser comprendida por la mayor parte de la población, con el principio base de que las instituciones deben comunicar sus servicios de manera clara.",
+                "url":"img/herramientas/7/documentos/GUIA_DEL_LENGUAJE_CLARO.pdf"
+            }
+        ]
+    }
+   
 ]

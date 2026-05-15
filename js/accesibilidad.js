@@ -20,6 +20,7 @@
     const FONT_INCREMENT = 10;
     const MIN_FONT_SIZE = 80;
     const MAX_FONT_SIZE = 200;
+    const FONT_SCALE_VAR = '--a11y-font-scale';
 
     // Inicialización
     function init() {
@@ -28,7 +29,50 @@
         // Cargar preferencias después de crear el panel y los listeners
         setTimeout(() => {
             loadPreferences();
+            // Asegurar que el logo refleje el tema cargado desde storage
+            updateHeaderLogoForTheme();
         }, 0);
+
+        // Observar cambios de clases en el body (modo oscuro/alto contraste pueden cambiar desde distintos flujos)
+        observeThemeClassChanges();
+
+        // El header se inyecta asíncronamente (layout.js). Al cargar, sincronizar el logo con el tema actual.
+        document.addEventListener('layout:loaded', () => {
+            updateHeaderLogoForTheme();
+        });
+    }
+
+    function getLogoElement() {
+        return document.getElementById('site-logo');
+    }
+
+    function shouldUseInvertedLogo() {
+        return document.body.classList.contains('modo-oscuro') || document.body.classList.contains('alto-contraste');
+    }
+
+    function updateHeaderLogoForTheme() {
+        const logo = getLogoElement();
+        if (!logo) return;
+
+        const defaultSrc = logo.getAttribute('data-logo-default-src') || './img/Logo/BcLogo.png';
+        const invertSrc = logo.getAttribute('data-logo-invert-src') || './img/Logo/BCLogo_INV.png';
+        const desired = shouldUseInvertedLogo() ? invertSrc : defaultSrc;
+
+        // Evitar reflows innecesarios
+        if (logo.getAttribute('src') !== desired) {
+            logo.setAttribute('src', desired);
+        }
+    }
+
+    function observeThemeClassChanges() {
+        try {
+            const observer = new MutationObserver(() => {
+                updateHeaderLogoForTheme();
+            });
+            observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+        } catch {
+            // no-op: navegadores antiguos
+        }
     }
 
     // Crear el panel de accesibilidad
@@ -284,7 +328,11 @@
     }
 
     function applyFontSize() {
-        document.documentElement.style.fontSize = currentFontSize + '%';
+        // El proyecto usa tamaños tipográficos via variables CSS en px (p.ej. --bc-font-size-base: 16px).
+        // Cambiar el font-size del html NO afecta esas variables, por eso antes "no se veía" el cambio.
+        // Solución: aplicar un multiplicador global que recalcula las variables tipográficas.
+        const scale = Math.max(MIN_FONT_SIZE, Math.min(MAX_FONT_SIZE, currentFontSize)) / 100;
+        document.documentElement.style.setProperty(FONT_SCALE_VAR, String(scale));
     }
 
     function updateFontButtons() {
@@ -306,21 +354,37 @@
     function toggleAltoContraste(e) {
         const isChecked = e.target.checked;
         if (isChecked) {
+            // Alto contraste y modo oscuro no deben competir
+            const switchOscuro = document.getElementById('switch-modo-oscuro');
+            if (switchOscuro && switchOscuro.checked) {
+                switchOscuro.checked = false;
+                document.body.classList.remove('modo-oscuro');
+                savePreference(STORAGE_KEYS.MODO_OSCURO, false);
+            }
             document.body.classList.add('alto-contraste');
         } else {
             document.body.classList.remove('alto-contraste');
         }
         savePreference(STORAGE_KEYS.ALTO_CONTRASTE, isChecked);
+        updateHeaderLogoForTheme();
     }
 
     function toggleModoOscuro(e) {
         const isChecked = e.target.checked;
         if (isChecked) {
+            // Alto contraste y modo oscuro no deben competir
+            const switchContraste = document.getElementById('switch-alto-contraste');
+            if (switchContraste && switchContraste.checked) {
+                switchContraste.checked = false;
+                document.body.classList.remove('alto-contraste');
+                savePreference(STORAGE_KEYS.ALTO_CONTRASTE, false);
+            }
             document.body.classList.add('modo-oscuro');
         } else {
             document.body.classList.remove('modo-oscuro');
         }
         savePreference(STORAGE_KEYS.MODO_OSCURO, isChecked);
+        updateHeaderLogoForTheme();
     }
 
     function toggleEspaciado(e) {
@@ -354,17 +418,26 @@
 
     // Cargar preferencias desde localStorage
     function loadPreferences() {
+        // Un solo sistema de clases (español). Quitar alias antiguos en inglés por si quedaron en sesiones previas.
+        document.body.classList.remove('dark-mode', 'high-contrast', 'desaturate');
+
         // Tamaño de fuente
         const savedFontSize = localStorage.getItem(STORAGE_KEYS.FONT_SIZE);
         if (savedFontSize) {
-            currentFontSize = parseInt(savedFontSize, 10);
+            // Se guarda como JSON (ej: "110"), tolerar también valores antiguos
+            try {
+                const parsed = JSON.parse(savedFontSize);
+                currentFontSize = parseInt(String(parsed), 10);
+            } catch {
+                currentFontSize = parseInt(savedFontSize, 10);
+            }
             applyFontSize();
             updateFontButtons();
         }
 
         // Alto contraste
         const savedContraste = localStorage.getItem(STORAGE_KEYS.ALTO_CONTRASTE);
-        if (savedContraste === 'true') {
+        if (savedContraste === 'true' || savedContraste === '"true"') {
             document.body.classList.add('alto-contraste');
             const switchContraste = document.getElementById('switch-alto-contraste');
             if (switchContraste) switchContraste.checked = true;
@@ -372,7 +445,7 @@
 
         // Modo oscuro
         const savedModoOscuro = localStorage.getItem(STORAGE_KEYS.MODO_OSCURO);
-        if (savedModoOscuro === 'true') {
+        if (savedModoOscuro === 'true' || savedModoOscuro === '"true"') {
             document.body.classList.add('modo-oscuro');
             const switchOscuro = document.getElementById('switch-modo-oscuro');
             if (switchOscuro) switchOscuro.checked = true;
@@ -380,7 +453,7 @@
 
         // Espaciado
         const savedEspaciado = localStorage.getItem(STORAGE_KEYS.ESPACIADO);
-        if (savedEspaciado === 'true') {
+        if (savedEspaciado === 'true' || savedEspaciado === '"true"') {
             document.body.classList.add('espaciado-amplio');
             const switchEspaciado = document.getElementById('switch-espaciado');
             if (switchEspaciado) switchEspaciado.checked = true;
@@ -388,12 +461,33 @@
 
         // Desaturado
         const savedDesaturado = localStorage.getItem(STORAGE_KEYS.DESATURADO);
-        if (savedDesaturado === 'true') {
+        if (savedDesaturado === 'true' || savedDesaturado === '"true"') {
             document.body.classList.add('desaturado');
             const switchDesaturado = document.getElementById('switch-desaturado');
             if (switchDesaturado) switchDesaturado.checked = true;
         }
+
+        // Normalizar: si por alguna razón quedaron ambos activos, alto contraste manda
+        if (document.body.classList.contains('alto-contraste') && document.body.classList.contains('modo-oscuro')) {
+            document.body.classList.remove('modo-oscuro');
+            const switchOscuro = document.getElementById('switch-modo-oscuro');
+            if (switchOscuro) switchOscuro.checked = false;
+            savePreference(STORAGE_KEYS.MODO_OSCURO, false);
+        }
     }
+
+    // Debug: resaltar elementos con estilos inline (típica fuente de hardcodes)
+    // Activación: agregar ?a11yDebug=1 a la URL
+    (function initDebugMode() {
+        try {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('a11yDebug') === '1') {
+                document.body.classList.add('a11y-debug');
+            }
+        } catch {
+            // no-op
+        }
+    })();
 
     // Inicializar cuando el DOM esté listo
     if (document.readyState === 'loading') {
