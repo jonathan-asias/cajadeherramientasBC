@@ -230,7 +230,7 @@
                 ]
             },
             {
-                "imagen": "img/herramientas/2/GIFs/paso6.gif",
+                "imagen": "img/herramientas/2/Videos/paso6.mp4",
                 "paso": "Utiliza etiquetas de texto descriptivas para los hipervínculos del documento.",
                 "descripcion":[
                     {
@@ -367,7 +367,7 @@
                 ]
             },
             {
-                "imagen": "img/herramientas/3/GIFs/paso3.gif",
+                "imagen": "img/herramientas/3/Videos/paso3.mp4",
                 "paso": "Nombra cada una de las páginas del documento de acuerdo al contenido."
                 ,"descripcion":[
                     {
@@ -376,7 +376,7 @@
                 ]
             },
             {
-                "imagen": "img/herramientas/3/GIFs/paso4.gif",
+                "imagen": "img/herramientas/3/Videos/paso4.mp4",
                 "paso": "Utiliza etiquetas de texto descriptivas para los hipervínculos del documento.",
                 "descripcion":[
                     {
@@ -410,7 +410,7 @@
                 ]
             },
             {
-                "imagen":"img/herramientas/3/GIFs/paso7.gif",
+                "imagen":"img/herramientas/3/Videos/paso7.mp4",
                 "paso": "Realiza una revisión automática de accesibilidad al finalizar la creación del documento.",
                 "descripcion":[
                     {
@@ -575,7 +575,7 @@
                 ]
             },
             {
-                "imagen": "img/herramientas/4/GIFs/paso5.gif",
+                "imagen": "img/herramientas/4/Videos/paso5.mp4",
                 "paso": "Utiliza etiquetas de texto descriptivas para los hipervínculos de la presentación.",
                 "descripcion":[
                     {
@@ -593,7 +593,7 @@
                 ]
             },
             {
-                "imagen": "img/herramientas/4/GIFs/paso7.gif",
+                "imagen": "img/herramientas/4/Videos/paso7.mp4",
                 "paso": "Realiza una revisión automática de accesibilidad al finalizar la creación del documento.",
                 "descripcion":[
                     {
