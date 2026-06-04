@@ -6,7 +6,6 @@
         "categoria": "Diagnostico",
         "descripcion": "Los complementos o extensiones son herramientas que se instalan en el navegador para añadir funciones específicas. En accesibilidad, nos sirven para hacer revisiones rápidas de una página web y detectar algunas barreras frecuentes.",
         "usuarios": [
-            "Diseñador",
             "Montajista",
             "Desarrollador",
             "Certificador QA"
@@ -141,7 +140,7 @@
             "General"
         ],
         "uso": [
-            "Diseño"
+            "Diseño","Creación de contenido"
         ],
         "tipo": [
             "Guías",
@@ -304,7 +303,7 @@
             "General"
         ],
         "uso": [
-            "Diseño"
+            "Diseño","Creación de contenido"
         ],
         "tipo": [
             "Guías",
@@ -498,7 +497,7 @@
             "General"
         ],
         "uso": [
-            "Diseño"
+            "Diseño","Creación de contenido"
         ],
         "tipo": [
             "Guías",
@@ -904,7 +903,7 @@
             "Diseñador","Content","Montajista", "General"
         ],
         "uso": [
-            "Creación de contenido"
+            "Creación de contenido","Diseño"
         ],
         "tipo": [
             "Guías",
